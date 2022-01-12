@@ -522,6 +522,7 @@ const Quiz = ({props}) => {
             setCounter(0);
         }
     }
+    //help
 
     return (
          <QuizWindow>
