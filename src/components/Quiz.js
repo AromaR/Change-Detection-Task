@@ -83,7 +83,7 @@ const Question = styled.div`
 
 const Quiz = ({props}) => {
 
-    const [timerLength, setTimerLength] = useState(1000);
+    const [timerLength, setTimerLength] = useState(60);
     const [pts, setPts] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     const [correct, setCorrect] = useState(false);
     const [wrong, setWrong] = useState(false);
