@@ -110,6 +110,7 @@ const Quiz = ({props}) => {
     const [silverWheelTime, setSilverWheelTime] = useState(-1);
     const [greenWheelTime, setGreenWheelTime] = useState(-1);
         //const [sidewalkTime, setSidewalkTime] = useState(-1);
+    const [shirtTime, setShirtTime] = useState(-1);
 
 
     //variables to control highlighting found changes in Image 1
@@ -132,6 +133,7 @@ const Quiz = ({props}) => {
     const [showSilverWheel, setShowSilverWheel] = useState(false);
     const [showGreenWheel, setShowGreenWheel] = useState(false);
         //const [sidewalkTime, setSidewalkTime] = useState(-1);
+    const [showShirt, setShowShirt] = useState(false);
 
     
     //Image 1 coordinates
@@ -164,6 +166,8 @@ const Quiz = ({props}) => {
     const [silverWheelCo2, setSilverWheelCo2] = useState({x: 0, y: 0});
     const [greenWheelCo, setGreenWheelCo] = useState({x: 0, y: 0});
     const [greenWheelCo2, setGreenWheelCo2] = useState({x: 0, y: 0});
+    const [shirtCo, setShirtCo] = useState({x: 0, y: 0});
+    const [shirtCo2, setShirtCo2] = useState({x: 0, y: 0});
 
     // variables to control showing each set of images
     const[show, setShow] = useState(true);
@@ -286,7 +290,8 @@ const Quiz = ({props}) => {
                 setShowShoe(false);
                 setShowSilverWheel(false);
                 setShowGreenWheel(false);
-                setTimes2([{Participant: 1, T2_leftTree: leftTreeTime, T2_leftGarage: leftGarageTime, T2_rightGarage: rightGarageTime, T2_shoe: shoeTime, T2_silverWheel: silverWheelTime, T2_greenWheel: greenWheelTime}]);
+                setShowShirt(false);
+                setTimes2([{Participant: 1, T2_leftTree: leftTreeTime, T2_leftGarage: leftGarageTime, T2_rightGarage: rightGarageTime, T2_shoe: shoeTime, T2_silverWheel: silverWheelTime, T2_greenWheel: greenWheelTime, T2_shirt: shirtTime}]);
 
             } else if (index == 3){
                 setShowPause3(true);
@@ -346,6 +351,7 @@ const Quiz = ({props}) => {
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
+        //console.log("x: " + e.screenX + ", y: " + e.screenY);
         if ((e.screenX >= 222 && e.screenX <= 251 && e.screenY >= 619 && e.screenY <= 703) || (e.screenX >= 938 && e.screenX <= 967 && e.screenY >= 619 && e.screenY <= 703)){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0]);
@@ -354,15 +360,15 @@ const Quiz = ({props}) => {
             setTieCo({x: 215, y: 500});
             setTieCo2({x: 936, y: 500});
             setShowTie(true);
-        }else if ((e.screenX >= 227 && e.screenX <= 260 && e.screenY >= 765 && e.screenY <= 780) || (e.screenX >= 943 && e.screenX <= 976 && e.screenY >= 765 && e.screenY <= 780)){
+        }else if ((e.screenX >= 215 && e.screenX <= 269 && e.screenY >= 754 && e.screenY <= 780) || (e.screenX >= 931 && e.screenX <= 986 && e.screenY >= 754 && e.screenY <= 780)){
             //console.log("found buttons");
             setPts([pts[0] + 1, 0, 0, 0]);
             setCorrect(true);
             setButtonsTime(timerLength-counter);
             setButtonsCo({x: 217, y: 610});
-            setButtonsCo2({x: 933, y: 610});
+            setButtonsCo2({x: 943, y: 610});
             setShowButtons(true);
-        } else if ((e.screenX >= 496 && e.screenX <= 518 && e.screenY >= 765 && e.screenY <= 780) || (e.screenX >= 1212 && e.screenX <= 1234 && e.screenY >= 765 && e.screenY <= 780)){
+        } else if ((e.screenX >= 488 && e.screenX <= 533 && e.screenY >= 756 && e.screenY <= 780) || (e.screenX >= 1204 && e.screenX <= 1255 && e.screenY >= 756 && e.screenY <= 780)){
             //console.log("found second buttons");
             setPts([pts[0] + 1, 0, 0, 0]);
             setCorrect(true);
@@ -370,7 +376,7 @@ const Quiz = ({props}) => {
             setButtons2Co({x: 486, y: 610});
             setButtons2Co2({x: 1202, y: 610});
             setShowButtons2(true);
-        } else if ((e.screenX >= 639 && e.screenX <= 669 && e.screenY >= 560 && e.screenY <= 580) || (e.screenX >= 1355 && e.screenX <= 1385 && e.screenY >= 560 && e.screenY <= 580)){
+        } else if ((e.screenX >= 630 && e.screenX <= 690 && e.screenY >= 560 && e.screenY <= 580) || (e.screenX >= 1355 && e.screenX <= 1400 && e.screenY >= 560 && e.screenY <= 580)){
             //console.log("found stack of books");
             setPts([pts[0] + 1, 0, 0, 0]);
             setCorrect(true);
@@ -378,7 +384,7 @@ const Quiz = ({props}) => {
             setBooksCo({x: 630, y: 410});
             setBooksCo2({x: 1345, y: 410});
             setShowBooks(true);
-        } else if ((e.screenX >= 534 && e.screenX <= 603 && e.screenY >= 457 && e.screenY <= 590) || (e.screenX >= 1250 && e.screenX <= 1319 && e.screenY >= 457 && e.screenY <= 590)){
+        } else if ((e.screenX >= 538 && e.screenX <= 592 && e.screenY >= 457 && e.screenY <= 537) || (e.screenX >= 1256 && e.screenX <= 1308 && e.screenY >= 457 && e.screenY <= 537)){
             //console.log("found right plant");
             setPts([pts[0] + 1, 0, 0, 0]);
             setCorrect(true);
@@ -386,15 +392,15 @@ const Quiz = ({props}) => {
             setRightPlantCo({x: 540, y: 330});
             setRightPlantCo2({x: 1255, y: 330});
             setShowRightPlant(true);
-        } else if ((e.screenX >= 488 && e.screenX <= 501 && e.screenY >= 704 && e.screenY <= 724) || (e.screenX >= 1204 && e.screenX <= 1217 && e.screenY >= 704 && e.screenY <= 724)){
-            //console.log("found watch");
+        } else if ((e.screenX >= 480 && e.screenX <= 513 && e.screenY >= 694 && e.screenY <= 730) || (e.screenX >= 1196 && e.screenX <= 1229 && e.screenY >= 694 && e.screenY <= 730)){
+            //console.log("found watch"); 716
             setPts([pts[0] + 1, 0, 0, 0]);
             setCorrect(true);
             setWatchTime(timerLength-counter);
-            setWatchCo({x: 480, y: 550});
-            setWatchCo2({x: 1200, y: 550});
+            setWatchCo({x: 470, y: 550});
+            setWatchCo2({x: 1190, y: 550});
             setShowWatch(true);
-        } else if ((e.screenX >= 168 && e.screenX <= 180 && e.screenY >= 549 && e.screenY <= 572) || (e.screenX >= 884 && e.screenX <= 900 && e.screenY >= 549 && e.screenY <= 572)){
+        } else if ((e.screenX >= 158 && e.screenX <= 201 && e.screenY >= 539 && e.screenY <= 572) || (e.screenX >= 874 && e.screenX <= 921 && e.screenY >= 539 && e.screenY <= 572)){
             //console.log("found book");
             setPts([pts[0] + 1, 0, 0, 0]);
             setCorrect(true);
@@ -402,7 +408,7 @@ const Quiz = ({props}) => {
             setBookCo({x: 155, y: 400});
             setBookCo2({x: 875, y: 400});
             setShowBook(true);
-        } else if ((e.screenX >= 0 && e.screenX <= 22 && e.screenY >= 490 && e.screenY <= 522) || (e.screenX >= 716 && e.screenX <= 738 && e.screenY >= 490 && e.screenY <= 522)){
+        } else if ((e.screenX >= 0 && e.screenX <= 41 && e.screenY >= 490 && e.screenY <= 522) || (e.screenX >= 735 && e.screenX <= 768 && e.screenY >= 490 && e.screenY <= 522)){
             //console.log("found lamp");
             setPts([pts[0] + 1, 0, 0, 0]);
             setCorrect(true);
@@ -436,74 +442,81 @@ const Quiz = ({props}) => {
             setTimes1([{Participant: 1, T1_tie: tieTime, T1_buttons: buttonsTime, T1_buttons2: buttons2Time, T1_books: BooksTime, T1_rightPlant: rightPlantTime, T1_watch: watchTime, T1_book: bookTime, T1_lamp: lampTime}]);
         }
     }
-        //x: -10, y: -148
     const pickAnswer2 = (e) => {
-        //console.log("x: " + e.screenX + ", y: " + e.screenY);
+        console.log("x: " + e.screenX + ", y: " + e.screenY);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //setPts([pts[0], pts[1] + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-        //console.log("image 2 pts: " + pts[1]);
-        if ((e.screenX >= 203 && e.screenX <= 225 && e.screenY >= 463 && e.screenY <= 490) || (e.screenX >= 843 && e.screenX <= 872 && e.screenY >= 463 && e.screenY <= 490)){
+        //console.log("image 2 pts: " + pts[1]); 649
+        if ((e.screenX >= 197 && e.screenX <= 230 && e.screenY >= 448 && e.screenY <= 490) || (e.screenX >= 843 && e.screenX <= 881 && e.screenY >= 448 && e.screenY <= 490)){
             setPts([pts[0], pts[1] + 1, 0]);
             setCorrect(true);
             setLeftTreeTime(timerLength-counter);
-            setLeftTreeCo({x: 195, y: 315}); 
-            setLeftTreeCo2({x: 840, y: 315});
+            setLeftTreeCo({x: 190, y: 310}); 
+            setLeftTreeCo2({x: 840, y: 310});
             setShowLeftTree(true);
-        } else if ((e.screenX >= 132 && e.screenX <= 160 && e.screenY >= 560 && e.screenY <= 600) || (e.screenX >= 792 && e.screenX <= 820 && e.screenY >= 560 && e.screenY <= 600)){
+        } else if ((e.screenX >= 129 && e.screenX <= 162 && e.screenY >= 550 && e.screenY <= 600) || (e.screenX >= 778 && e.screenX <= 815 && e.screenY >= 550 && e.screenY <= 600)){
             setPts([pts[0], pts[1] + 1, 0]);
             setCorrect(true);
             setLeftGarageTime(timerLength-counter);
             setLeftGarageCo({x: 122, y: 412});
-            setLeftGarageCo2({x: 775, y: 412});
+            setLeftGarageCo2({x: 770, y: 412});
             setShowLeftGarage(true);
-        } else if ((e.screenX >= 585 && e.screenX <= 601 && e.screenY >= 571 && e.screenY <= 615) || (e.screenX >= 1225 && e.screenX <= 1241 && e.screenY >= 571 && e.screenY <= 615)){
+        } else if ((e.screenX >= 580 && e.screenX <= 605 && e.screenY >= 570 && e.screenY <= 610) || (e.screenX >= 1230 && e.screenX <= 1255 && e.screenY >= 570 && e.screenY <= 610)){
             setPts([pts[0], pts[1] + 1, 0]);
             setCorrect(true);
             setRightGarageTime(timerLength-counter);
-            setRightGarageCo({x: 570, y: 433});
-            setRightGarageCo2({x: 1215, y: 433});
+            setRightGarageCo({x: 570, y: 423});
+            setRightGarageCo2({x: 1215, y: 423});
             setShowRightGarage(true);
-        } else if ((e.screenX >= 200 && e.screenX <= 242 && e.screenY >= 714 && e.screenY <= 739) || (e.screenX >= 840 && e.screenX <= 882 && e.screenY >= 714 && e.screenY <= 739)){
+        } else if ((e.screenX >= 195 && e.screenX <= 243 && e.screenY >= 696 && e.screenY <= 739) || (e.screenX >= 840 && e.screenX <= 882 && e.screenY >= 696 && e.screenY <= 739)){
             setPts([pts[0], pts[1] + 1, 0, 0, 0]);
             setCorrect(true);
             setShoeTime(timerLength-counter);
-            setShoeCo({x: 195, y: 566});
-            setShoeCo2({x: 843, y: 566});
+            setShoeCo({x: 195, y: 556});
+            setShoeCo2({x: 843, y: 556});
             setShowShoe(true);
-        } else if ((e.screenX >= 222 && e.screenX <= 250 && e.screenY >= 632 && e.screenY <= 661) || (e.screenX >= 862 && e.screenX <= 890 && e.screenY >= 632 && e.screenY <= 661)){
+        } else if ((e.screenX >= 222 && e.screenX <= 252 && e.screenY >= 632 && e.screenY <= 661) || (e.screenX >= 862 && e.screenX <= 903 && e.screenY >= 632 && e.screenY <= 661)){
             setPts([pts[0], pts[1] + 1, 0, 0, 0]);
             setCorrect(true);
             setSilverWheelTime(timerLength-counter);
-            setSilverWheelCo({x: 215, y: 485});
-            setSilverWheelCo2({x: 860, y: 485});
+            setSilverWheelCo({x: 215, y: 480});
+            setSilverWheelCo2({x: 865, y: 480});
             setShowSilverWheel(true);
-        } else if ((e.screenX >= 438 && e.screenX <= 472 && e.screenY >= 686 && e.screenY <= 729) || (e.screenX >= 1078 && e.screenX <= 1112 && e.screenY >= 686 && e.screenY <= 729)){
+        } else if ((e.screenX >= 435 && e.screenX <= 473 && e.screenY >= 674 && e.screenY <= 729) || (e.screenX >= 1075 && e.screenX <= 1115 && e.screenY >= 674 && e.screenY <= 729)){
           setPts([pts[0], pts[1] + 1, 0, 0, 0, 0]);
             setCorrect(true);
             setGreenWheelTime(timerLength-counter);
-            setGreenWheelCo({x: 433, y: 545});
-            setGreenWheelCo2({x: 1078, y: 545});
+            setGreenWheelCo({x: 433, y: 540});
+            setGreenWheelCo2({x: 1078, y: 540});
             setShowGreenWheel(true);
-        } else {
+        } else if ((e.screenX >= 476 && e.screenX <= 501 && e.screenY >= 534 && e.screenY <= 549) || (e.screenX >= 1124 && e.screenX <= 1149 && e.screenY >= 534 && e.screenY <= 549)){
+            setPts([pts[0], pts[1] + 1, 0, 0, 0, 0]);
+            setCorrect(true);
+            setShirtTime(timerLength-counter);
+            setShirtCo({x: 465, y: 380});
+            setShirtCo2({x: 1113, y: 380});
+            setShowShirt(true);
+          }else {
             setWrong(true);
         }
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
-        if (pts[1] == 5){ //9 if change pic is correct
+        if (pts[1] == 6){ //8 if change pic is correct
             setShowLeftTree(false);
             setShowLeftGarage(false);
             setShowRightGarage(false)
             setShowShoe(false);
             setShowSilverWheel(false);
             setShowGreenWheel(false);
+            setShowShirt(false);
 
             setShowPause2(true);
             setShow2(false);
             setGo(false);
             setCounter(0);
 
-            setTimes2([{Participant: 1, T2_leftTree: leftTreeTime, T2_leftGarage: leftGarageTime, T2_rightGarage: rightGarageTime, T2_shoe: shoeTime, T2_silverWheel: silverWheelTime, T2_greenWheel: greenWheelTime}]);
+            setTimes2([{Participant: 1, T2_leftTree: leftTreeTime, T2_leftGarage: leftGarageTime, T2_rightGarage: rightGarageTime, T2_shoe: shoeTime, T2_silverWheel: silverWheelTime, T2_greenWheel: greenWheelTime, T2_shirt: shirtTime}]);
         }
     }
     const pickAnswer3 = (e) => {
@@ -511,7 +524,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
         //console.log("image 3 pts: " + pts[2]);
-        if (pts[2] == 9){
+        if (pts[2] == 7){
             // setShowBook(false);
             // setShowButtons(false);
             // setShowButtons2(false)
@@ -533,7 +546,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[3] == 8){
+        if (pts[3] == 7){
             setShowPause4(true);
             setShow4(false);
             setGo(false);
@@ -545,7 +558,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3], pts[4] + 1, 0, 0, 0, 0, 0, 0]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[4] == 8){
+        if (pts[4] == 7){
             setShowPause5(true);
             setShow5(false);
             setGo(false);
@@ -661,7 +674,7 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause2) ? (
                     <>
-                        <Title >Great! You got {pts[1]} out of 6! 🥳</Title> 
+                        <Title >Great! You got {pts[1]} out of 7! 🥳</Title> 
                         <Button onClick={() => goToNext(3)}> Next </Button>
                         <div> </div>
                         <h1> </h1>
@@ -681,7 +694,7 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause3) ? (
                     <>
-                        <Title >Great! You got {pts[2]} out of 10! 🥳</Title>
+                        <Title >Great! You got {pts[2]} out of 8! 🥳</Title>
                         <Button onClick={() => goToNext(4)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
@@ -701,7 +714,7 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause4) ? (
                     <>
-                        <Title >Great! You got {pts[3]} out of 9! 🥳</Title>
+                        <Title >Great! You got {pts[3]} out of 8! 🥳</Title>
                         <Button onClick={() => goToNext(5)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
@@ -721,7 +734,7 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause5) ? (
                     <>
-                        <Title >Great! You got {pts[4]} out of 9! 🥳</Title>
+                        <Title >Great! You got {pts[4]} out of 8! 🥳</Title>
                         <Button onClick={() => goToNext(6)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
@@ -1058,12 +1071,24 @@ const Quiz = ({props}) => {
                         top: `${greenWheelCo2.y}px`, }}/>
                     </div>
                 }
+                {showShirt &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${shirtCo.x}px`,
+                        top: `${shirtCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${shirtCo2.x}px`,
+                        top: `${shirtCo2.y}px`, }}/>
+                    </div>
+                }
                 {/* Green circles for the changes in Image 3 */}
 
                 {/* Green circles for the changes in Image 4 */}
 
                 {/* Green circles for the changes in Image 5 */}
-                
+
                 {/* Green circles for the changes in Image 12 */}
 
 
