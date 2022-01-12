@@ -83,11 +83,13 @@ const Question = styled.div`
 
 const Quiz = ({props}) => {
 
-    const [timerLength, setTimerLength] = useState(60);
+    const [timerLength, setTimerLength] = useState(1000);
     const [pts, setPts] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     const [correct, setCorrect] = useState(false);
     const [wrong, setWrong] = useState(false);
     const [counter, setCounter] = useState(timerLength);
+
+    //Image 1 times to find each change
     const [tieTime, setTieTime] = useState(-1);
     const [buttonsTime, setButtonsTime] = useState(-1);
     const [buttons2Time, setButtons2Time] = useState(-1);
@@ -96,6 +98,21 @@ const Quiz = ({props}) => {
     const [rightPlantTime, setRightPlantTime] = useState(-1);
     const [watchTime, setWatchTime] = useState(-1);
     const [bookTime, setBookTime] = useState(-1);
+
+    //Image 2 times to find each change
+    const [leftTreeTime, setLeftTreeTime] = useState(-1);
+        //const [rightTreeTime, setRightTreeTime] = useState(-1);
+    const [leftGarageTime, setLeftGarageTime] = useState(-1);
+    const [rightGarageTime, setRightGarageTime] = useState(-1);
+        //const [shirtTime, setShirtTime] = useState(-1);
+    const [shoeTime, setShoeTime] = useState(-1);
+        //const [grassTime, setGrassTime] = useState(-1);
+    const [silverWheelTime, setSilverWheelTime] = useState(-1);
+    const [greenWheelTime, setGreenWheelTime] = useState(-1);
+        //const [sidewalkTime, setSidewalkTime] = useState(-1);
+
+
+    //variables to control highlighting found changes in Image 1
     const [showTie, setShowTie] = useState(false);
     const [showButtons, setShowButtons] = useState(false);
     const [showButtons2, setShowButtons2] = useState(false);
@@ -104,6 +121,20 @@ const Quiz = ({props}) => {
     const [showRightPlant, setShowRightPlant] = useState(false);
     const [showWatch, setShowWatch] = useState(false);
     const [showBook, setShowBook] = useState(false);
+    //variables to control highlighting found changes in Image 2
+    const [showLeftTree, setShowLeftTree] = useState(false);
+        //const [rightTreeTime, setRightTreeTime] = useState(-1);
+    const [showLeftGarage, setShowLeftGarage] = useState(false);
+    const [showRightGarage, setShowRightGarage] = useState(false);
+        //const [shirtTime, setShirtTime] = useState(-1);
+    const [showShoe, setShowShoe] = useState(false);
+        //const [grassTime, setGrassTime] = useState(-1);
+    const [showSilverWheel, setShowSilverWheel] = useState(false);
+    const [showGreenWheel, setShowGreenWheel] = useState(false);
+        //const [sidewalkTime, setSidewalkTime] = useState(-1);
+
+    
+    //Image 1 coordinates
     const [tieCo, setTieCo] = useState({x: 0, y: 0});
     const [tieCo2, setTieCo2] = useState({x: 0, y: 0});
     const [buttonsCo, setButtonsCo] = useState({x: 0, y: 0});
@@ -120,7 +151,21 @@ const Quiz = ({props}) => {
     const [watchCo2, setWatchCo2] = useState({x: 0, y: 0});
     const [bookCo, setBookCo] = useState({x: 0, y: 0});
     const [bookCo2, setBookCo2] = useState({x: 0, y: 0});
+    //Image 2 coordinates
+    const [leftTreeCo, setLeftTreeCo] = useState({x: 0, y: 0});
+    const [leftTreeCo2, setLeftTreeCo2] = useState({x: 0, y: 0});
+    const [leftGarageCo, setLeftGarageCo] = useState({x: 0, y: 0});
+    const [leftGarageCo2, setLeftGarageCo2] = useState({x: 0, y: 0});
+    const [rightGarageCo, setRightGarageCo] = useState({x: 0, y: 0});
+    const [rightGarageCo2, setRightGarageCo2] = useState({x: 0, y: 0});
+    const [shoeCo, setShoeCo] = useState({x: 0, y: 0});
+    const [shoeCo2, setShoeCo2] = useState({x: 0, y: 0});
+    const [silverWheelCo, setSilverWheelCo] = useState({x: 0, y: 0});
+    const [silverWheelCo2, setSilverWheelCo2] = useState({x: 0, y: 0});
+    const [greenWheelCo, setGreenWheelCo] = useState({x: 0, y: 0});
+    const [greenWheelCo2, setGreenWheelCo2] = useState({x: 0, y: 0});
 
+    // variables to control showing each set of images
     const[show, setShow] = useState(true);
     const[show2, setShow2] = useState(false);
     const[show3, setShow3] = useState(false);
@@ -134,6 +179,7 @@ const Quiz = ({props}) => {
     const[showNS5, setShowNS5] = useState(false);
     const[showOver, setShowOver] = useState(false);
 
+    //variables to control showing the 'Next' pages in between images
     const[showPause, setShowPause] = useState(false);
     const[showPause2, setShowPause2] = useState(false);
     const[showPause3, setShowPause3] = useState(false);
@@ -147,6 +193,7 @@ const Quiz = ({props}) => {
     const[go, setGo] = useState(true);
     const[index, setIndex] = useState(1);
 
+    //variables to store all the detection times in arrays for each image
     const [times1, setTimes1] = useState([]);
     const [times2, setTimes2] = useState([]);
     const [times3, setTimes3] = useState([]);
@@ -161,7 +208,7 @@ const Quiz = ({props}) => {
 
     const goToNext = num => {
         setGo(true);
-        setCounter(20); 
+        setCounter(timerLength); 
         if (num == 2){
             //setShow(false);
             setShowPause(false);
@@ -234,6 +281,15 @@ const Quiz = ({props}) => {
                 setShow2(false);
                 setGo(false);
                 setCounter(0);
+
+                setShowLeftTree(false);
+                setShowLeftGarage(false);
+                setShowRightGarage(false)
+                setShowShoe(false);
+                setShowSilverWheel(false);
+                setShowGreenWheel(false);
+                setTimes2([{Participant: 1, T2_leftTree: leftTreeTime, T2_leftGarage: leftGarageTime, T2_rightGarage: rightGarageTime, T2_shoe: shoeTime, T2_silverWheel: silverWheelTime, T2_greenWheel: greenWheelTime}]);
+
             } else if (index == 3){
                 setShowPause3(true);
                 setShow3(false);
@@ -382,26 +438,76 @@ const Quiz = ({props}) => {
             setTimes1([{Participant: 1, T1_tie: tieTime, T1_buttons: buttonsTime, T1_buttons2: buttons2Time, T1_books: BooksTime, T1_rightPlant: rightPlantTime, T1_watch: watchTime, T1_book: bookTime, T1_lamp: lampTime}]);
         }
     }
+        //640
+        //x: -10, y: -148
     const pickAnswer2 = (e) => {
+        console.log("x: " + e.screenX + ", y: " + e.screenY);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
-        setPts([pts[0], pts[1] + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        //setPts([pts[0], pts[1] + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
         //console.log("image 2 pts: " + pts[1]);
-        if (pts[1] == 7){
-            // setShowBook(false);
-            // setShowButtons(false);
-            // setShowButtons2(false)
-            // setShowRightPlant(false);
-            // setShowTie(false);
-            // setShowBooks(false);
-            // setShowWatch(false);
-            // setShowLamp(false);
+        if ((e.screenX >= 203 && e.screenX <= 225 && e.screenY >= 463 && e.screenY <= 490) || (e.screenX >= 843 && e.screenX <= 872 && e.screenY >= 463 && e.screenY <= 490)){
+            setPts([pts[0], pts[1] + 1, 0]);
+            setCorrect(true);
+            setLeftTreeTime(timerLength-counter);
+            setLeftTreeCo({x: 195, y: 315}); 
+            setLeftTreeCo2({x: 840, y: 315});
+            setShowLeftTree(true);
+        } else if ((e.screenX >= 132 && e.screenX <= 160 && e.screenY >= 560 && e.screenY <= 600) || (e.screenX >= 792 && e.screenX <= 820 && e.screenY >= 560 && e.screenY <= 600)){
+            setPts([pts[0], pts[1] + 1, 0]);
+            setCorrect(true);
+            setLeftGarageTime(timerLength-counter);
+            setLeftGarageCo({x: 122, y: 412});
+            setLeftGarageCo2({x: 775, y: 412});
+            setShowLeftGarage(true);
+        } else if ((e.screenX >= 585 && e.screenX <= 601 && e.screenY >= 571 && e.screenY <= 615) || (e.screenX >= 1225 && e.screenX <= 1241 && e.screenY >= 571 && e.screenY <= 615)){
+            setPts([pts[0], pts[1] + 1, 0]);
+            setCorrect(true);
+            setRightGarageTime(timerLength-counter);
+            setRightGarageCo({x: 570, y: 433});
+            setRightGarageCo2({x: 1215, y: 433});
+            setShowRightGarage(true);
+        } else if ((e.screenX >= 200 && e.screenX <= 242 && e.screenY >= 714 && e.screenY <= 739) || (e.screenX >= 840 && e.screenX <= 882 && e.screenY >= 714 && e.screenY <= 739)){
+            setPts([pts[0], pts[1] + 1, 0]);
+            setCorrect(true);
+            setShoeTime(timerLength-counter);
+            setShoeCo({x: 195, y: 566});
+            setShoeCo2({x: 843, y: 566});
+            setShowShoe(true);
+        } else if ((e.screenX >= 222 && e.screenX <= 250 && e.screenY >= 632 && e.screenY <= 661) || (e.screenX >= 862 && e.screenX <= 890 && e.screenY >= 632 && e.screenY <= 661)){
+            setPts([pts[0], pts[1] + 1, 0]);
+            setCorrect(true);
+            setSilverWheelTime(timerLength-counter);
+            setSilverWheelCo({x: 215, y: 485});
+            setSilverWheelCo2({x: 860, y: 485});
+            setShowSilverWheel(true);
+        } else if ((e.screenX >= 438 && e.screenX <= 472 && e.screenY >= 686 && e.screenY <= 729) || (e.screenX >= 1078 && e.screenX <= 1112 && e.screenY >= 686 && e.screenY <= 729)){
+            setPts([pts[0], pts[1] + 1, 0]);
+            setCorrect(true);
+            setGreenWheelTime(timerLength-counter);
+            setGreenWheelCo({x: 433, y: 545});
+            setGreenWheelCo2({x: 1078, y: 545});
+            setShowGreenWheel(true);
+        } else {
+            setWrong(true);
+        }
+        setTimeout(() => {setCorrect(false)}, 1000);
+        setTimeout(() => {setWrong(false)}, 1000);
+        if (pts[1] == 5){ //9 if change pic is correct
+            setShowLeftTree(false);
+            setShowLeftGarage(false);
+            setShowRightGarage(false)
+            setShowShoe(false);
+            setShowSilverWheel(false);
+            setShowGreenWheel(false);
 
             //console.log("move to 3");
             setShowPause2(true);
             setShow2(false);
             setGo(false);
             setCounter(0);
+
+            setTimes2([{Participant: 1, T2_leftTree: leftTreeTime, T2_leftGarage: leftGarageTime, T2_rightGarage: rightGarageTime, T2_shoe: shoeTime, T2_silverWheel: silverWheelTime, T2_greenWheel: greenWheelTime}]);
         }
     }
     const pickAnswer3 = (e) => {
@@ -409,7 +515,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
         //console.log("image 3 pts: " + pts[2]);
-        if (pts[2] == 7){
+        if (pts[2] == 9){
             // setShowBook(false);
             // setShowButtons(false);
             // setShowButtons2(false)
@@ -431,7 +537,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[3] == 7){
+        if (pts[3] == 8){
             setShowPause4(true);
             setShow4(false);
             setGo(false);
@@ -443,7 +549,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3], pts[4] + 1, 0, 0, 0, 0, 0, 0]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[4] == 7){
+        if (pts[4] == 8){
             setShowPause5(true);
             setShow5(false);
             setGo(false);
@@ -467,7 +573,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3], pts[4], pts[5], pts[6] + 1, 0, 0, 0, 0]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[6] == 7){
+        if (pts[6] == 5){
             setShowPauseNS1(true);
             setShowNS1(false);
             setGo(false);
@@ -479,7 +585,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3], pts[4], pts[5], pts[6], pts[7] + 1, 0, 0, 0]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[7] == 7){
+        if (pts[7] == 6){
             setShowPauseNS2(true);
             setShowNS2(false);
             setGo(false);
@@ -503,7 +609,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3], pts[4], pts[5], pts[6], pts[7], pts[8], pts[9] + 1, 0]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[9] == 7){
+        if (pts[9] == 5){
             setShowPauseNS4(true);
             setShowNS4(false);
             setGo(false);
@@ -515,7 +621,7 @@ const Quiz = ({props}) => {
         // if (quiz[number].answer === userAnswer) 
         setPts([pts[0], pts[1], pts[2], pts[3], pts[4], pts[5], pts[6], pts[7], pts[8], pts[9], pts[10] + 1]);
         //console.log("image 4 pts: " + pts[3]);
-        if (pts[10] == 7){
+        if (pts[10] == 6){
             setShowOver(true);
             setShowNS5(false);
             setGo(false);
@@ -559,12 +665,12 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause2) ? (
                     <>
-                        <Title >Great! You got {pts[1]} out of 8! 🥳</Title>
+                        <Title >Great! You got {pts[1]} out of 6! 🥳</Title> {/* out of 10 if pic is correct */}
                         <Button onClick={() => goToNext(3)}> Next </Button>
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (Image 2)</CSVLink>
+                        <CSVLink data={times2}>Click to Download Data (Image 2)</CSVLink>
                     </>
                 ) : null}
 
@@ -579,12 +685,12 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause3) ? (
                     <>
-                        <Title >Great! You got {pts[2]} out of 8! 🥳</Title>
+                        <Title >Great! You got {pts[2]} out of 10! 🥳</Title>
                         <Button onClick={() => goToNext(4)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (Image 3)</CSVLink>
+                        <CSVLink data={times3}>Click to Download Data (Image 3)</CSVLink>
                     </>
                 ) : null}
 
@@ -599,12 +705,12 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause4) ? (
                     <>
-                        <Title >Great! You got {pts[3]} out of 8! 🥳</Title>
+                        <Title >Great! You got {pts[3]} out of 9! 🥳</Title>
                         <Button onClick={() => goToNext(5)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (Image 4)</CSVLink>
+                        <CSVLink data={times4}>Click to Download Data (Image 4)</CSVLink>
                     </> 
                 ) : null}
 
@@ -619,12 +725,12 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause5) ? (
                     <>
-                        <Title >Great! You got {pts[4]} out of 8! 🥳</Title>
+                        <Title >Great! You got {pts[4]} out of 9! 🥳</Title>
                         <Button onClick={() => goToNext(6)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (Image 5)</CSVLink>
+                        <CSVLink data={times5}>Click to Download Data (Image 5)</CSVLink>
                     </> 
                 ) : null}
 
@@ -644,7 +750,7 @@ const Quiz = ({props}) => {
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (Image 12)</CSVLink>
+                        <CSVLink data={times12}>Click to Download Data (Image 12)</CSVLink>
                     </> 
                 ) : null}
 
@@ -659,12 +765,12 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPauseNS1) ? (
                     <>
-                        <Title >Great! You got {pts[6]} out of 8! 🥳</Title>
+                        <Title >Great! You got {pts[6]} out of 6! 🥳</Title>
                         <Button onClick={() => goToNext(8)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (NS Image 1)</CSVLink>
+                        <CSVLink data={timesNS1}>Click to Download Data (NS Image 1)</CSVLink>
                     </> 
                 ) : null}
 
@@ -679,12 +785,12 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPauseNS2) ? (
                     <>
-                        <Title >Great! You got {pts[7]} out of 8! 🥳</Title>
+                        <Title >Great! You got {pts[7]} out of 7! 🥳</Title>
                         <Button onClick={() => goToNext(9)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (NS Image 2)</CSVLink>
+                        <CSVLink data={timesNS2}>Click to Download Data (NS Image 2)</CSVLink>
                     </> 
                 ) : null}
 
@@ -704,7 +810,7 @@ const Quiz = ({props}) => {
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (NS Image 3)</CSVLink>
+                        <CSVLink data={timesNS3}>Click to Download Data (NS Image 3)</CSVLink>
                     </> 
                 ) : null}
 
@@ -719,12 +825,12 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPauseNS4) ? (
                     <>
-                        <Title >Great! You got {pts[9]} out of 8! 🥳</Title>
+                        <Title >Great! You got {pts[9]} out of 6! 🥳</Title>
                         <Button onClick={() => goToNext(11)}> Next</Button>
                         <div> </div>
                         <h1> </h1>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (NS Image 4)</CSVLink>
+                        <CSVLink data={timesNS4}>Click to Download Data (NS Image 4)</CSVLink>
                     </> 
                 ) : null}
 
@@ -739,11 +845,14 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showOver) ? (
                     <div>
-                        <GameOver pts = {pts} />
+                        
+                        <Title >You got {pts[10]} out of 7! 🥳</Title>
+                        <CSVLink data={timesNS5}>Click to Download Data (NS Image 5)</CSVLink>
                         {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <div> </div>
-                        <h1> </h1>
-                        <CSVLink data={times1}>Click to Download Data (NS Image 5)</CSVLink>
+                        
+                        
+                        <GameOver pts = {pts} />
+                        
                         {/* <Table striped border hover> 
                             <thead className='bgvi'>
                                 <tr>
@@ -881,7 +990,78 @@ const Quiz = ({props}) => {
                     </div>
                 }
                 {/* Green circles for the changes in Image 2 */}
-
+                {showLeftTree ? (
+                    <div>
+                    <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${leftTreeCo.x}px`,
+                        top: `${leftTreeCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${leftTreeCo2.x}px`,
+                        top: `${leftTreeCo2.y}px`, }}/>
+                    </div>
+                ) : null}
+                {showLeftGarage ? (
+                    <div>
+                    <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${leftGarageCo.x}px`,
+                        top: `${leftGarageCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${leftGarageCo2.x}px`,
+                        top: `${leftGarageCo2.y}px`, }}/>
+                    </div>
+                ) : null}
+                {showRightGarage &&
+                    <div>
+                    <img alt="Pic2" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${rightGarageCo.x}px`,
+                        top: `${rightGarageCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${rightGarageCo2.x}px`,
+                        top: `${rightGarageCo2.y}px`, }}/>
+                    </div>
+                }
+                {showShoe &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${shoeCo.x}px`,
+                        top: `${shoeCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${shoeCo2.x}px`,
+                        top: `${shoeCo2.y}px`, }}/>
+                    </div>
+                }
+                {showSilverWheel &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${silverWheelCo.x}px`,
+                        top: `${silverWheelCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${silverWheelCo2.x}px`,
+                        top: `${silverWheelCo2.y}px`, }}/>
+                    </div>
+                }
+                {showGreenWheel &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${greenWheelCo.x}px`,
+                        top: `${greenWheelCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${greenWheelCo2.x}px`,
+                        top: `${greenWheelCo2.y}px`, }}/>
+                    </div>
+                }
                 {/* Green circles for the changes in Image 3 */}
 
                 {/* Green circles for the changes in Image 4 */}
