@@ -208,17 +208,15 @@ const Quiz = ({props}) => {
 
     const goToNext = num => {
         setGo(true);
-        setCounter(timerLength); 
+        setCounter(60); 
         if (num == 2){
             //setShow(false);
             setShowPause(false);
             setShow2(true);
-        }
-        else if (num == 3){
+        } else if (num == 3){
             setShowPause2(false);
             setShow3(true);
-        }
-        else if (num == 4){
+        } else if (num == 4){
             setShowPause3(false);
             setShow4(true);
         } else if (num == 5){
@@ -280,7 +278,7 @@ const Quiz = ({props}) => {
                 setShowPause2(true);
                 setShow2(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
 
                 setShowLeftTree(false);
                 setShowLeftGarage(false);
@@ -294,47 +292,47 @@ const Quiz = ({props}) => {
                 setShowPause3(true);
                 setShow3(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else if (index == 4){
                 setShowPause4(true);
                 setShow4(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else if (index == 5){
                 setShowPause5(true);
                 setShow5(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else if (index == 6){
                 setShowPause12(true);
                 setShow12(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else if (index == 7){
                 setShowPauseNS1(true);
                 setShowNS1(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else if (index == 8){
                 setShowPauseNS2(true);
                 setShowNS2(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else if (index == 9){
                 setShowPauseNS3(true);
                 setShowNS3(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else if (index == 10){
                 setShowPauseNS4(true);
                 setShowNS4(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } else {
                 setShowOver(true);
                 setShowNS5(false);
                 setGo(false);
-                setCounter(0);
+                //setCounter(0);
             } 
         }
     }
@@ -438,10 +436,9 @@ const Quiz = ({props}) => {
             setTimes1([{Participant: 1, T1_tie: tieTime, T1_buttons: buttonsTime, T1_buttons2: buttons2Time, T1_books: BooksTime, T1_rightPlant: rightPlantTime, T1_watch: watchTime, T1_book: bookTime, T1_lamp: lampTime}]);
         }
     }
-        //640
         //x: -10, y: -148
     const pickAnswer2 = (e) => {
-        console.log("x: " + e.screenX + ", y: " + e.screenY);
+        //console.log("x: " + e.screenX + ", y: " + e.screenY);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //setPts([pts[0], pts[1] + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -468,21 +465,21 @@ const Quiz = ({props}) => {
             setRightGarageCo2({x: 1215, y: 433});
             setShowRightGarage(true);
         } else if ((e.screenX >= 200 && e.screenX <= 242 && e.screenY >= 714 && e.screenY <= 739) || (e.screenX >= 840 && e.screenX <= 882 && e.screenY >= 714 && e.screenY <= 739)){
-            setPts([pts[0], pts[1] + 1, 0]);
+            setPts([pts[0], pts[1] + 1, 0, 0, 0]);
             setCorrect(true);
             setShoeTime(timerLength-counter);
             setShoeCo({x: 195, y: 566});
             setShoeCo2({x: 843, y: 566});
             setShowShoe(true);
         } else if ((e.screenX >= 222 && e.screenX <= 250 && e.screenY >= 632 && e.screenY <= 661) || (e.screenX >= 862 && e.screenX <= 890 && e.screenY >= 632 && e.screenY <= 661)){
-            setPts([pts[0], pts[1] + 1, 0]);
+            setPts([pts[0], pts[1] + 1, 0, 0, 0]);
             setCorrect(true);
             setSilverWheelTime(timerLength-counter);
             setSilverWheelCo({x: 215, y: 485});
             setSilverWheelCo2({x: 860, y: 485});
             setShowSilverWheel(true);
         } else if ((e.screenX >= 438 && e.screenX <= 472 && e.screenY >= 686 && e.screenY <= 729) || (e.screenX >= 1078 && e.screenX <= 1112 && e.screenY >= 686 && e.screenY <= 729)){
-            setPts([pts[0], pts[1] + 1, 0]);
+          setPts([pts[0], pts[1] + 1, 0, 0, 0, 0]);
             setCorrect(true);
             setGreenWheelTime(timerLength-counter);
             setGreenWheelCo({x: 433, y: 545});
@@ -501,7 +498,6 @@ const Quiz = ({props}) => {
             setShowSilverWheel(false);
             setShowGreenWheel(false);
 
-            //console.log("move to 3");
             setShowPause2(true);
             setShow2(false);
             setGo(false);
@@ -665,7 +661,7 @@ const Quiz = ({props}) => {
                     </div>
                 ) : (showPause2) ? (
                     <>
-                        <Title >Great! You got {pts[1]} out of 6! 🥳</Title> {/* out of 10 if pic is correct */}
+                        <Title >Great! You got {pts[1]} out of 6! 🥳</Title> 
                         <Button onClick={() => goToNext(3)}> Next </Button>
                         <div> </div>
                         <h1> </h1>
@@ -1067,7 +1063,7 @@ const Quiz = ({props}) => {
                 {/* Green circles for the changes in Image 4 */}
 
                 {/* Green circles for the changes in Image 5 */}
-
+                
                 {/* Green circles for the changes in Image 12 */}
 
 
