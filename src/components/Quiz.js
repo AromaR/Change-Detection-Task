@@ -98,7 +98,6 @@ const Quiz = ({props}) => {
     const [rightPlantTime, setRightPlantTime] = useState(-1);
     const [watchTime, setWatchTime] = useState(-1);
     const [bookTime, setBookTime] = useState(-1);
-
     //Image 2 times to find each change
     const [leftTreeTime, setLeftTreeTime] = useState(-1);
         //const [rightTreeTime, setRightTreeTime] = useState(-1);
@@ -111,7 +110,24 @@ const Quiz = ({props}) => {
     const [greenWheelTime, setGreenWheelTime] = useState(-1);
         //const [sidewalkTime, setSidewalkTime] = useState(-1);
     const [shirtTime, setShirtTime] = useState(-1);
-
+    //Image 3 times to find each change
+    const [appleTime, setAppleTime] = useState(-1);
+    const [chairTime, setChairTime] = useState(-1);
+    const [beltTime, setBeltTime] = useState(-1);
+    const [sleeveTime, setSleeveTime] = useState(-1);
+    const [laptopTime, setLaptopTime] = useState(-1);
+    const [gloveTime, setGloveTime] = useState(-1);
+    const [mopTime, setMopTime] = useState(-1);
+    const [curtainTime, setCurtainTime] = useState(-1);
+    //Image 4 times to find each change
+    const [leftBuildingTime, setLeftBuildingTime] = useState(-1);
+    const [plateTime, setPlateTime] = useState(-1); //license plate
+    const [lineTime, setLineTime] = useState(-1); 
+    const [mopHeadTime, setMopHeadTime] = useState(-1);
+    const [gableTime, setGableTime] = useState(-1); //gable roof on white building
+    const [topTieTime, setTopTieTime] = useState(-1);
+    const [carWheelTime, setCarWheelTime] = useState(-1);
+    const [mirrorTime, setMirrorTime] = useState(-1);
 
     //variables to control highlighting found changes in Image 1
     const [showTie, setShowTie] = useState(false);
@@ -134,7 +150,24 @@ const Quiz = ({props}) => {
     const [showGreenWheel, setShowGreenWheel] = useState(false);
         //const [sidewalkTime, setSidewalkTime] = useState(-1);
     const [showShirt, setShowShirt] = useState(false);
-
+    //variables to control highlighting found changes in Image 3
+    const [showApple, setShowApple] = useState(false);
+    const [showChair, setShowChair] = useState(false);
+    const [showBelt, setShowBelt] = useState(false);
+    const [showSleeve, setShowSleeve] = useState(false);
+    const [showLaptop, setShowLaptop] = useState(false);
+    const [showGlove, setShowGlove] = useState(false);
+    const [showMop, setShowMop] = useState(false);
+    const [showCurtain, setShowCurtain] = useState(false);
+    //variables to control highlighting found changes in Image 4
+    const [showLeftBuilding, setShowLeftBuilding] = useState(false);
+    const [showPlate, setShowPlate] = useState(false);
+    const [showLine, setShowLine] = useState(false);
+    const [showMopHead, setShowMopHead] = useState(false);
+    const [showGable, setShowGable] = useState(false);
+    const [showTopTie, setShowTopTie] = useState(false);
+    const [showCarWheel, setShowCarWheel] = useState(false);
+    const [showMirror, setShowMirror] = useState(false);
     
     //Image 1 coordinates
     const [tieCo, setTieCo] = useState({x: 0, y: 0});
@@ -168,6 +201,40 @@ const Quiz = ({props}) => {
     const [greenWheelCo2, setGreenWheelCo2] = useState({x: 0, y: 0});
     const [shirtCo, setShirtCo] = useState({x: 0, y: 0});
     const [shirtCo2, setShirtCo2] = useState({x: 0, y: 0});
+    //Image 3 coordinates
+    const [appleCo, setAppleCo] = useState({x: 0, y: 0});
+    const [appleCo2, setAppleCo2] = useState({x: 0, y: 0});
+    const [chairCo, setChairCo] = useState({x: 0, y: 0});
+    const [chairCo2, setChairCo2] = useState({x: 0, y: 0});
+    const [beltCo, setBeltCo] = useState({x: 0, y: 0});
+    const [beltCo2, setBeltCo2] = useState({x: 0, y: 0});
+    const [sleeveCo, setSleeveCo] = useState({x: 0, y: 0});
+    const [sleeveCo2, setSleeveCo2] = useState({x: 0, y: 0});
+    const [laptopCo, setLaptopCo] = useState({x: 0, y: 0});
+    const [laptopCo2, setLaptopCo2] = useState({x: 0, y: 0});
+    const [gloveCo, setGloveCo] = useState({x: 0, y: 0});
+    const [gloveCo2, setGloveCo2] = useState({x: 0, y: 0});
+    const [mopCo, setMopCo] = useState({x: 0, y: 0});
+    const [mopCo2, setMopCo2] = useState({x: 0, y: 0});
+    const [curtainCo, setCurtainCo] = useState({x: 0, y: 0});
+    const [curtainCo2, setCurtainCo2] = useState({x: 0, y: 0});
+    //Image 4 coordinates
+    const [leftBuildingCo, setLeftBuildingCo] = useState({x: 0, y: 0});
+    const [leftBuildingCo2, setLeftBuildingCo2] = useState({x: 0, y: 0});
+    const [plateCo, setPlateCo] = useState({x: 0, y: 0});
+    const [plateCo2, setPlateCo2] = useState({x: 0, y: 0});
+    const [lineCo, setLineCo] = useState({x: 0, y: 0});
+    const [lineCo2, setLineCo2] = useState({x: 0, y: 0});
+    const [mopHeadCo, setMopHeadCo] = useState({x: 0, y: 0});
+    const [mopHeadCo2, setMopHeadCo2] = useState({x: 0, y: 0});
+    const [gableCo, setGableCo] = useState({x: 0, y: 0});
+    const [gableCo2, setGableCo2] = useState({x: 0, y: 0});
+    const [topTieCo, setTopTieCo] = useState({x: 0, y: 0});
+    const [topTieCo2, setTopTieCo2] = useState({x: 0, y: 0});
+    const [carWheelCo, setCarWheelCo] = useState({x: 0, y: 0});
+    const [carWheelCo2, setCarWheelCo2] = useState({x: 0, y: 0});
+    const [mirrorCo, setMirrorCo] = useState({x: 0, y: 0});
+    const [mirrorCo2, setMirrorCo2] = useState({x: 0, y: 0});
 
     // variables to control showing each set of images
     const[show, setShow] = useState(true);
@@ -298,11 +365,32 @@ const Quiz = ({props}) => {
                 setShow3(false);
                 setGo(false);
                 //setCounter(0);
+
+                setShowApple(false);
+                setShowChair(false);
+                setShowBelt(false)
+                setShowSleeve(false);
+                setShowLaptop(false);
+                setShowGlove(false);
+                setShowMop(false);
+                setShowCurtain(false);
+                setTimes4([{Participant: 1, T4_leftBuilding: leftBuildingTime, T4_plate: plateTime, T4_line: lineTime, T4_mopHead: mopHeadTime, T4_gable: gableTime, T4_topTie: topTieTime, T4_carWheel: carWheelTime, T4_mirror: mirrorTime}]);
+
             } else if (index == 4){
                 setShowPause4(true);
                 setShow4(false);
                 setGo(false);
                 //setCounter(0);
+
+                setShowLeftBuilding(false);
+                setShowPlate(false);
+                setShowLine(false);
+                setShowMopHead(false);
+                setShowGable(false);
+                setShowTopTie(false);
+                setShowCarWheel(false);
+                setShowMirror(false);
+                setTimes3([{Participant: 1, T3_apple: appleTime, T3_chair: chairTime, T3_belt: beltTime, T3_sleeve: sleeveTime, T3_laptop: laptopTime, T3_glove: gloveTime, T3_mop: mopTime, T3_curtain: curtainTime}]);
             } else if (index == 5){
                 setShowPause5(true);
                 setShow5(false);
@@ -443,7 +531,7 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswer2 = (e) => {
-        console.log("x: " + e.screenX + ", y: " + e.screenY);
+        //console.log("x: " + e.screenX + ", y: " + e.screenY);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //setPts([pts[0], pts[1] + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -462,7 +550,7 @@ const Quiz = ({props}) => {
             setLeftGarageCo({x: 122, y: 412});
             setLeftGarageCo2({x: 770, y: 412});
             setShowLeftGarage(true);
-        } else if ((e.screenX >= 580 && e.screenX <= 605 && e.screenY >= 570 && e.screenY <= 610) || (e.screenX >= 1230 && e.screenX <= 1255 && e.screenY >= 570 && e.screenY <= 610)){
+        } else if ((e.screenX >= 580 && e.screenX <= 605 && e.screenY >= 560 && e.screenY <= 610) || (e.screenX >= 1230 && e.screenX <= 1255 && e.screenY >= 560 && e.screenY <= 610)){
             setPts([pts[0], pts[1] + 1, 0]);
             setCorrect(true);
             setRightGarageTime(timerLength-counter);
@@ -476,7 +564,7 @@ const Quiz = ({props}) => {
             setShoeCo({x: 195, y: 556});
             setShoeCo2({x: 843, y: 556});
             setShowShoe(true);
-        } else if ((e.screenX >= 222 && e.screenX <= 252 && e.screenY >= 632 && e.screenY <= 661) || (e.screenX >= 862 && e.screenX <= 903 && e.screenY >= 632 && e.screenY <= 661)){
+        } else if ((e.screenX >= 215 && e.screenX <= 260 && e.screenY >= 627 && e.screenY <= 665) || (e.screenX >= 862 && e.screenX <= 903 && e.screenY >= 627 && e.screenY <= 665)){
             setPts([pts[0], pts[1] + 1, 0, 0, 0]);
             setCorrect(true);
             setSilverWheelTime(timerLength-counter);
@@ -520,37 +608,172 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswer3 = (e) => {
+        //console.log("x: " + e.screenX + " y: " + e.screenY);
         //let userAnswer = e.target.outerText;
-        // if (quiz[number].answer === userAnswer) 
-        setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+        // if (quiz[number].answer === userAnswer) 722
+        if ((e.screenX >= 39 && e.screenX <= 72 && e.screenY >= 597 && e.screenY <= 620) || (e.screenX >= 761 && e.screenX <= 794 && e.screenY >= 597 && e.screenY <= 620)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setAppleTime(timerLength-counter);
+            setAppleCo({x: 33, y: 450});
+            setAppleCo2({x: 750, y: 450});
+            setShowApple(true);
+        }else if ((e.screenX >= 23 && e.screenX <= 73 && e.screenY >= 694 && e.screenY <= 725) || (e.screenX >= 743 && e.screenX <= 795 && e.screenY >= 694 && e.screenY <= 725)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setChairTime(timerLength-counter);
+            setChairCo({x: 18, y: 540});
+            setChairCo2({x: 738, y: 540});
+            setShowChair(true);
+        } else if ((e.screenX >= 176 && e.screenX <= 206 && e.screenY >= 750 && e.screenY <= 775) || (e.screenX >= 897 && e.screenX <= 929 && e.screenY >= 750 && e.screenY <= 775)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setBeltTime(timerLength-counter);
+            setBeltCo({x: 170, y: 600});
+            setBeltCo2({x: 890, y: 600});
+            setShowBelt(true);
+        } else if ((e.screenX >= 237 && e.screenX <= 275 && e.screenY >= 774 && e.screenY <= 794) || (e.screenX >= 956 && e.screenX <= 994 && e.screenY >= 774 && e.screenY <= 794)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setSleeveTime(timerLength-counter);
+            setSleeveCo({x: 230, y: 620});
+            setSleeveCo2({x: 950, y: 620});
+            setShowSleeve(true);
+        } else if ((e.screenX >= 489 && e.screenX <= 518 && e.screenY >= 615 && e.screenY <= 659) || (e.screenX >= 1208 && e.screenX <= 1236 && e.screenY >= 615 && e.screenY <= 659)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setLaptopTime(timerLength-counter);
+            setLaptopCo({x: 481, y: 470});
+            setLaptopCo2({x: 1200, y: 470});
+            setShowLaptop(true);
+        } else if ((e.screenX >= 498 && e.screenX <= 536 && e.screenY >= 785 && e.screenY <= 808) || (e.screenX >= 1216 && e.screenX <= 1258 && e.screenY >= 785 && e.screenY <= 808)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setGloveTime(timerLength-counter);
+            setGloveCo({x: 495, y: 640});
+            setGloveCo2({x: 1213, y: 640});
+            setShowGlove(true);
+        } else if ((e.screenX >= 557 && e.screenX <= 583 && e.screenY >= 769 && e.screenY <= 808) || (e.screenX >= 1276 && e.screenX <= 1301 && e.screenY >= 769 && e.screenY <= 808)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setMopTime(timerLength-counter);
+            setMopCo({x: 545, y: 630});
+            setMopCo2({x: 1265, y: 630});
+            setShowMop(true);
+        } else if ((e.screenX >= 689 && e.screenX <= 719 && e.screenY >= 557 && e.screenY <= 636) || (e.screenX >= 1413 && e.screenX <= 1435 && e.screenY >= 557 && e.screenY <= 636)){
+            setPts([pts[0], pts[1], pts[2] + 1, 0, 0, 0, 0, 0, 0, 0, 0]);            
+            setCorrect(true);
+            setCurtainTime(timerLength-counter);
+            setCurtainCo({x: 679, y: 430});
+            setCurtainCo2({x: 1403, y: 430});
+            setShowCurtain(true);
+        } else {
+            setWrong(true);
+        }
+        setTimeout(() => {setCorrect(false)}, 1000);
+        setTimeout(() => {setWrong(false)}, 1000);
         //console.log("image 3 pts: " + pts[2]);
         if (pts[2] == 7){
-            // setShowBook(false);
-            // setShowButtons(false);
-            // setShowButtons2(false)
-            // setShowRightPlant(false);
-            // setShowTie(false);
-            // setShowBooks(false);
-            // setShowWatch(false);
-            // setShowLamp(false);
+            setShowApple(false);
+            setShowChair(false);
+            setShowBelt(false)
+            setShowSleeve(false);
+            setShowLaptop(false);
+            setShowGlove(false);
+            setShowMop(false);
+            setShowCurtain(false);
             //console.log("move to 4");
 
             setShowPause3(true);
             setShow3(false);
             setGo(false);
             setCounter(0);
+
+            setTimes3([{Participant: 1, T3_apple: appleTime, T3_chair: chairTime, T3_belt: beltTime, T3_sleeve: sleeveTime, T3_laptop: laptopTime, T3_glove: gloveTime, T3_mop: mopTime, T3_curtain: curtainTime}]);
         }
     }
     const pickAnswer4 = (e) => {
+        //console.log("x: " + e.screenX + " y: " + e.screenY);
         //let userAnswer = e.target.outerText;
-        // if (quiz[number].answer === userAnswer) 
-        setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+        // if (quiz[number].answer === userAnswer) 237, 275, 774, 794, 956, 994,
+        if ((e.screenX >= 6 && e.screenX <= 47 && e.screenY >= 572 && e.screenY <= 593) || (e.screenX >= 726 && e.screenX <= 769 && e.screenY >= 572 && e.screenY <= 593)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setLeftBuildingTime(timerLength-counter);
+            setLeftBuildingCo({x: 5, y: 420});
+            setLeftBuildingCo2({x: 720, y: 420});
+            setShowLeftBuilding(true);
+        }else if ((e.screenX >= 77 && e.screenX <= 107 && e.screenY >= 664 && e.screenY <= 725) || (e.screenX >= 798 && e.screenX <= 827 && e.screenY >= 664 && e.screenY <= 725)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setPlateTime(timerLength-counter);
+            setPlateCo({x: 70, y: 515});
+            setPlateCo2({x: 790, y: 515});
+            setShowPlate(true);
+        } else if ((e.screenX >= 161 && e.screenX <= 191 && e.screenY >= 661 && e.screenY <= 677) || (e.screenX >= 885 && e.screenX <= 915 && e.screenY >= 661 && e.screenY <= 677)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setLineTime(timerLength-counter);
+            setLineCo({x: 150, y: 505});
+            setLineCo2({x: 873, y: 505});
+            setShowLine(true);
+        } else if ((e.screenX >= 190 && e.screenX <= 240 && e.screenY >= 592 && e.screenY <= 643) || (e.screenX >= 912 && e.screenX <= 957 && e.screenY >= 592 && e.screenY <= 643)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setMopHeadTime(timerLength-counter);
+            setMopHeadCo({x: 190, y: 460});
+            setMopHeadCo2({x: 910, y: 460});
+            setShowMopHead(true);
+        } else if ((e.screenX >= 445 && e.screenX <= 474 && e.screenY >= 548 && e.screenY <= 570) || (e.screenX >= 1163 && e.screenX <= 1194 && e.screenY >= 548 && e.screenY <= 570)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setGableTime(timerLength-counter);
+            setGableCo({x: 435, y: 400});
+            setGableCo2({x: 1155, y: 400});
+            setShowGable(true);
+        } else if ((e.screenX >= 491 && e.screenX <= 522 && e.screenY >= 553 && e.screenY <= 570) || (e.screenX >= 1213 && e.screenX <= 1248 && e.screenY >= 553 && e.screenY <= 570)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setTopTieTime(timerLength-counter);
+            setTopTieCo({x: 483, y: 400});
+            setTopTieCo2({x: 1203, y: 400});
+            setShowTopTie(true);
+        } else if ((e.screenX >= 606 && e.screenX <= 637 && e.screenY >= 653 && e.screenY <= 689) || (e.screenX >= 1335 && e.screenX <= 1360 && e.screenY >= 653 && e.screenY <= 689)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);
+            setCorrect(true);
+            setCarWheelTime(timerLength-counter);
+            setCarWheelCo({x: 600, y: 512});
+            setCarWheelCo2({x: 1327, y: 512});
+            setShowCarWheel(true);
+        } else if ((e.screenX >= 651 && e.screenX <= 687 && e.screenY >= 619 && e.screenY <= 637) || (e.screenX >= 1373 && e.screenX <= 1408 && e.screenY >= 619 && e.screenY <= 637)){
+            setPts([pts[0], pts[1], pts[2], pts[3] + 1, 0, 0, 0, 0, 0, 0, 0]);          
+            setCorrect(true);
+            setMirrorTime(timerLength-counter);
+            setMirrorCo({x: 646, y: 470});
+            setMirrorCo2({x: 1368, y: 470});
+            setShowMirror(true);
+        } else {
+            setWrong(true);
+        }
+        setTimeout(() => {setCorrect(false)}, 1000);
+        setTimeout(() => {setWrong(false)}, 1000);
         //console.log("image 4 pts: " + pts[3]);
         if (pts[3] == 7){
+            setShowLeftBuilding(false);
+            setShowPlate(false);
+            setShowLine(false);
+            setShowMopHead(false);
+            setShowGable(false);
+            setShowTopTie(false);
+            setShowCarWheel(false);
+            setShowMirror(false);
+
             setShowPause4(true);
             setShow4(false);
             setGo(false);
             setCounter(0);
+
+            setTimes4([{Participant: 1, T4_leftBuilding: leftBuildingTime, T4_plate: plateTime, T4_line: lineTime, T4_mopHead: mopHeadTime, T4_gable: gableTime, T4_topTie: topTieTime, T4_carWheel: carWheelTime, T4_mirror: mirrorTime}]);
         }
     }
     const pickAnswer5 = (e) => {
@@ -637,12 +860,10 @@ const Quiz = ({props}) => {
             setCounter(0);
         }
     }
-    //help
 
     return (
          <QuizWindow>
             <div className='quiz' align="center">
-
                 {/* Image 1 and the following 'Next Page' */}
                 {(show) ? (
                     <div>
@@ -1084,9 +1305,199 @@ const Quiz = ({props}) => {
                     </div>
                 }
                 {/* Green circles for the changes in Image 3 */}
-
+                {showApple ? (
+                    <div>
+                    <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${appleCo.x}px`,
+                        top: `${appleCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${appleCo2.x}px`,
+                        top: `${appleCo2.y}px`, }}/>
+                    </div>
+                ) : null}
+                {showChair ? (
+                    <div>
+                    <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${chairCo.x}px`,
+                        top: `${chairCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${chairCo2.x}px`,
+                        top: `${chairCo2.y}px`, }}/>
+                    </div>
+                ) : null}
+                {showBelt &&
+                    <div>
+                    <img alt="Pic2" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${beltCo.x}px`,
+                        top: `${beltCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${beltCo2.x}px`,
+                        top: `${beltCo2.y}px`, }}/>
+                    </div>
+                }
+                {showSleeve &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${sleeveCo.x}px`,
+                        top: `${sleeveCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${sleeveCo2.x}px`,
+                        top: `${sleeveCo2.y}px`, }}/>
+                    </div>
+                }
+                {showLaptop &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${laptopCo.x}px`,
+                        top: `${laptopCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${laptopCo2.x}px`,
+                        top: `${laptopCo2.y}px`, }}/>
+                    </div>
+                }
+                {showGlove &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${gloveCo.x}px`,
+                        top: `${gloveCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${gloveCo2.x}px`,
+                        top: `${gloveCo2.y}px`, }}/>
+                    </div>
+                }
+                {showMop &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${mopCo.x}px`,
+                        top: `${mopCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${mopCo2.x}px`,
+                        top: `${mopCo2.y}px`, }}/>
+                    </div>
+                } 
+                {showCurtain &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${curtainCo.x}px`,
+                        top: `${curtainCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${curtainCo2.x}px`,
+                        top: `${curtainCo2.y}px`, }}/>
+                    </div>
+                }
                 {/* Green circles for the changes in Image 4 */}
-
+                {showLeftBuilding ? (
+                    <div>
+                    <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${leftBuildingCo.x}px`,
+                        top: `${leftBuildingCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${leftBuildingCo2.x}px`,
+                        top: `${leftBuildingCo2.y}px`, }}/>
+                    </div>
+                ) : null}
+                {showPlate ? (
+                    <div>
+                    <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${plateCo.x}px`,
+                        top: `${plateCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${plateCo2.x}px`,
+                        top: `${plateCo2.y}px`, }}/>
+                    </div>
+                ) : null}
+                {showLine &&
+                    <div>
+                    <img alt="Pic2" height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${lineCo.x}px`,
+                        top: `${lineCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${lineCo2.x}px`,
+                        top: `${lineCo2.y}px`, }}/>
+                    </div>
+                }
+                {showMopHead &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${mopHeadCo.x}px`,
+                        top: `${mopHeadCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${mopHeadCo2.x}px`,
+                        top: `${mopHeadCo2.y}px`, }}/>
+                    </div>
+                }
+                {showGable &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${gableCo.x}px`,
+                        top: `${gableCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${gableCo2.x}px`,
+                        top: `${gableCo2.y}px`, }}/>
+                    </div>
+                }
+                {showTopTie &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${topTieCo.x}px`,
+                        top: `${topTieCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${topTieCo2.x}px`,
+                        top: `${topTieCo2.y}px`, }}/>
+                    </div>
+                }
+                {showCarWheel &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${carWheelCo.x}px`,
+                        top: `${carWheelCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${carWheelCo2.x}px`,
+                        top: `${carWheelCo2.y}px`, }}/>
+                    </div>
+                } 
+                {showMirror &&
+                    <div>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${mirrorCo.x}px`,
+                        top: `${mirrorCo.y}px`, }}/>
+                    <img height="50" width="50" src={Circle} style={{
+                        position: "absolute",
+                        left: `${mirrorCo2.x}px`,
+                        top: `${mirrorCo2.y}px`, }}/>
+                    </div>
+                }
                 {/* Green circles for the changes in Image 5 */}
 
                 {/* Green circles for the changes in Image 12 */}
