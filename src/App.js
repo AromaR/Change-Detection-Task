@@ -10,7 +10,7 @@ function App() {
   
   return (
     <div className="quiz">
-      { start ? <Quiz props={setParticipantID}/> : <Start props={setStart} />} 
+      { start ? <Quiz props={setParticipantID}/> : <Start props={setStart} props2 = {setParticipantID}/>} 
     </div>
   );
 }

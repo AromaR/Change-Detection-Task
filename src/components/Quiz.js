@@ -81,7 +81,7 @@ const Question = styled.div`
     margin: 0 auto;
 `;
 
-const Quiz = ({props}) => {
+const Quiz = () => {
 
     //variables to control timer
     const [timerLength, setTimerLength] = useState(60);
@@ -151,7 +151,7 @@ const Quiz = ({props}) => {
     //variables to control highlighting found changes in Image 1
     const [showTie, setShowTie] = useState(false);
     const [showButtons, setShowButtons] = useState(false);
-    const [showButtons2, setShowButtons2] = useState(false);
+    const [showButtons2, setShowButtons2] = useState(false); //change to left and right
     const [showLamp, setShowLamp] = useState(false);
     const [showBooks, setShowBooks] = useState(false);
     const [showRightPlant, setShowRightPlant] = useState(false);
@@ -345,6 +345,7 @@ const Quiz = ({props}) => {
     const [timesNS4, setTimesNS4] = useState([]);
     const [timesNS5, setTimesNS5] = useState([]);
 
+    //function that controls all variables when 'Next' button is clicked
     const goToNext = num => {
         setGo(true);
         setCounter(timerLength); 
@@ -392,6 +393,7 @@ const Quiz = ({props}) => {
         setIndex(index + 1);
     }
 
+    //controls all variables when timer hits 0
     useEffect(() => {
         if (counter == 0){
             //console.log(index);
@@ -521,11 +523,14 @@ const Quiz = ({props}) => {
         }
     }
     );
+
+    //controls timer operations
     useEffect(() => {
         go && counter > 0 && setTimeout(() => 
             setCounter(counter - 1), 1000);
     }, [counter]);
 
+    //functions to control variables for when the user clicks on each image
     const pickAnswer1 = (e) => {
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 

@@ -12,16 +12,14 @@ const btnCSS = css`
 `;
 
 
-const Start = ({props}) => {
+const Start = ({props}, {props2}) => {
 
     const startQuiz = () => {
         props(true);
     }
 
-    const [participantID, setParticipantID] = useState(0);
     const submitID = (event) => {
-        setParticipantID(event);
-        //console.log(participantID);
+        props2(event);
     }
 
     return (
