@@ -693,14 +693,23 @@ const Quiz = ({props}) => {
         else if (num == 2){
             //setShow1(false);
             setImageNS1Change1(false);
-                setImageNS1Change2(false);
-                setImageNS1Change3(false);
-                setImageNS1Change4(false);
-                setImageNS1Change5(false);
-                setImageNS1Change6(false);
-                setImageNS1Change7(false);
-                setImageNS1Change8(false);
+            setImageNS1Change2(false);
+            setImageNS1Change3(false);
+            setImageNS1Change4(false);
+            setImageNS1Change5(false);
+            setImageNS1Change6(false);
+            setImageNS1Change7(false);
+            setImageNS1Change8(false);
+            setShowImageNS1Change1(false);
+            setShowImageNS1Change2(false);
+            setShowImageNS1Change3(false);
+            setShowImageNS1Change4(false);
+            setShowImageNS1Change5(false);
+            setShowImageNS1Change6(false);
+            setShowImageNS1Change7(false);
+            setShowImageNS1Change8(false);
             setShowPauseNS1(false);
+            setShowNS1(false);
             setShowNS2(true);
         } 
         else if (num == 3){
@@ -713,7 +722,16 @@ const Quiz = ({props}) => {
                 setImageNS2Change6(false);
                 setImageNS2Change7(false);
                 setImageNS2Change8(false);
+                setShowImageNS2Change1(false);
+                setShowImageNS2Change2(false);
+                setShowImageNS2Change3(false);
+                setShowImageNS2Change4(false);
+                setShowImageNS2Change5(false);
+                setShowImageNS2Change6(false);
+                setShowImageNS2Change7(false);
+                setShowImageNS2Change8(false);
             setShowPauseNS2(false);
+            setShowNS2(false);
             setShowNS3(true);
         }
         else if (num == 4){
@@ -726,7 +744,16 @@ const Quiz = ({props}) => {
                 setImageNS3Change6(false);
                 setImageNS3Change7(false);
                 setImageNS3Change8(false);
+                setShowImageNS3Change1(false);
+                setShowImageNS3Change2(false);
+                setShowImageNS3Change3(false);
+                setShowImageNS3Change4(false);
+                setShowImageNS3Change5(false);
+                setShowImageNS3Change6(false);
+                setShowImageNS3Change7(false);
+                setShowImageNS3Change8(false);
             setShowPauseNS3(false);
+            setShowNS3(false);
             setShowNS4(true);
         }
         else if (num == 5){
@@ -739,7 +766,16 @@ const Quiz = ({props}) => {
                 setImageNS4Change6(false);
                 setImageNS4Change7(false);
                 setImageNS4Change8(false);
+                setShowImageNS4Change1(false);
+            setShowImageNS4Change2(false);
+            setShowImageNS4Change3(false);
+            setShowImageNS4Change4(false);
+            setShowImageNS4Change5(false);
+            setShowImageNS4Change6(false);
+            setShowImageNS4Change7(false);
+            setShowImageNS4Change8(false);
             setShowPauseNS4(false);
+            setShowNS4(false);
             setShowNS5(true);
         }
         else if (num == 6){
@@ -752,8 +788,17 @@ const Quiz = ({props}) => {
                 setImageNS5Change6(false);
                 setImageNS5Change7(false);
                 setImageNS5Change8(false);
+                setShowImageNS5Change1(false);
+                setShowImageNS5Change2(false);
+                setShowImageNS5Change3(false);
+                setShowImageNS5Change4(false);
+                setShowImageNS5Change5(false);
+                setShowImageNS5Change6(false);
+                setShowImageNS5Change7(false);
+                setShowImageNS5Change8(false);
             setShowNS5(false);
             setShowPauseNS5(false);
+            setShowNS5(false);
             setShow1(true);
         }
         else if (num == 7){
@@ -766,8 +811,17 @@ const Quiz = ({props}) => {
                 setImage1Change6(false);
                 setImage1Change7(false);
                 setImage1Change8(false);
+                setShowImage1Change1(false);
+                setShowImage1Change2(false);
+                setShowImage1Change3(false);
+                setShowImage1Change4(false);
+                setShowImage1Change5(false);
+                setShowImage1Change6(false);
+                setShowImage1Change7(false);
+                setShowImage1Change8(false);
             setShow1(false);
             setShowPause1(false);
+            setShow1(false);
             setShow2(true);
         }
         else if (num == 8){
@@ -780,8 +834,17 @@ const Quiz = ({props}) => {
                 setImage2Change6(false);
                 setImage2Change7(false);
                 setImage2Change8(false);
+                setShowImage2Change1(false);
+                setShowImage2Change2(false);
+                setShowImage2Change3(false);
+                setShowImage2Change4(false);
+                setShowImage2Change5(false);
+                setShowImage2Change6(false);
+                setShowImage2Change7(false);
+                setShowImage2Change8(false);
             setShow2(false);
             setShowPause2(false);
+            setShow2(false);
             setShow3(true);
         }
         else if (num == 9){
@@ -794,8 +857,17 @@ const Quiz = ({props}) => {
                 setImage3Change6(false);
                 setImage3Change7(false);
                 setImage3Change8(false);
+                setShowImage3Change1(false);
+                setShowImage3Change2(false);
+                setShowImage3Change3(false);
+                setShowImage3Change4(false);
+                setShowImage3Change5(false);
+                setShowImage3Change6(false);
+                setShowImage3Change7(false);
+                setShowImage3Change8(false);
             setShow3(false);
             setShowPause3(false);
+            setShow3(false);
             setShow4(true);
         }
         else if (num == 10){
@@ -808,8 +880,17 @@ const Quiz = ({props}) => {
                 setImage4Change6(false);
                 setImage4Change7(false);
                 setImage4Change8(false);
+                setShowImage4Change1(false);
+                setShowImage4Change2(false);
+                setShowImage4Change3(false);
+                setShowImage4Change4(false);
+                setShowImage4Change5(false);
+                setShowImage4Change6(false);
+                setShowImage4Change7(false);
+                setShowImage4Change8(false);
             setShow4(false);
             setShowPause4(false);
+            setShow4(false);
             setShow5(true);
         }
         else if (num == 11){
@@ -822,8 +903,17 @@ const Quiz = ({props}) => {
                 setImage5Change6(false);
                 setImage5Change7(false);
                 setImage5Change8(false);
+                setShowImage5Change1(false);
+                setShowImage5Change2(false);
+                setShowImage5Change3(false);
+                setShowImage5Change4(false);
+                setShowImage5Change5(false);
+                setShowImage5Change6(false);
+                setShowImage5Change7(false);
+                setShowImage5Change8(false);
             setShow5(false);
             setShowPause5(false);
+            setShow5(false);
             setShow12(true);
         }
         else {
@@ -835,6 +925,14 @@ const Quiz = ({props}) => {
                 setImage12Change6(false);
                 setImage12Change7(false);
                 setImage12Change8(false);
+                setShowImage12Change1(false);
+                setShowImage12Change2(false);
+                setShowImage12Change3(false);
+                setShowImage12Change4(false);
+                setShowImage12Change5(false);
+                setShowImage12Change6(false);
+                setShowImage12Change7(false);
+                setShowImage12Change8(false);
             setShow12(false);
             setShowOver(true);
         }
@@ -1190,7 +1288,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/640;
         const relativey = e.target.height/360;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:19,y:110};
         const change2 = {x:152,y:162};
         const change3 = {x:208,y:250};
@@ -1368,7 +1466,7 @@ const Quiz = ({props}) => {
             console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
             const relativex = e.target.width/1500;
             const relativey = e.target.height/1125;
-            const buffer = 50;
+            const buffer = 30;
             const change1 = {x:333,y:352};
             const change2 = {x:173,y:594};
             const change3 = {x:384,y:760};
@@ -1546,7 +1644,7 @@ const Quiz = ({props}) => {
         console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/2235;
         const relativey = e.target.height/1341;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:121,y:1037};
         const change2 = {x:170,y:718};
         const change3 = {x:603,y:1194};
@@ -1723,7 +1821,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/1600;
         const relativey = e.target.height/900;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:46,y:450};
         const change2 = {x:205,y:668};
         const change3 = {x:384,y:653};
@@ -1900,7 +1998,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/1600;
         const relativey = e.target.height/900;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:422,y:148};
         const change2 = {x:533,y:180};
         const change3 = {x:653,y:593};
@@ -2077,7 +2175,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/1600;
         const relativey = e.target.height/1068;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:296,y:306};
         const change2 = {x:241,y:436};
         const change3 = {x:532,y:543};
@@ -2254,7 +2352,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/418;
         const relativey = e.target.height/296;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:27,y:15};
         const change2 = {x:72,y:149};
         const change3 = {x:130,y:98};
@@ -2413,7 +2511,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/1492;
         const relativey = e.target.height/1082;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:439,y:199};
         const change2 = {x:1122,y:213};
         const change3 = {x:879,y:475};
@@ -2572,7 +2670,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/796;
         const relativey = e.target.height/574;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:140,y:210};
         const change2 = {x:79,y:396};
         const change3 = {x:351,y:167};
@@ -2713,7 +2811,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/790;
         const relativey = e.target.height/556;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:130,y:211};
         const change2 = {x:231,y:238};
         const change3 = {x:440,y:263};
@@ -2850,7 +2948,7 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/800;
         const relativey = e.target.height/556;
-        const buffer = 50;
+        const buffer = 30;
         const change1 = {x:112,y:152};
         const change2 = {x:195,y:475};
         const change3 = {x:311,y:108};
@@ -3026,6 +3124,7 @@ const Quiz = ({props}) => {
                     <h1> Spot the Differences! </h1>
                     <img src={Pic1A} alt="Picture 1A" height="50%" width="50%" onClick={pickAnswer1} />
                     <img src={Pic1B} alt="Picture 1B" height="50%" width="50%" onClick={pickAnswer1}/>
+                    <Button onClick={() => goToNext(7)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause1) ? (
@@ -3046,6 +3145,7 @@ const Quiz = ({props}) => {
                     <h2> Spot the Differences! </h2>
                     <img src={Pic2A} alt="Picture 2A" height="20%" width="45%" onClick={pickAnswer2} />
                     <img src={Pic2B} alt="Picture 2B" height="20%" width="45%" onClick={pickAnswer2}/>
+                    <Button onClick={() => goToNext(8)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause2) ? (
@@ -3066,6 +3166,7 @@ const Quiz = ({props}) => {
                     <h1> Spot the Differences! </h1>
                     <img src={Pic3A} alt="Picture 3A" height="20%" width="50%" onClick={pickAnswer3} />
                     <img src={Pic3B} alt="Picture 3B" height="20%" width="50%" onClick={pickAnswer3}/>
+                    <Button onClick={() => goToNext(9)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause3) ? (
@@ -3086,6 +3187,7 @@ const Quiz = ({props}) => {
                     <h1> Spot the Differences! </h1>
                     <img src={Pic4A} alt="Picture 4A" height="50%" width="50%" onClick={pickAnswer4} />
                     <img src={Pic4B} alt="Picture 4B" height="50%" width="50%" onClick={pickAnswer4}/>
+                    <Button onClick={() => goToNext(10)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause4) ? (
@@ -3106,6 +3208,7 @@ const Quiz = ({props}) => {
                     <h1> Spot the Differences! </h1>
                     <img src={Pic5A} alt="Picture 5A" height="50%" width="50%" onClick={pickAnswer5} />
                     <img src={Pic5B} alt="Picture 5B" height="50%" width="50%" onClick={pickAnswer5}/>
+                    <Button onClick={() => goToNext(11)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause5) ? (
@@ -3148,6 +3251,7 @@ const Quiz = ({props}) => {
                     <h2> Spot the Differences! </h2>
                     <img src={NsPic1A} alt="NS Picture 1A" height="50%" width="50%" onClick={pickAnswerNS1} />
                     <img src={NsPic1B} alt="NS Picture 1B" height="50%" width="50%" onClick={pickAnswerNS1}/>
+                    <Button onClick={() => goToNext(2)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS1) ? (
@@ -3168,6 +3272,7 @@ const Quiz = ({props}) => {
                     <h2> Spot the Differences! </h2>
                     <img src={NsPic2A} alt="NS Picture 2A" height="50%" width="50%" onClick={pickAnswerNS2} />
                     <img src={NsPic2B} alt="NS Picture 2B" height="50%" width="50%" onClick={pickAnswerNS2}/>
+                    <Button onClick={() => goToNext(3)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS2) ? (
@@ -3188,6 +3293,7 @@ const Quiz = ({props}) => {
                     <h2> Spot the Differences! </h2>
                     <img src={NsPic3A} alt="NS Picture 3A" height="50%" width="50%" onClick={pickAnswerNS3} />
                     <img src={NsPic3B} alt="NS Picture 3B" height="50%" width="50%" onClick={pickAnswerNS3}/>
+                    <Button onClick={() => goToNext(4)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS3) ? (
@@ -3208,6 +3314,7 @@ const Quiz = ({props}) => {
                     <h2> Spot the Differences! </h2>
                     <img src={NsPic4A} alt="NS Picture 4A" height="50%" width="50%" onClick={pickAnswerNS4} />
                     <img src={NsPic4B} alt="NS Picture 4B" height="50%" width="50%" onClick={pickAnswerNS4}/>
+                    <Button onClick={() => goToNext(5)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS4) ? (
@@ -3228,6 +3335,7 @@ const Quiz = ({props}) => {
                     <h2> Spot the Differences! </h2>
                     <img src={NsPic5A} alt="NS Picture 5A" height="50%" width="50%" onClick={pickAnswerNS5} />
                     <img src={NsPic5B} alt="NS Picture 5B" height="50%" width="50%" onClick={pickAnswerNS5}/>
+                    <Button onClick={() => goToNext(6)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS5) ? (
