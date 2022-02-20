@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled, { css } from 'styled-components/macro'
 import Button from './Button';
+import { Form } from 'react-bootstrap'
 
 const Intro = styled.div`
   margin-top: 8em;
@@ -12,26 +13,21 @@ const btnCSS = css`
 `;
 
 
-const Start = ({props}, {props2}) => {
+const Start = ({props}) => {
 
-    const startQuiz = () => {
+    const [partid, setPartid] = useState("");
+
+    const startQuiz = (e) => {
         props(true);
     }
 
-    const submitID = (event) => {
-        props2(event);
+    const setPartID = (e) => {
+        setPartid("something");
     }
 
     return (
         <Intro>
             <h1>Welcome!</h1>
-            <form onSubmit={submitID}>
-            <label>
-                Participant ID: 
-                <input type = "text" />
-            </label>
-            <input type = "submit" />
-            </form>
             <Button onClick={startQuiz} css={btnCSS}>Begin</Button>
         </Intro>
     )
