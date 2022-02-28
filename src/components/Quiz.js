@@ -935,6 +935,97 @@ const Quiz = ({props}) => {
                 setShowImage12Change8(false);
             setShow12(false);
             setShowOver(true);
+            setTimes([
+                {Participant: participantID, T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, T1_change1: ImageNS2Change1Time,
+                        T1_change2: ImageNS2Change2Time,
+                        T1_change3: ImageNS2Change3Time,
+                        T1_change4: ImageNS2Change4Time,
+                        T1_change5: ImageNS2Change5Time,
+                        T1_change6: ImageNS2Change6Time,
+                        T1_change7: ImageNS2Change7Time,
+                        T1_change8: ImageNS2Change8Time},
+                        {Participant: participantID, T1_change1: ImageNS3Change1Time,
+                            T1_change2: ImageNS3Change2Time,
+                            T1_change3: ImageNS3Change3Time,
+                            T1_change4: ImageNS3Change4Time,
+                            T1_change5: ImageNS3Change5Time,
+                            T1_change6: ImageNS3Change6Time,
+                            T1_change7: ImageNS3Change7Time,
+                            T1_change8: ImageNS3Change8Time},
+                            {Participant: participantID, T1_change1: ImageNS4Change1Time,
+                                T1_change2: ImageNS4Change2Time,
+                                T1_change3: ImageNS4Change3Time,
+                                T1_change4: ImageNS4Change4Time,
+                                T1_change5: ImageNS4Change5Time,
+                                T1_change6: ImageNS4Change6Time,
+                                T1_change7: ImageNS4Change7Time,
+                                T1_change8: ImageNS4Change8Time},
+                                {Participant: participantID, T1_change1: ImageNS5Change1Time,
+                                    T1_change2: ImageNS5Change2Time,
+                                    T1_change3: ImageNS5Change3Time,
+                                    T1_change4: ImageNS5Change4Time,
+                                    T1_change5: ImageNS5Change5Time,
+                                    T1_change6: ImageNS5Change6Time,
+                                    T1_change7: ImageNS5Change7Time,
+                                    T1_change8: ImageNS5Change8Time},
+            {Participant: participantID, T1_change1: Image1Change1Time,
+            T1_change2: Image1Change2Time,
+            T1_change3: Image1Change3Time,
+            T1_change4: Image1Change4Time,
+            T1_change5: Image1Change5Time,
+            T1_change6: Image1Change6Time,
+            T1_change7: Image1Change7Time,
+            T1_change8: Image1Change8Time},
+            {Participant: participantID, T1_change1: Image2Change1Time,
+                T1_change2: Image2Change2Time,
+                T1_change3: Image2Change3Time,
+                T1_change4: Image2Change4Time,
+                T1_change5: Image2Change5Time,
+                T1_change6: Image2Change6Time,
+                T1_change7: Image2Change7Time,
+                T1_change8: Image2Change8Time},
+            {Participant: participantID, T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time},
+            {Participant: participantID, T1_change1: Image4Change1Time,
+                        T1_change2: Image4Change2Time,
+                        T1_change3: Image4Change3Time,
+                        T1_change4: Image4Change4Time,
+                        T1_change5: Image4Change5Time,
+                        T1_change6: Image4Change6Time,
+                        T1_change7: Image4Change7Time,
+                        T1_change8: Image4Change8Time},
+                        {Participant: participantID, T1_change1: Image5Change1Time,
+                            T1_change2: Image5Change2Time,
+                            T1_change3: Image5Change3Time,
+                            T1_change4: Image5Change4Time,
+                            T1_change5: Image5Change5Time,
+                            T1_change6: Image5Change6Time,
+                            T1_change7: Image5Change7Time,
+                            T1_change8: Image5Change8Time},
+                            {Participant: participantID, T1_change1: Image12Change1Time,
+                                T1_change2: Image12Change2Time,
+                                T1_change3: Image12Change3Time,
+                                T1_change4: Image12Change4Time,
+                                T1_change5: Image12Change5Time,
+                                T1_change6: Image12Change6Time,
+                                T1_change7: Image12Change7Time,
+                                T1_change8: Image12Change8Time},
+                                
+        ]);
         }
         setIndex(index + 1);
     }
@@ -1181,6 +1272,46 @@ const Quiz = ({props}) => {
                             T1_change7: Image12Change7Time,
                             T1_change8: Image12Change8Time}]); 
                       setTimes([
+                        {Participant: participantID, T1_change1: ImageNS1Change1Time,
+                            T1_change2: ImageNS1Change2Time,
+                            T1_change3: ImageNS1Change3Time,
+                            T1_change4: ImageNS1Change4Time,
+                            T1_change5: ImageNS1Change5Time,
+                            T1_change6: ImageNS1Change6Time,
+                            T1_change7: ImageNS1Change7Time,
+                            T1_change8: ImageNS1Change8Time},
+                            {Participant: participantID, T1_change1: ImageNS2Change1Time,
+                                T1_change2: ImageNS2Change2Time,
+                                T1_change3: ImageNS2Change3Time,
+                                T1_change4: ImageNS2Change4Time,
+                                T1_change5: ImageNS2Change5Time,
+                                T1_change6: ImageNS2Change6Time,
+                                T1_change7: ImageNS2Change7Time,
+                                T1_change8: ImageNS2Change8Time},
+                                {Participant: participantID, T1_change1: ImageNS3Change1Time,
+                                    T1_change2: ImageNS3Change2Time,
+                                    T1_change3: ImageNS3Change3Time,
+                                    T1_change4: ImageNS3Change4Time,
+                                    T1_change5: ImageNS3Change5Time,
+                                    T1_change6: ImageNS3Change6Time,
+                                    T1_change7: ImageNS3Change7Time,
+                                    T1_change8: ImageNS3Change8Time},
+                                    {Participant: participantID, T1_change1: ImageNS4Change1Time,
+                                        T1_change2: ImageNS4Change2Time,
+                                        T1_change3: ImageNS4Change3Time,
+                                        T1_change4: ImageNS4Change4Time,
+                                        T1_change5: ImageNS4Change5Time,
+                                        T1_change6: ImageNS4Change6Time,
+                                        T1_change7: ImageNS4Change7Time,
+                                        T1_change8: ImageNS4Change8Time},
+                                        {Participant: participantID, T1_change1: ImageNS5Change1Time,
+                                            T1_change2: ImageNS5Change2Time,
+                                            T1_change3: ImageNS5Change3Time,
+                                            T1_change4: ImageNS5Change4Time,
+                                            T1_change5: ImageNS5Change5Time,
+                                            T1_change6: ImageNS5Change6Time,
+                                            T1_change7: ImageNS5Change7Time,
+                                            T1_change8: ImageNS5Change8Time},
                     {Participant: participantID, T1_change1: Image1Change1Time,
                     T1_change2: Image1Change2Time,
                     T1_change3: Image1Change3Time,
@@ -1228,47 +1359,8 @@ const Quiz = ({props}) => {
                                         T1_change5: Image12Change5Time,
                                         T1_change6: Image12Change6Time,
                                         T1_change7: Image12Change7Time,
-                                        T1_change8: Image12Change8Time},,
-                                        {Participant: participantID, T1_change1: ImageNS1Change1Time,
-                                            T1_change2: ImageNS1Change2Time,
-                                            T1_change3: ImageNS1Change3Time,
-                                            T1_change4: ImageNS1Change4Time,
-                                            T1_change5: ImageNS1Change5Time,
-                                            T1_change6: ImageNS1Change6Time,
-                                            T1_change7: ImageNS1Change7Time,
-                                            T1_change8: ImageNS1Change8Time},
-                                            {Participant: participantID, T1_change1: ImageNS2Change1Time,
-                                                T1_change2: ImageNS2Change2Time,
-                                                T1_change3: ImageNS2Change3Time,
-                                                T1_change4: ImageNS2Change4Time,
-                                                T1_change5: ImageNS2Change5Time,
-                                                T1_change6: ImageNS2Change6Time,
-                                                T1_change7: ImageNS2Change7Time,
-                                                T1_change8: ImageNS2Change8Time},
-                                                {Participant: participantID, T1_change1: ImageNS3Change1Time,
-                                                    T1_change2: ImageNS3Change2Time,
-                                                    T1_change3: ImageNS3Change3Time,
-                                                    T1_change4: ImageNS3Change4Time,
-                                                    T1_change5: ImageNS3Change5Time,
-                                                    T1_change6: ImageNS3Change6Time,
-                                                    T1_change7: ImageNS3Change7Time,
-                                                    T1_change8: ImageNS3Change8Time},
-                                                    {Participant: participantID, T1_change1: ImageNS4Change1Time,
-                                                        T1_change2: ImageNS4Change2Time,
-                                                        T1_change3: ImageNS4Change3Time,
-                                                        T1_change4: ImageNS4Change4Time,
-                                                        T1_change5: ImageNS4Change5Time,
-                                                        T1_change6: ImageNS4Change6Time,
-                                                        T1_change7: ImageNS4Change7Time,
-                                                        T1_change8: ImageNS4Change8Time},
-                                                        {Participant: participantID, T1_change1: ImageNS5Change1Time,
-                                                            T1_change2: ImageNS5Change2Time,
-                                                            T1_change3: ImageNS5Change3Time,
-                                                            T1_change4: ImageNS5Change4Time,
-                                                            T1_change5: ImageNS5Change5Time,
-                                                            T1_change6: ImageNS5Change6Time,
-                                                            T1_change7: ImageNS5Change7Time,
-                                                            T1_change8: ImageNS5Change8Time},
+                                        T1_change8: Image12Change8Time},
+                                        
                 ]);
             
             } 
@@ -3143,8 +3235,8 @@ const Quiz = ({props}) => {
                 <div>
                     <div> Image 2</div>
                     <h2> Spot the Differences! </h2>
-                    <img src={Pic2A} alt="Picture 2A" height="20%" width="45%" onClick={pickAnswer2} />
-                    <img src={Pic2B} alt="Picture 2B" height="20%" width="45%" onClick={pickAnswer2}/>
+                    <img src={Pic2A} alt="Picture 2A" height="50%" width="50%" onClick={pickAnswer2} />
+                    <img src={Pic2B} alt="Picture 2B" height="50%" width="50%" onClick={pickAnswer2}/>
                     <Button onClick={() => goToNext(8)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
@@ -3164,8 +3256,8 @@ const Quiz = ({props}) => {
                 <div>
                     <div> Image 3</div>
                     <h1> Spot the Differences! </h1>
-                    <img src={Pic3A} alt="Picture 3A" height="20%" width="50%" onClick={pickAnswer3} />
-                    <img src={Pic3B} alt="Picture 3B" height="20%" width="50%" onClick={pickAnswer3}/>
+                    <img src={Pic3A} alt="Picture 3A" height="50%" width="50%" onClick={pickAnswer3} />
+                    <img src={Pic3B} alt="Picture 3B" height="50%" width="50%" onClick={pickAnswer3}/>
                     <Button onClick={() => goToNext(9)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
@@ -3229,7 +3321,9 @@ const Quiz = ({props}) => {
                     <h2> Spot the Differences! </h2>
                     <img src={Pic12A} alt="Picture 12A" height="50%" width="50%" onClick={pickAnswer12} />
                     <img src={Pic12B} alt="Picture 12B" height="50%" width="50%" onClick={pickAnswer12}/>
+                    <Button onClick={() => goToNext(12)}> Finish Game</Button>
                     {/* <div> Timer1: {counter}</div> */}
+                     
                 </div>
             ) : (showOver) ? (
                 <div>
@@ -3432,11 +3526,11 @@ const Quiz = ({props}) => {
             ) : null}
             {showImage1Change7 ? (
                 <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                <img alt="Pic1" height="50%" width="50%" src={Circle} style={{
                     position: "absolute",
                     left: `${Image1Change7Cord.x}px`,
                     top: `${Image1Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
+                <img height="50%" width="50%" src={Circle} style={{
                     position: "absolute",
                     left: `${Image1Change7Cord2.x}px`,
                     top: `${Image1Change7Cord2.y}px`, }}/>
