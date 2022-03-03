@@ -1390,17 +1390,17 @@ const Quiz = ({props}) => {
         const change7 = {x:595,y:159};
         const change8 = {x:502,y:90};
         var rect = e.target.getBoundingClientRect();
-        //console.log(e.clientX,e.clientY);
-        //console.log(rect.left,rect.top);
+        console.log(e.clientX,e.clientY);
+        console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
-        //console.log(x,y);
+        console.log(x,y);
         if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1414,7 +1414,7 @@ const Quiz = ({props}) => {
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1428,7 +1428,7 @@ const Quiz = ({props}) => {
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1442,7 +1442,7 @@ const Quiz = ({props}) => {
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1456,7 +1456,7 @@ const Quiz = ({props}) => {
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1470,7 +1470,7 @@ const Quiz = ({props}) => {
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1484,7 +1484,7 @@ const Quiz = ({props}) => {
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1498,7 +1498,7 @@ const Quiz = ({props}) => {
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage1Change8Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage1Change8Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage1Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1578,7 +1578,7 @@ const Quiz = ({props}) => {
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change1Time(timerLength-counter);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change1Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1592,7 +1592,7 @@ const Quiz = ({props}) => {
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change2Time(timerLength-counter);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change2Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1606,7 +1606,7 @@ const Quiz = ({props}) => {
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change3Time(timerLength-counter);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change3Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1620,7 +1620,7 @@ const Quiz = ({props}) => {
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change4Time(timerLength-counter);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change4Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1634,7 +1634,7 @@ const Quiz = ({props}) => {
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change5Time(timerLength-counter);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change5Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1648,7 +1648,7 @@ const Quiz = ({props}) => {
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change6Time(timerLength-counter);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change6Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1662,7 +1662,7 @@ const Quiz = ({props}) => {
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change7Time(timerLength-counter);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change7Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1677,7 +1677,7 @@ const Quiz = ({props}) => {
                 setCorrect(true);
                 setImage2Change8Time(timerLength-counter);
                 console.log(rect.left);
-                if(rect.left<e.target.width){
+                if(e.clientX<e.target.width){
                     setImage2Change8Cord({x: e.clientX-20,y:e.clientY-20});
                     setImage2Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
                 }
@@ -1756,7 +1756,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1770,7 +1770,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1784,7 +1784,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1798,7 +1798,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1812,7 +1812,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1826,7 +1826,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1840,7 +1840,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1854,7 +1854,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage3Change8Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage3Change8Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage3Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1933,7 +1933,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1947,7 +1947,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1961,7 +1961,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1975,7 +1975,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -1989,7 +1989,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2003,7 +2003,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2017,7 +2017,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2031,7 +2031,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
             setCorrect(true);
             setImage4Change8Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage4Change8Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage4Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2110,7 +2110,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2124,7 +2124,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2138,7 +2138,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2152,7 +2152,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2166,7 +2166,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2180,7 +2180,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2194,7 +2194,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2208,7 +2208,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
             setCorrect(true);
             setImage5Change8Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage5Change8Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage5Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2287,7 +2287,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2301,7 +2301,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2315,7 +2315,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2329,7 +2329,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2343,7 +2343,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2357,7 +2357,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2371,7 +2371,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2385,7 +2385,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
             setCorrect(true);
             setImage12Change8Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImage12Change8Cord({x: e.clientX-20,y:e.clientY-20});
                 setImage12Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2441,7 +2441,7 @@ const Quiz = ({props}) => {
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
-        //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
+        console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/418;
         const relativey = e.target.height/296;
         const buffer = 30;
@@ -2452,18 +2452,19 @@ const Quiz = ({props}) => {
         const change5 = {x:207,y:84};
         const change6 = {x:207,y:58};
         const change7 = {x:355,y:79};
+        const change8 = {x:364,y:233};
         var rect = e.target.getBoundingClientRect();
-        //console.log(e.clientX,e.clientY);
-        //console.log(rect.left,rect.top);
+        console.log(e.clientX,e.clientY);
+        console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
-        //console.log(x,y);
+        console.log(x,y);
         if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS1Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS1Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2477,7 +2478,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS1Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS1Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2491,7 +2492,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS1Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS1Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2505,7 +2506,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS1Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS1Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2514,12 +2515,12 @@ const Quiz = ({props}) => {
                 setImageNS1Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
+        }else if ((x >= (change5.x-10)*relativex && x <= (change5.x+10)*relativex && y >= (change5.y-10)*relativey && y <=  (change5.y+10)*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS1Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS1Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2528,12 +2529,12 @@ const Quiz = ({props}) => {
                 setImageNS1Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
+        }else if ((x >= (change6.x-10)*relativex && x <= (change6.x+10)*relativex && y >= (change6.y-10)*relativey && y <=  (change6.y+10)*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS1Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS1Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2547,7 +2548,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS1Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS1Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2556,6 +2557,20 @@ const Quiz = ({props}) => {
                 setImageNS1Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change7(true);
+        }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
+            //console.log("found tie");
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
+            setCorrect(true);
+            setImageNS1Change8Time(timerLength-counter);
+            if(e.clientX<e.target.width){
+                setImageNS1Change8Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNS1Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+            }
+            else{
+                setImageNS1Change8Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNS1Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+            }
+            setShowImageNS1Change8(true);
         }
          else {
             setWrong(true);
@@ -2565,7 +2580,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[6] == 5){
+        if (pts[6] == 7){
             console.log("move to 2");
             setShowImageNS1Change1(false);
             setShowImageNS1Change2(false);
@@ -2574,6 +2589,8 @@ const Quiz = ({props}) => {
             setShowImageNS1Change5(false);
             setShowImageNS1Change6(false);
             setShowImageNS1Change7(false);
+            setShowImageNS1Change8(false);
+
 
             setShowPauseNS1(true);
             setShowNS1(false);
@@ -2585,7 +2602,9 @@ const Quiz = ({props}) => {
                 T1_change4: ImageNS1Change4Time,
                 T1_change5: ImageNS1Change5Time,
                 T1_change6: ImageNS1Change6Time,
-                T1_change7: ImageNS1Change7Time}]);
+                T1_change7: ImageNS1Change7Time,
+                T1_change8: ImageNS1Change8Time,
+            }]);
         }
     }
     const pickAnswerNS2 = (e) => {
@@ -2596,6 +2615,7 @@ const Quiz = ({props}) => {
         setShowImageNS1Change5(false);
         setShowImageNS1Change6(false);
         setShowImageNS1Change7(false);
+        setShowImageNS1Change8(false);
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
@@ -2610,7 +2630,7 @@ const Quiz = ({props}) => {
         const change4 = {x:438,y:622};
         const change5 = {x:725,y:666};
         const change6 = {x:490,y:915};
-        const change7 = {x:1211,y:905};
+        const change7 = {x:1211,y:897};
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
@@ -2622,7 +2642,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
             setCorrect(true);
             setImageNS2Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS2Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS2Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2636,7 +2656,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
             setCorrect(true);
             setImageNS2Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS2Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS2Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2650,7 +2670,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
             setCorrect(true);
             setImageNS2Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS2Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS2Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2664,7 +2684,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
             setCorrect(true);
             setImageNS2Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS2Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS2Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2678,7 +2698,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
             setCorrect(true);
             setImageNS2Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS2Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS2Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2692,7 +2712,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
             setCorrect(true);
             setImageNS2Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS2Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS2Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2706,7 +2726,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
             setCorrect(true);
             setImageNS2Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS2Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS2Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2780,7 +2800,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
             setCorrect(true);
             setImageNS3Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS3Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS3Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2794,7 +2814,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
             setCorrect(true);
             setImageNS3Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS3Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS3Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2808,7 +2828,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
             setCorrect(true);
             setImageNS3Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS3Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS3Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2822,7 +2842,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
             setCorrect(true);
             setImageNS3Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS3Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS3Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2836,7 +2856,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
             setCorrect(true);
             setImageNS3Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS3Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS3Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2850,7 +2870,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
             setCorrect(true);
             setImageNS3Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS3Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS3Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2921,7 +2941,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
             setCorrect(true);
             setImageNS4Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS4Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS4Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2935,7 +2955,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
             setCorrect(true);
             setImageNS4Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS4Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS4Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2949,7 +2969,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
             setCorrect(true);
             setImageNS4Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS4Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS4Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2963,7 +2983,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
             setCorrect(true);
             setImageNS4Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS4Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS4Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2977,7 +2997,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]); 
             setCorrect(true);
             setImageNS4Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS4Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS4Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -2991,7 +3011,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
             setCorrect(true);
             setImageNS4Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS4Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS4Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3059,7 +3079,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
             setCorrect(true);
             setImageNS5Change1Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS5Change1Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS5Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3073,7 +3093,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
             setCorrect(true);
             setImageNS5Change2Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS5Change2Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS5Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3087,7 +3107,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
             setCorrect(true);
             setImageNS5Change3Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS5Change3Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS5Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3101,7 +3121,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
             setCorrect(true);
             setImageNS5Change4Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS5Change4Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS5Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3115,7 +3135,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
             setCorrect(true);
             setImageNS5Change5Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS5Change5Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS5Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3129,7 +3149,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
             setCorrect(true);
             setImageNS5Change6Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS5Change6Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS5Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3143,7 +3163,7 @@ const Quiz = ({props}) => {
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
             setCorrect(true);
             setImageNS5Change7Time(timerLength-counter);
-            if(rect.left<e.target.width){
+            if(e.clientX<e.target.width){
                 setImageNS5Change7Cord({x: e.clientX-20,y:e.clientY-20});
                 setImageNS5Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
@@ -3350,7 +3370,7 @@ const Quiz = ({props}) => {
                 </div>
             ) : (showPauseNS1) ? (
                 <>
-                    <Title >Great! You got {pts[6]} out of 6! 🥳</Title>
+                    <Title >Great! You got {pts[6]} out of 8! 🥳</Title>
                     <Button onClick={() => goToNext(2)}> Next</Button>
                     <div> </div>
                     <h1> </h1>
@@ -3526,11 +3546,11 @@ const Quiz = ({props}) => {
             ) : null}
             {showImage1Change7 ? (
                 <div>
-                <img alt="Pic1" height="50%" width="50%" src={Circle} style={{
+                <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
                     left: `${Image1Change7Cord.x}px`,
                     top: `${Image1Change7Cord.y}px`, }}/>
-                <img height="50%" width="50%" src={Circle} style={{
+                <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
                     left: `${Image1Change7Cord2.x}px`,
                     top: `${Image1Change7Cord2.y}px`, }}/>
@@ -4117,6 +4137,18 @@ const Quiz = ({props}) => {
                     position: "absolute",
                     left: `${ImageNS1Change7Cord2.x}px`,
                     top: `${ImageNS1Change7Cord2.y}px`, }}/>
+                </div>
+            ) : null}
+            {showImageNS1Change8 ? (
+                <div>
+                <img alt="Pic1" height="50" width="50" src={Circle} style={{
+                    position: "absolute",
+                    left: `${ImageNS1Change8Cord.x}px`,
+                    top: `${ImageNS1Change8Cord.y}px`, }}/>
+                <img height="50" width="50" src={Circle} style={{
+                    position: "absolute",
+                    left: `${ImageNS1Change8Cord2.x}px`,
+                    top: `${ImageNS1Change8Cord2.y}px`, }}/>
                 </div>
             ) : null}
             {/* Green circles for the changes in ImageNS2 */}
