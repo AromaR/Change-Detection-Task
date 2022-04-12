@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import GameOver from './GameOver';
-import Pic1A from '../Image 1_original (1).jpg';
-import Pic1B from '../Image 1 Change_final.jpg';
-import Pic2A from '../Image 2_original (1).jpg'
-import Pic2B from '../Image 2 Change_final.jpg'
-import Pic3A from '../Image 3_original.jpg'
-import Pic3B from '../Image 3 Change_final.jpg'
-import Pic4A from '../Image 4_original.jpg'
-import Pic4B from '../Image 4 Change_final.jpg'
-import Pic5A from '../Image 5 original.jpg'
-import Pic5B from '../Image 5 Change_final.jpg'
-import Pic12A from '../Image 12 original.jpg'
-import Pic12B from '../Image 12 Change_final.jpg'
-import NsPic1A from '../nonsocial_1_original.png'
-import NsPic1B from '../nonsocial_1_change.png'
-import NsPic2A from '../nonsocial_2_original.png'
-import NsPic2B from '../nonsocial_2_change.png'
-import NsPic3A from '../nonsocial_3_original.png'
-import NsPic3B from '../nonsocial_3_change.png'
-import NsPic4A from '../nonsocial_4_original.png'
-import NsPic4B from '../nonsocial_4_change.png'
-import NsPic5A from '../nonsocial_5_original.png'
-import NsPic5B from '../nonsocial_5_change.png'
+import GameOver from './GameOver'
+import Pic1A from '../Image1_original.jpg'
+import Pic1B from '../Image1_changed.png'
+import Pic2A from '../Image2_original.jpg'
+import Pic2B from '../Image2_changed.png'
+import Pic3A from '../Image3_original.jpg'
+import Pic3B from '../Image3_changed.png'
+import PicNS1A from '../nonsocial1_original.JPG'
+import PicNS1B from '../nonsocial1_changed.png'
+import PicNS2A from '../nonsocial2original.jpeg'
+import PicNS2B from '../nonsocial2_changed.jpg'
+import PicNS3A from '../nonsocial3original.jpeg'
+import PicNS3B from '../nonsocial3changed.png'
+import PicNST1A from '../nonsocialtraining1.jpeg'
+import PicNST1B from '../nonsocial_training_1_changed.jpg'
+import PicNST2A from '../nonsocial_training_2.jpeg'
+import PicNST2B from '../nonsocial_training_2_changed.png'
 import Circle from '../kisspng-disk-green-circle-5af97c364e1283.3175421115262997023198.png'
 import Button from './Button'
 import { CSVLink, CSVDownload } from "react-csv";
@@ -93,7 +87,7 @@ const Quiz = ({props}) => {
         setShowPause(true);
     }
     const [timerLength, setTimerLength] = useState(60);
-    const [pts, setPts] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const [pts, setPts] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
     const [correct, setCorrect] = useState(false);
     const [wrong, setWrong] = useState(false);
     const [counter, setCounter] = useState(timerLength);
@@ -128,36 +122,6 @@ const Quiz = ({props}) => {
     const [Image3Change7, setImage3Change7] = useState(-1);
     const [Image3Change8, setImage3Change8] = useState(-1);
 
-    //Image 4 times to find each change
-    const [Image4Change1, setImage4Change1] = useState(-1);
-    const [Image4Change2, setImage4Change2] = useState(-1);
-    const [Image4Change3, setImage4Change3] = useState(-1);
-    const [Image4Change4, setImage4Change4] = useState(-1);
-    const [Image4Change5, setImage4Change5] = useState(-1);
-    const [Image4Change6, setImage4Change6] = useState(-1);
-    const [Image4Change7, setImage4Change7] = useState(-1);
-    const [Image4Change8, setImage4Change8] = useState(-1);
-
-    //Image 5 times to find each change
-    const [Image5Change1, setImage5Change1] = useState(-1);
-    const [Image5Change2, setImage5Change2] = useState(-1);
-    const [Image5Change3, setImage5Change3] = useState(-1);
-    const [Image5Change4, setImage5Change4] = useState(-1);
-    const [Image5Change5, setImage5Change5] = useState(-1);
-    const [Image5Change6, setImage5Change6] = useState(-1);
-    const [Image5Change7, setImage5Change7] = useState(-1);
-    const [Image5Change8, setImage5Change8] = useState(-1);
-
-    //Image 12 times to find each change
-    const [Image12Change1, setImage12Change1] = useState(-1);
-    const [Image12Change2, setImage12Change2] = useState(-1);
-    const [Image12Change3, setImage12Change3] = useState(-1);
-    const [Image12Change4, setImage12Change4] = useState(-1);
-    const [Image12Change5, setImage12Change5] = useState(-1);
-    const [Image12Change6, setImage12Change6] = useState(-1);
-    const [Image12Change7, setImage12Change7] = useState(-1);
-    const [Image12Change8, setImage12Change8] = useState(-1);
-
     //Image NS1 times to find each change
     const [ImageNS1Change1, setImageNS1Change1] = useState(-1);
     const [ImageNS1Change2, setImageNS1Change2] = useState(-1);
@@ -188,25 +152,25 @@ const Quiz = ({props}) => {
     const [ImageNS3Change7, setImageNS3Change7] = useState(-1);
     const [ImageNS3Change8, setImageNS3Change8] = useState(-1);
 
-    //Image NS4 times to find each change
-    const [ImageNS4Change1, setImageNS4Change1] = useState(-1);
-    const [ImageNS4Change2, setImageNS4Change2] = useState(-1);
-    const [ImageNS4Change3, setImageNS4Change3] = useState(-1);
-    const [ImageNS4Change4, setImageNS4Change4] = useState(-1);
-    const [ImageNS4Change5, setImageNS4Change5] = useState(-1);
-    const [ImageNS4Change6, setImageNS4Change6] = useState(-1);
-    const [ImageNS4Change7, setImageNS4Change7] = useState(-1);
-    const [ImageNS4Change8, setImageNS4Change8] = useState(-1);
+    //Image NST1 times to find each change
+    const [ImageNST1Change1, setImageNST1Change1] = useState(-1);
+    const [ImageNST1Change2, setImageNST1Change2] = useState(-1);
+    const [ImageNST1Change3, setImageNST1Change3] = useState(-1);
+    const [ImageNST1Change4, setImageNST1Change4] = useState(-1);
+    const [ImageNST1Change5, setImageNST1Change5] = useState(-1);
+    const [ImageNST1Change6, setImageNST1Change6] = useState(-1);
+    const [ImageNST1Change7, setImageNST1Change7] = useState(-1);
+    const [ImageNST1Change8, setImageNST1Change8] = useState(-1);
 
-    //Image NS5 times to find each change
-    const [ImageNS5Change1, setImageNS5Change1] = useState(-1);
-    const [ImageNS5Change2, setImageNS5Change2] = useState(-1);
-    const [ImageNS5Change3, setImageNS5Change3] = useState(-1);
-    const [ImageNS5Change4, setImageNS5Change4] = useState(-1);
-    const [ImageNS5Change5, setImageNS5Change5] = useState(-1);
-    const [ImageNS5Change6, setImageNS5Change6] = useState(-1);
-    const [ImageNS5Change7, setImageNS5Change7] = useState(-1);
-    const [ImageNS5Change8, setImageNS5Change8] = useState(-1);
+    //Image NST2 times to find each change
+    const [ImageNST2Change1, setImageNST2Change1] = useState(-1);
+    const [ImageNST2Change2, setImageNST2Change2] = useState(-1);
+    const [ImageNST2Change3, setImageNST2Change3] = useState(-1);
+    const [ImageNST2Change4, setImageNST2Change4] = useState(-1);
+    const [ImageNST2Change5, setImageNST2Change5] = useState(-1);
+    const [ImageNST2Change6, setImageNST2Change6] = useState(-1);
+    const [ImageNST2Change7, setImageNST2Change7] = useState(-1);
+    const [ImageNST2Change8, setImageNST2Change8] = useState(-1);
 
     //Image 1 times to find each change
     const [Image1Change1Time, setImage1Change1Time] = useState(-1);
@@ -238,36 +202,6 @@ const Quiz = ({props}) => {
     const [Image3Change7Time, setImage3Change7Time] = useState(-1);
     const [Image3Change8Time, setImage3Change8Time] = useState(-1);
 
-    //Image 4 times to find each change
-    const [Image4Change1Time, setImage4Change1Time] = useState(-1);
-    const [Image4Change2Time, setImage4Change2Time] = useState(-1);
-    const [Image4Change3Time, setImage4Change3Time] = useState(-1);
-    const [Image4Change4Time, setImage4Change4Time] = useState(-1);
-    const [Image4Change5Time, setImage4Change5Time] = useState(-1);
-    const [Image4Change6Time, setImage4Change6Time] = useState(-1);
-    const [Image4Change7Time, setImage4Change7Time] = useState(-1);
-    const [Image4Change8Time, setImage4Change8Time] = useState(-1);
-
-    //Image 5 times to find each change
-    const [Image5Change1Time, setImage5Change1Time] = useState(-1);
-    const [Image5Change2Time, setImage5Change2Time] = useState(-1);
-    const [Image5Change3Time, setImage5Change3Time] = useState(-1);
-    const [Image5Change4Time, setImage5Change4Time] = useState(-1);
-    const [Image5Change5Time, setImage5Change5Time] = useState(-1);
-    const [Image5Change6Time, setImage5Change6Time] = useState(-1);
-    const [Image5Change7Time, setImage5Change7Time] = useState(-1);
-    const [Image5Change8Time, setImage5Change8Time] = useState(-1);
-
-    //Image 12 times to find each change
-    const [Image12Change1Time, setImage12Change1Time] = useState(-1);
-    const [Image12Change2Time, setImage12Change2Time] = useState(-1);
-    const [Image12Change3Time, setImage12Change3Time] = useState(-1);
-    const [Image12Change4Time, setImage12Change4Time] = useState(-1);
-    const [Image12Change5Time, setImage12Change5Time] = useState(-1);
-    const [Image12Change6Time, setImage12Change6Time] = useState(-1);
-    const [Image12Change7Time, setImage12Change7Time] = useState(-1);
-    const [Image12Change8Time, setImage12Change8Time] = useState(-1);
-
     //Image NS1 times to find each change
     const [ImageNS1Change1Time, setImageNS1Change1Time] = useState(-1);
     const [ImageNS1Change2Time, setImageNS1Change2Time] = useState(-1);
@@ -298,25 +232,25 @@ const Quiz = ({props}) => {
     const [ImageNS3Change7Time, setImageNS3Change7Time] = useState(-1);
     const [ImageNS3Change8Time, setImageNS3Change8Time] = useState(-1);
 
-    //Image NS4 times to find each change
-    const [ImageNS4Change1Time, setImageNS4Change1Time] = useState(-1);
-    const [ImageNS4Change2Time, setImageNS4Change2Time] = useState(-1);
-    const [ImageNS4Change3Time, setImageNS4Change3Time] = useState(-1);
-    const [ImageNS4Change4Time, setImageNS4Change4Time] = useState(-1);
-    const [ImageNS4Change5Time, setImageNS4Change5Time] = useState(-1);
-    const [ImageNS4Change6Time, setImageNS4Change6Time] = useState(-1);
-    const [ImageNS4Change7Time, setImageNS4Change7Time] = useState(-1);
-    const [ImageNS4Change8Time, setImageNS4Change8Time] = useState(-1);
+    //Image NST1 times to find each change
+    const [ImageNST1Change1Time, setImageNST1Change1Time] = useState(-1);
+    const [ImageNST1Change2Time, setImageNST1Change2Time] = useState(-1);
+    const [ImageNST1Change3Time, setImageNST1Change3Time] = useState(-1);
+    const [ImageNST1Change4Time, setImageNST1Change4Time] = useState(-1);
+    const [ImageNST1Change5Time, setImageNST1Change5Time] = useState(-1);
+    const [ImageNST1Change6Time, setImageNST1Change6Time] = useState(-1);
+    const [ImageNST1Change7Time, setImageNST1Change7Time] = useState(-1);
+    const [ImageNST1Change8Time, setImageNST1Change8Time] = useState(-1);
 
-    //Image NS5 times to find each change
-    const [ImageNS5Change1Time, setImageNS5Change1Time] = useState(-1);
-    const [ImageNS5Change2Time, setImageNS5Change2Time] = useState(-1);
-    const [ImageNS5Change3Time, setImageNS5Change3Time] = useState(-1);
-    const [ImageNS5Change4Time, setImageNS5Change4Time] = useState(-1);
-    const [ImageNS5Change5Time, setImageNS5Change5Time] = useState(-1);
-    const [ImageNS5Change6Time, setImageNS5Change6Time] = useState(-1);
-    const [ImageNS5Change7Time, setImageNS5Change7Time] = useState(-1);
-    const [ImageNS5Change8Time, setImageNS5Change8Time] = useState(-1);
+    //Image NST2 times to find each change
+    const [ImageNST2Change1Time, setImageNST2Change1Time] = useState(-1);
+    const [ImageNST2Change2Time, setImageNST2Change2Time] = useState(-1);
+    const [ImageNST2Change3Time, setImageNST2Change3Time] = useState(-1);
+    const [ImageNST2Change4Time, setImageNST2Change4Time] = useState(-1);
+    const [ImageNST2Change5Time, setImageNST2Change5Time] = useState(-1);
+    const [ImageNST2Change6Time, setImageNST2Change6Time] = useState(-1);
+    const [ImageNST2Change7Time, setImageNST2Change7Time] = useState(-1);
+    const [ImageNST2Change8Time, setImageNST2Change8Time] = useState(-1);
 	
 	//variables to control highlighting found changes in Image 1
     const [showImage1Change1, setShowImage1Change1] = useState(false);
@@ -348,36 +282,6 @@ const Quiz = ({props}) => {
     const [showImage3Change7, setShowImage3Change7] = useState(false);
     const [showImage3Change8, setShowImage3Change8] = useState(false);
 	
-	//variables to control highlighting found changes in Image 4
-    const [showImage4Change1, setShowImage4Change1] = useState(false);
-    const [showImage4Change2, setShowImage4Change2] = useState(false);
-    const [showImage4Change3, setShowImage4Change3] = useState(false);
-    const [showImage4Change4, setShowImage4Change4] = useState(false);
-    const [showImage4Change5, setShowImage4Change5] = useState(false);
-    const [showImage4Change6, setShowImage4Change6] = useState(false);
-    const [showImage4Change7, setShowImage4Change7] = useState(false);
-    const [showImage4Change8, setShowImage4Change8] = useState(false);
-	
-	//variables to control highlighting found changes in Image 5
-    const [showImage5Change1, setShowImage5Change1] = useState(false);
-    const [showImage5Change2, setShowImage5Change2] = useState(false);
-    const [showImage5Change3, setShowImage5Change3] = useState(false);
-    const [showImage5Change4, setShowImage5Change4] = useState(false);
-    const [showImage5Change5, setShowImage5Change5] = useState(false);
-    const [showImage5Change6, setShowImage5Change6] = useState(false);
-    const [showImage5Change7, setShowImage5Change7] = useState(false);
-    const [showImage5Change8, setShowImage5Change8] = useState(false);
-	
-	//variables to control highlighting found changes in Image 12
-    const [showImage12Change1, setShowImage12Change1] = useState(false);
-    const [showImage12Change2, setShowImage12Change2] = useState(false);
-    const [showImage12Change3, setShowImage12Change3] = useState(false);
-    const [showImage12Change4, setShowImage12Change4] = useState(false);
-    const [showImage12Change5, setShowImage12Change5] = useState(false);
-    const [showImage12Change6, setShowImage12Change6] = useState(false);
-    const [showImage12Change7, setShowImage12Change7] = useState(false);
-    const [showImage12Change8, setShowImage12Change8] = useState(false);
-	
 	//variables to control highlighting found changes in Image NS1
     const [showImageNS1Change1, setShowImageNS1Change1] = useState(false);
     const [showImageNS1Change2, setShowImageNS1Change2] = useState(false);
@@ -408,25 +312,25 @@ const Quiz = ({props}) => {
     const [showImageNS3Change7, setShowImageNS3Change7] = useState(false);
     const [showImageNS3Change8, setShowImageNS3Change8] = useState(false);
 	
-	//variables to control highlighting found changes in Image NS4
-    const [showImageNS4Change1, setShowImageNS4Change1] = useState(false);
-    const [showImageNS4Change2, setShowImageNS4Change2] = useState(false);
-    const [showImageNS4Change3, setShowImageNS4Change3] = useState(false);
-    const [showImageNS4Change4, setShowImageNS4Change4] = useState(false);
-    const [showImageNS4Change5, setShowImageNS4Change5] = useState(false);
-    const [showImageNS4Change6, setShowImageNS4Change6] = useState(false);
-    const [showImageNS4Change7, setShowImageNS4Change7] = useState(false);
-    const [showImageNS4Change8, setShowImageNS4Change8] = useState(false);
+	//variables to control highlighting found changes in Image NST1
+    const [showImageNST1Change1, setShowImageNST1Change1] = useState(false);
+    const [showImageNST1Change2, setShowImageNST1Change2] = useState(false);
+    const [showImageNST1Change3, setShowImageNST1Change3] = useState(false);
+    const [showImageNST1Change4, setShowImageNST1Change4] = useState(false);
+    const [showImageNST1Change5, setShowImageNST1Change5] = useState(false);
+    const [showImageNST1Change6, setShowImageNST1Change6] = useState(false);
+    const [showImageNST1Change7, setShowImageNST1Change7] = useState(false);
+    const [showImageNST1Change8, setShowImageNST1Change8] = useState(false);
 	
-	//variables to control highlighting found changes in Image NS5
-    const [showImageNS5Change1, setShowImageNS5Change1] = useState(false);
-    const [showImageNS5Change2, setShowImageNS5Change2] = useState(false);
-    const [showImageNS5Change3, setShowImageNS5Change3] = useState(false);
-    const [showImageNS5Change4, setShowImageNS5Change4] = useState(false);
-    const [showImageNS5Change5, setShowImageNS5Change5] = useState(false);
-    const [showImageNS5Change6, setShowImageNS5Change6] = useState(false);
-    const [showImageNS5Change7, setShowImageNS5Change7] = useState(false);
-    const [showImageNS5Change8, setShowImageNS5Change8] = useState(false);
+	//variables to control highlighting found changes in Image NST2
+    const [showImageNST2Change1, setShowImageNST2Change1] = useState(false);
+    const [showImageNST2Change2, setShowImageNST2Change2] = useState(false);
+    const [showImageNST2Change3, setShowImageNST2Change3] = useState(false);
+    const [showImageNST2Change4, setShowImageNST2Change4] = useState(false);
+    const [showImageNST2Change5, setShowImageNST2Change5] = useState(false);
+    const [showImageNST2Change6, setShowImageNST2Change6] = useState(false);
+    const [showImageNST2Change7, setShowImageNST2Change7] = useState(false);
+    const [showImageNST2Change8, setShowImageNST2Change8] = useState(false);
 	
 	//coordinates for Image1
 	
@@ -485,63 +389,6 @@ const Quiz = ({props}) => {
 	const [Image3Change8Cord, setImage3Change8Cord] = useState({x: 0, y: 0});
 	const [Image3Change8Cord2, setImage3Change8Cord2] = useState({x: 0, y: 0});
 	
-	//coordinates for Image4
-	
-	const [Image4Change1Cord, setImage4Change1Cord] = useState({x: 0, y: 0});
-	const [Image4Change1Cord2, setImage4Change1Cord2] = useState({x: 0, y: 0});
-	const [Image4Change2Cord, setImage4Change2Cord] = useState({x: 0, y: 0});
-	const [Image4Change2Cord2, setImage4Change2Cord2] = useState({x: 0, y: 0});
-	const [Image4Change3Cord, setImage4Change3Cord] = useState({x: 0, y: 0});
-	const [Image4Change3Cord2, setImage4Change3Cord2] = useState({x: 0, y: 0});
-	const [Image4Change4Cord, setImage4Change4Cord] = useState({x: 0, y: 0});
-	const [Image4Change4Cord2, setImage4Change4Cord2] = useState({x: 0, y: 0});
-	const [Image4Change5Cord, setImage4Change5Cord] = useState({x: 0, y: 0});
-	const [Image4Change5Cord2, setImage4Change5Cord2] = useState({x: 0, y: 0});
-	const [Image4Change6Cord, setImage4Change6Cord] = useState({x: 0, y: 0});
-	const [Image4Change6Cord2, setImage4Change6Cord2] = useState({x: 0, y: 0});
-	const [Image4Change7Cord, setImage4Change7Cord] = useState({x: 0, y: 0});
-	const [Image4Change7Cord2, setImage4Change7Cord2] = useState({x: 0, y: 0});
-	const [Image4Change8Cord, setImage4Change8Cord] = useState({x: 0, y: 0});
-	const [Image4Change8Cord2, setImage4Change8Cord2] = useState({x: 0, y: 0});
-	
-	//coordinates for Image5
-	
-	const [Image5Change1Cord, setImage5Change1Cord] = useState({x: 0, y: 0});
-	const [Image5Change1Cord2, setImage5Change1Cord2] = useState({x: 0, y: 0});
-	const [Image5Change2Cord, setImage5Change2Cord] = useState({x: 0, y: 0});
-	const [Image5Change2Cord2, setImage5Change2Cord2] = useState({x: 0, y: 0});
-	const [Image5Change3Cord, setImage5Change3Cord] = useState({x: 0, y: 0});
-	const [Image5Change3Cord2, setImage5Change3Cord2] = useState({x: 0, y: 0});
-	const [Image5Change4Cord, setImage5Change4Cord] = useState({x: 0, y: 0});
-	const [Image5Change4Cord2, setImage5Change4Cord2] = useState({x: 0, y: 0});
-	const [Image5Change5Cord, setImage5Change5Cord] = useState({x: 0, y: 0});
-	const [Image5Change5Cord2, setImage5Change5Cord2] = useState({x: 0, y: 0});
-	const [Image5Change6Cord, setImage5Change6Cord] = useState({x: 0, y: 0});
-	const [Image5Change6Cord2, setImage5Change6Cord2] = useState({x: 0, y: 0});
-	const [Image5Change7Cord, setImage5Change7Cord] = useState({x: 0, y: 0});
-	const [Image5Change7Cord2, setImage5Change7Cord2] = useState({x: 0, y: 0});
-	const [Image5Change8Cord, setImage5Change8Cord] = useState({x: 0, y: 0});
-	const [Image5Change8Cord2, setImage5Change8Cord2] = useState({x: 0, y: 0});
-	
-	//coordinates for Image12
-	
-	const [Image12Change1Cord, setImage12Change1Cord] = useState({x: 0, y: 0});
-	const [Image12Change1Cord2, setImage12Change1Cord2] = useState({x: 0, y: 0});
-	const [Image12Change2Cord, setImage12Change2Cord] = useState({x: 0, y: 0});
-	const [Image12Change2Cord2, setImage12Change2Cord2] = useState({x: 0, y: 0});
-	const [Image12Change3Cord, setImage12Change3Cord] = useState({x: 0, y: 0});
-	const [Image12Change3Cord2, setImage12Change3Cord2] = useState({x: 0, y: 0});
-	const [Image12Change4Cord, setImage12Change4Cord] = useState({x: 0, y: 0});
-	const [Image12Change4Cord2, setImage12Change4Cord2] = useState({x: 0, y: 0});
-	const [Image12Change5Cord, setImage12Change5Cord] = useState({x: 0, y: 0});
-	const [Image12Change5Cord2, setImage12Change5Cord2] = useState({x: 0, y: 0});
-	const [Image12Change6Cord, setImage12Change6Cord] = useState({x: 0, y: 0});
-	const [Image12Change6Cord2, setImage12Change6Cord2] = useState({x: 0, y: 0});
-	const [Image12Change7Cord, setImage12Change7Cord] = useState({x: 0, y: 0});
-	const [Image12Change7Cord2, setImage12Change7Cord2] = useState({x: 0, y: 0});
-	const [Image12Change8Cord, setImage12Change8Cord] = useState({x: 0, y: 0});
-	const [Image12Change8Cord2, setImage12Change8Cord2] = useState({x: 0, y: 0});
-	
 	//coordinates for ImageNS1
 	
 	const [ImageNS1Change1Cord, setImageNS1Change1Cord] = useState({x: 0, y: 0});
@@ -599,57 +446,54 @@ const Quiz = ({props}) => {
 	const [ImageNS3Change8Cord, setImageNS3Change8Cord] = useState({x: 0, y: 0});
 	const [ImageNS3Change8Cord2, setImageNS3Change8Cord2] = useState({x: 0, y: 0});
 	
-	//coordinates for ImageNS4
+	//coordinates for ImageNST1
 	
-	const [ImageNS4Change1Cord, setImageNS4Change1Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change1Cord2, setImageNS4Change1Cord2] = useState({x: 0, y: 0});
-	const [ImageNS4Change2Cord, setImageNS4Change2Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change2Cord2, setImageNS4Change2Cord2] = useState({x: 0, y: 0});
-	const [ImageNS4Change3Cord, setImageNS4Change3Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change3Cord2, setImageNS4Change3Cord2] = useState({x: 0, y: 0});
-	const [ImageNS4Change4Cord, setImageNS4Change4Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change4Cord2, setImageNS4Change4Cord2] = useState({x: 0, y: 0});
-	const [ImageNS4Change5Cord, setImageNS4Change5Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change5Cord2, setImageNS4Change5Cord2] = useState({x: 0, y: 0});
-	const [ImageNS4Change6Cord, setImageNS4Change6Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change6Cord2, setImageNS4Change6Cord2] = useState({x: 0, y: 0});
-	const [ImageNS4Change7Cord, setImageNS4Change7Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change7Cord2, setImageNS4Change7Cord2] = useState({x: 0, y: 0});
-	const [ImageNS4Change8Cord, setImageNS4Change8Cord] = useState({x: 0, y: 0});
-	const [ImageNS4Change8Cord2, setImageNS4Change8Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change1Cord, setImageNST1Change1Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change1Cord2, setImageNST1Change1Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change2Cord, setImageNST1Change2Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change2Cord2, setImageNST1Change2Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change3Cord, setImageNST1Change3Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change3Cord2, setImageNST1Change3Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change4Cord, setImageNST1Change4Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change4Cord2, setImageNST1Change4Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change5Cord, setImageNST1Change5Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change5Cord2, setImageNST1Change5Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change6Cord, setImageNST1Change6Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change6Cord2, setImageNST1Change6Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change7Cord, setImageNST1Change7Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change7Cord2, setImageNST1Change7Cord2] = useState({x: 0, y: 0});
+	const [ImageNST1Change8Cord, setImageNST1Change8Cord] = useState({x: 0, y: 0});
+	const [ImageNST1Change8Cord2, setImageNST1Change8Cord2] = useState({x: 0, y: 0});
 	
-	//coordinates for ImageNS5
+	//coordinates for ImageNST2
 	
-	const [ImageNS5Change1Cord, setImageNS5Change1Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change1Cord2, setImageNS5Change1Cord2] = useState({x: 0, y: 0});
-	const [ImageNS5Change2Cord, setImageNS5Change2Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change2Cord2, setImageNS5Change2Cord2] = useState({x: 0, y: 0});
-	const [ImageNS5Change3Cord, setImageNS5Change3Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change3Cord2, setImageNS5Change3Cord2] = useState({x: 0, y: 0});
-	const [ImageNS5Change4Cord, setImageNS5Change4Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change4Cord2, setImageNS5Change4Cord2] = useState({x: 0, y: 0});
-	const [ImageNS5Change5Cord, setImageNS5Change5Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change5Cord2, setImageNS5Change5Cord2] = useState({x: 0, y: 0});
-	const [ImageNS5Change6Cord, setImageNS5Change6Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change6Cord2, setImageNS5Change6Cord2] = useState({x: 0, y: 0});
-	const [ImageNS5Change7Cord, setImageNS5Change7Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change7Cord2, setImageNS5Change7Cord2] = useState({x: 0, y: 0});
-	const [ImageNS5Change8Cord, setImageNS5Change8Cord] = useState({x: 0, y: 0});
-	const [ImageNS5Change8Cord2, setImageNS5Change8Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change1Cord, setImageNST2Change1Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change1Cord2, setImageNST2Change1Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change2Cord, setImageNST2Change2Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change2Cord2, setImageNST2Change2Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change3Cord, setImageNST2Change3Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change3Cord2, setImageNST2Change3Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change4Cord, setImageNST2Change4Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change4Cord2, setImageNST2Change4Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change5Cord, setImageNST2Change5Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change5Cord2, setImageNST2Change5Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change6Cord, setImageNST2Change6Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change6Cord2, setImageNST2Change6Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change7Cord, setImageNST2Change7Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change7Cord2, setImageNST2Change7Cord2] = useState({x: 0, y: 0});
+	const [ImageNST2Change8Cord, setImageNST2Change8Cord] = useState({x: 0, y: 0});
+	const [ImageNST2Change8Cord2, setImageNST2Change8Cord2] = useState({x: 0, y: 0});
 
     // variables to control showing each set of Images
     const[show, setShow] = useState(true);
     const[show1, setShow1] = useState(false);
     const[show2, setShow2] = useState(false);
     const[show3, setShow3] = useState(false);
-    const[show4, setShow4] = useState(false);
-    const[show5, setShow5] = useState(false);
-    const[show12, setShow12] = useState(false);
     const[showNS1, setShowNS1] = useState(false);
     const[showNS2, setShowNS2] = useState(false);
     const[showNS3, setShowNS3] = useState(false);
-    const[showNS4, setShowNS4] = useState(false);
-    const[showNS5, setShowNS5] = useState(false);
+    const[showNST1, setShowNST1] = useState(false);
+    const[showNST2, setShowNST2] = useState(false);
     const[showOver, setShowOver] = useState(false);
 
     //variables to control showing the 'Next' pages in between Images
@@ -657,14 +501,11 @@ const Quiz = ({props}) => {
     const[showPause1, setShowPause1] = useState(false);
     const[showPause2, setShowPause2] = useState(false);
     const[showPause3, setShowPause3] = useState(false);
-    const[showPause4, setShowPause4] = useState(false);
-    const[showPause5, setShowPause5] = useState(false);
-    const[showPause12, setShowPause12] = useState(false);
     const[showPauseNS1, setShowPauseNS1] = useState(false);
     const[showPauseNS2, setShowPauseNS2] = useState(false);
     const[showPauseNS3, setShowPauseNS3] = useState(false);
-    const[showPauseNS4, setShowPauseNS4] = useState(false);
-    const[showPauseNS5, setShowPauseNS5] = useState(false);
+    const[showPauseNST1, setShowPauseNST1] = useState(false);
+    const[showPauseNST2, setShowPauseNST2] = useState(false);
     const[go, setGo] = useState(true);
     const[index, setIndex] = useState(0);
 
@@ -672,47 +513,67 @@ const Quiz = ({props}) => {
     const [times1, setTimes1] = useState([]);
     const [times2, setTimes2] = useState([]);
     const [times3, setTimes3] = useState([]);
-    const [times4, setTimes4] = useState([]);
-    const [times5, setTimes5] = useState([]);
-    const [times12, setTimes12] = useState([]);
     const [timesNS1, setTimesNS1] = useState([]);
     const [timesNS2, setTimesNS2] = useState([]);
     const [timesNS3, setTimesNS3] = useState([]);
-    const [timesNS4, setTimesNS4] = useState([]);
-    const [timesNS5, setTimesNS5] = useState([]);
+    const [timesNST1, setTimesNST1] = useState([]);
+    const [timesNST2, setTimesNST2] = useState([]);
     const [times, setTimes] = useState([]);
 
     const goToNext = num => {
         setGo(true);
-        setCounter(60); 
+        //setCounter(60); 
         if (num == 1){
             setShow(false);
             setShowPause(false);
-            setShowNS1(true);
+            setShowNST1(true);
         }
         else if (num == 2){
             //setShow1(false);
-            setImageNS1Change1(false);
-            setImageNS1Change2(false);
-            setImageNS1Change3(false);
-            setImageNS1Change4(false);
-            setImageNS1Change5(false);
-            setImageNS1Change6(false);
-            setImageNS1Change7(false);
-            setImageNS1Change8(false);
-            setShowImageNS1Change1(false);
-            setShowImageNS1Change2(false);
-            setShowImageNS1Change3(false);
-            setShowImageNS1Change4(false);
-            setShowImageNS1Change5(false);
-            setShowImageNS1Change6(false);
-            setShowImageNS1Change7(false);
-            setShowImageNS1Change8(false);
-            setShowPauseNS1(false);
-            setShowNS1(false);
-            setShowNS2(true);
+            setImageNST1Change1(false);
+            setImageNST1Change2(false);
+            setImageNST1Change3(false);
+            setImageNST1Change4(false);
+            setImageNST1Change5(false);
+            setImageNST1Change6(false);
+            setImageNST1Change7(false);
+            setImageNST1Change8(false);
+            setShowImageNST1Change1(false);
+            setShowImageNST1Change2(false);
+            setShowImageNST1Change3(false);
+            setShowImageNST1Change4(false);
+            setShowImageNST1Change5(false);
+            setShowImageNST1Change6(false);
+            setShowImageNST1Change7(false);
+            setShowImageNST1Change8(false);
+            setShowPauseNST1(false);
+            setShowNST1(false);
+            setShowNST2(true);
         } 
         else if (num == 3){
+            //setShow1(false);
+            setImageNST2Change1(false);
+                setImageNST2Change2(false);
+                setImageNST2Change3(false);
+                setImageNST2Change4(false);
+                setImageNST2Change5(false);
+                setImageNST2Change6(false);
+                setImageNST2Change7(false);
+                setImageNST2Change8(false);
+                setShowImageNST2Change1(false);
+                setShowImageNST2Change2(false);
+                setShowImageNST2Change3(false);
+                setShowImageNST2Change4(false);
+                setShowImageNST2Change5(false);
+                setShowImageNST2Change6(false);
+                setShowImageNST2Change7(false);
+                setShowImageNST2Change8(false);
+            setShowPauseNST2(false);
+            setShowNST2(false);
+            setShowNS2(true);
+        }
+        else if (num == 4){
+            setCounter(60); 
             //setShow1(false);
             setImageNS2Change1(false);
                 setImageNS2Change2(false);
@@ -732,9 +593,31 @@ const Quiz = ({props}) => {
                 setShowImageNS2Change8(false);
             setShowPauseNS2(false);
             setShowNS2(false);
+            setShow1(true);
+        }
+        else if (num == 5){
+            //setShow1(false);
+            setImage1Change1(false);
+                setImage1Change2(false);
+                setImage1Change3(false);
+                setImage1Change4(false);
+                setImage1Change5(false);
+                setImage1Change6(false);
+                setImage1Change7(false);
+                setImage1Change8(false);
+                setShowImage1Change1(false);
+            setShowImage1Change2(false);
+            setShowImage1Change3(false);
+            setShowImage1Change4(false);
+            setShowImage1Change5(false);
+            setShowImage1Change6(false);
+            setShowImage1Change7(false);
+            setShowImage1Change8(false);
+            setShowPause1(false);
+            setShow1(false);
             setShowNS3(true);
         }
-        else if (num == 4){
+        else if (num == 6){
             //setShow1(false);
             setImageNS3Change1(false);
                 setImageNS3Change2(false);
@@ -754,77 +637,9 @@ const Quiz = ({props}) => {
                 setShowImageNS3Change8(false);
             setShowPauseNS3(false);
             setShowNS3(false);
-            setShowNS4(true);
-        }
-        else if (num == 5){
-            //setShow1(false);
-            setImageNS4Change1(false);
-                setImageNS4Change2(false);
-                setImageNS4Change3(false);
-                setImageNS4Change4(false);
-                setImageNS4Change5(false);
-                setImageNS4Change6(false);
-                setImageNS4Change7(false);
-                setImageNS4Change8(false);
-                setShowImageNS4Change1(false);
-            setShowImageNS4Change2(false);
-            setShowImageNS4Change3(false);
-            setShowImageNS4Change4(false);
-            setShowImageNS4Change5(false);
-            setShowImageNS4Change6(false);
-            setShowImageNS4Change7(false);
-            setShowImageNS4Change8(false);
-            setShowPauseNS4(false);
-            setShowNS4(false);
-            setShowNS5(true);
-        }
-        else if (num == 6){
-            //setShow1(false);
-            setImageNS5Change1(false);
-                setImageNS5Change2(false);
-                setImageNS5Change3(false);
-                setImageNS5Change4(false);
-                setImageNS5Change5(false);
-                setImageNS5Change6(false);
-                setImageNS5Change7(false);
-                setImageNS5Change8(false);
-                setShowImageNS5Change1(false);
-                setShowImageNS5Change2(false);
-                setShowImageNS5Change3(false);
-                setShowImageNS5Change4(false);
-                setShowImageNS5Change5(false);
-                setShowImageNS5Change6(false);
-                setShowImageNS5Change7(false);
-                setShowImageNS5Change8(false);
-            setShowNS5(false);
-            setShowPauseNS5(false);
-            setShowNS5(false);
-            setShow1(true);
-        }
-        else if (num == 7){
-            //setShow1(false);
-            setImage1Change1(false);
-                setImage1Change2(false);
-                setImage1Change3(false);
-                setImage1Change4(false);
-                setImage1Change5(false);
-                setImage1Change6(false);
-                setImage1Change7(false);
-                setImage1Change8(false);
-                setShowImage1Change1(false);
-                setShowImage1Change2(false);
-                setShowImage1Change3(false);
-                setShowImage1Change4(false);
-                setShowImage1Change5(false);
-                setShowImage1Change6(false);
-                setShowImage1Change7(false);
-                setShowImage1Change8(false);
-            setShow1(false);
-            setShowPause1(false);
-            setShow1(false);
             setShow2(true);
         }
-        else if (num == 8){
+        else if (num == 7){
             //setShow1(false);
             setImage2Change1(false);
                 setImage2Change2(false);
@@ -842,13 +657,33 @@ const Quiz = ({props}) => {
                 setShowImage2Change6(false);
                 setShowImage2Change7(false);
                 setShowImage2Change8(false);
-            setShow2(false);
             setShowPause2(false);
             setShow2(false);
+            setShowNS1(true);
+        }
+        else if (num == 8){
+            //setShow1(false);
+            setImageNS1Change1(false);
+                setImageNS1Change2(false);
+                setImageNS1Change3(false);
+                setImageNS1Change4(false);
+                setImageNS1Change5(false);
+                setImageNS1Change6(false);
+                setImageNS1Change7(false);
+                setImageNS1Change8(false);
+                setShowImageNS1Change1(false);
+                setShowImageNS1Change2(false);
+                setShowImageNS1Change3(false);
+                setShowImageNS1Change4(false);
+                setShowImageNS1Change5(false);
+                setShowImageNS1Change6(false);
+                setShowImageNS1Change7(false);
+                setShowImageNS1Change8(false);
+            setShowNS1(false);
+            setShowPauseNS1(false);
             setShow3(true);
         }
-        else if (num == 9){
-            //setShow1(false);
+        else {
             setImage3Change1(false);
                 setImage3Change2(false);
                 setImage3Change3(false);
@@ -866,77 +701,57 @@ const Quiz = ({props}) => {
                 setShowImage3Change7(false);
                 setShowImage3Change8(false);
             setShow3(false);
-            setShowPause3(false);
-            setShow3(false);
-            setShow4(true);
-        }
-        else if (num == 10){
-            //setShow1(false);
-            setImage4Change1(false);
-                setImage4Change2(false);
-                setImage4Change3(false);
-                setImage4Change4(false);
-                setImage4Change5(false);
-                setImage4Change6(false);
-                setImage4Change7(false);
-                setImage4Change8(false);
-                setShowImage4Change1(false);
-                setShowImage4Change2(false);
-                setShowImage4Change3(false);
-                setShowImage4Change4(false);
-                setShowImage4Change5(false);
-                setShowImage4Change6(false);
-                setShowImage4Change7(false);
-                setShowImage4Change8(false);
-            setShow4(false);
-            setShowPause4(false);
-            setShow4(false);
-            setShow5(true);
-        }
-        else if (num == 11){
-            //setShow1(false);
-            setImage5Change1(false);
-                setImage5Change2(false);
-                setImage5Change3(false);
-                setImage5Change4(false);
-                setImage5Change5(false);
-                setImage5Change6(false);
-                setImage5Change7(false);
-                setImage5Change8(false);
-                setShowImage5Change1(false);
-                setShowImage5Change2(false);
-                setShowImage5Change3(false);
-                setShowImage5Change4(false);
-                setShowImage5Change5(false);
-                setShowImage5Change6(false);
-                setShowImage5Change7(false);
-                setShowImage5Change8(false);
-            setShow5(false);
-            setShowPause5(false);
-            setShow5(false);
-            setShow12(true);
-        }
-        else {
-            setImage12Change1(false);
-                setImage12Change2(false);
-                setImage12Change3(false);
-                setImage12Change4(false);
-                setImage12Change5(false);
-                setImage12Change6(false);
-                setImage12Change7(false);
-                setImage12Change8(false);
-                setShowImage12Change1(false);
-                setShowImage12Change2(false);
-                setShowImage12Change3(false);
-                setShowImage12Change4(false);
-                setShowImage12Change5(false);
-                setShowImage12Change6(false);
-                setShowImage12Change7(false);
-                setShowImage12Change8(false);
-            setShow12(false);
             setShowOver(true);
             setTimes([
-                {Participant: participantID, T1_change1: ImageNS1Change1Time,
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "Non social 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "Non Social 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
                     T1_change2: ImageNS1Change2Time,
                     T1_change3: ImageNS1Change3Time,
                     T1_change4: ImageNS1Change4Time,
@@ -944,86 +759,14 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS1Change6Time,
                     T1_change7: ImageNS1Change7Time,
                     T1_change8: ImageNS1Change8Time},
-                    {Participant: participantID, T1_change1: ImageNS2Change1Time,
-                        T1_change2: ImageNS2Change2Time,
-                        T1_change3: ImageNS2Change3Time,
-                        T1_change4: ImageNS2Change4Time,
-                        T1_change5: ImageNS2Change5Time,
-                        T1_change6: ImageNS2Change6Time,
-                        T1_change7: ImageNS2Change7Time,
-                        T1_change8: ImageNS2Change8Time},
-                        {Participant: participantID, T1_change1: ImageNS3Change1Time,
-                            T1_change2: ImageNS3Change2Time,
-                            T1_change3: ImageNS3Change3Time,
-                            T1_change4: ImageNS3Change4Time,
-                            T1_change5: ImageNS3Change5Time,
-                            T1_change6: ImageNS3Change6Time,
-                            T1_change7: ImageNS3Change7Time,
-                            T1_change8: ImageNS3Change8Time},
-                            {Participant: participantID, T1_change1: ImageNS4Change1Time,
-                                T1_change2: ImageNS4Change2Time,
-                                T1_change3: ImageNS4Change3Time,
-                                T1_change4: ImageNS4Change4Time,
-                                T1_change5: ImageNS4Change5Time,
-                                T1_change6: ImageNS4Change6Time,
-                                T1_change7: ImageNS4Change7Time,
-                                T1_change8: ImageNS4Change8Time},
-                                {Participant: participantID, T1_change1: ImageNS5Change1Time,
-                                    T1_change2: ImageNS5Change2Time,
-                                    T1_change3: ImageNS5Change3Time,
-                                    T1_change4: ImageNS5Change4Time,
-                                    T1_change5: ImageNS5Change5Time,
-                                    T1_change6: ImageNS5Change6Time,
-                                    T1_change7: ImageNS5Change7Time,
-                                    T1_change8: ImageNS5Change8Time},
-            {Participant: participantID, T1_change1: Image1Change1Time,
-            T1_change2: Image1Change2Time,
-            T1_change3: Image1Change3Time,
-            T1_change4: Image1Change4Time,
-            T1_change5: Image1Change5Time,
-            T1_change6: Image1Change6Time,
-            T1_change7: Image1Change7Time,
-            T1_change8: Image1Change8Time},
-            {Participant: participantID, T1_change1: Image2Change1Time,
-                T1_change2: Image2Change2Time,
-                T1_change3: Image2Change3Time,
-                T1_change4: Image2Change4Time,
-                T1_change5: Image2Change5Time,
-                T1_change6: Image2Change6Time,
-                T1_change7: Image2Change7Time,
-                T1_change8: Image2Change8Time},
-            {Participant: participantID, T1_change1: Image3Change1Time,
+                    {Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
                     T1_change2: Image3Change2Time,
                     T1_change3: Image3Change3Time,
                     T1_change4: Image3Change4Time,
                     T1_change5: Image3Change5Time,
                     T1_change6: Image3Change6Time,
                     T1_change7: Image3Change7Time,
-                    T1_change8: Image3Change8Time},
-            {Participant: participantID, T1_change1: Image4Change1Time,
-                        T1_change2: Image4Change2Time,
-                        T1_change3: Image4Change3Time,
-                        T1_change4: Image4Change4Time,
-                        T1_change5: Image4Change5Time,
-                        T1_change6: Image4Change6Time,
-                        T1_change7: Image4Change7Time,
-                        T1_change8: Image4Change8Time},
-                        {Participant: participantID, T1_change1: Image5Change1Time,
-                            T1_change2: Image5Change2Time,
-                            T1_change3: Image5Change3Time,
-                            T1_change4: Image5Change4Time,
-                            T1_change5: Image5Change5Time,
-                            T1_change6: Image5Change6Time,
-                            T1_change7: Image5Change7Time,
-                            T1_change8: Image5Change8Time},
-                            {Participant: participantID, T1_change1: Image12Change1Time,
-                                T1_change2: Image12Change2Time,
-                                T1_change3: Image12Change3Time,
-                                T1_change4: Image12Change4Time,
-                                T1_change5: Image12Change5Time,
-                                T1_change6: Image12Change6Time,
-                                T1_change7: Image12Change7Time,
-                                T1_change8: Image12Change8Time},
+                    T1_change8: Image3Change8Time}
                                 
         ]);
         }
@@ -1035,137 +778,52 @@ const Quiz = ({props}) => {
             console.log(index);
             setGo(false);
             setCounter(-1);
-            if (index == 6){
-                setShow1(false);
-                setShowPause1(true);
-                setShow1(false);
+            if (index == 1){
+                setShowNST1(false);
+                setShowPauseNST1(true);
                 //setGo(false);
                 //setCounter(0);
-                setShowImage1Change1(false);
-                setShowImage1Change2(false);
-                setShowImage1Change3(false);
-                setShowImage1Change4(false);
-                setShowImage1Change5(false);
-                setShowImage1Change6(false);
-                setShowImage1Change7(false);
-                setShowImage1Change8(false);
-                setTimes1([{Participant: participantID, T1_change1: Image1Change1Time,
-                    T1_change2: Image1Change2Time,
-                    T1_change3: Image1Change3Time,
-                    T1_change4: Image1Change4Time,
-                    T1_change5: Image1Change5Time,
-                    T1_change6: Image1Change6Time,
-                    T1_change7: Image1Change7Time,
-                    T1_change8: Image1Change8Time}]);
+                setShowImageNST1Change1(false);
+                setShowImageNST1Change2(false);
+                setShowImageNST1Change3(false);
+                setShowImageNST1Change4(false);
+                setShowImageNST1Change5(false);
+                setShowImageNST1Change6(false);
+                setShowImageNST1Change7(false);
+                setShowImageNST1Change8(false);
+                setTimesNST1([{Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time}]);
                 
-            } else if (index == 7){
-                setShowImage2Change1(false);
-                setShowImage2Change2(false);
-                setShowImage2Change3(false);
-                setShowImage2Change4(false);
-                setShowImage2Change5(false);
-                setShowImage2Change6(false);
-                setShowImage2Change7(false);
-                setShowImage2Change8(false);
-                setShowPause2(true);
-                setShow2(false);
+            } else if (index == 2){
+                setShowImageNST2Change1(false);
+                setShowImageNST2Change2(false);
+                setShowImageNST2Change3(false);
+                setShowImageNST2Change4(false);
+                setShowImageNST2Change5(false);
+                setShowImageNST2Change6(false);
+                setShowImageNST2Change7(false);
+                setShowImageNST2Change8(false);
+                setShowPauseNST2(true);
+                setShowNST2(false);
                 setGo(false);
                 //setCounter(0);
-                setTimes2([{Participant: participantID, T1_change1: Image2Change1Time,
-                    T1_change2: Image2Change2Time,
-                    T1_change3: Image2Change3Time,
-                    T1_change4: Image2Change4Time,
-                    T1_change5: Image2Change5Time,
-                    T1_change6: Image2Change6Time,
-                    T1_change7: Image2Change7Time,
-                    T1_change8: Image2Change8Time}]);
+                setTimesNST2([{Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time}]);
 
                 
-            } else if (index == 8){
-                setShowImage3Change1(false);
-            setShowImage3Change2(false);
-            setShowImage3Change3(false);
-            setShowImage3Change4(false);
-            setShowImage3Change5(false);
-            setShowImage3Change6(false);
-            setShowImage3Change7(false);
-            setShowImage3Change8(false);
-                setShowPause3(true);
-                setShow3(false);
-                setGo(false);
-                //setCounter(0);
-                setTimes3([{Participant: participantID, T1_change1: Image3Change1Time,
-                    T1_change2: Image3Change2Time,
-                    T1_change3: Image3Change3Time,
-                    T1_change4: Image3Change4Time,
-                    T1_change5: Image3Change5Time,
-                    T1_change6: Image3Change6Time,
-                    T1_change7: Image3Change7Time,
-                    T1_change8: Image3Change8Time}]);
-            } else if (index == 9){
-                setShowImage4Change1(false);
-            setShowImage4Change2(false);
-            setShowImage4Change3(false);
-            setShowImage4Change4(false);
-            setShowImage4Change5(false);
-            setShowImage4Change6(false);
-            setShowImage4Change7(false);
-            setShowImage4Change8(false);
-                setShowPause4(true);
-                setShow4(false);
-                setGo(false);
-                //setCounter(0);
-                setTimes4([{Participant: participantID, T1_change1: Image4Change1Time,
-                    T1_change2: Image4Change2Time,
-                    T1_change3: Image4Change3Time,
-                    T1_change4: Image4Change4Time,
-                    T1_change5: Image4Change5Time,
-                    T1_change6: Image4Change6Time,
-                    T1_change7: Image4Change7Time,
-                    T1_change8: Image4Change8Time}]);
-            } else if (index == 10){
-                setShowImage5Change1(false);
-            setShowImage5Change2(false);
-            setShowImage5Change3(false);
-            setShowImage5Change4(false);
-            setShowImage5Change5(false);
-            setShowImage5Change6(false);
-            setShowImage5Change7(false);
-            setShowImage5Change8(false);
-                setShowPause5(true);
-                setShow5(false);
-                setGo(false);
-                //setCounter(0);
-                setTimes5([{Participant: participantID, T1_change1: Image5Change1Time,
-                    T1_change2: Image5Change2Time,
-                    T1_change3: Image5Change3Time,
-                    T1_change4: Image5Change4Time,
-                    T1_change5: Image5Change5Time,
-                    T1_change6: Image5Change6Time,
-                    T1_change7: Image5Change7Time,
-                    T1_change8: Image5Change8Time}]);
-            }  else if (index == 1){
-                setShowImageNS1Change1(false);
-            setShowImageNS1Change2(false);
-            setShowImageNS1Change3(false);
-            setShowImageNS1Change4(false);
-            setShowImageNS1Change5(false);
-            setShowImageNS1Change6(false);
-            setShowImageNS1Change7(false);
-            setShowImageNS1Change8(false);
-                setShowPauseNS1(true);
-                setShowNS1(false);
-                setGo(false);
-                //setCounter(0);
-                setTimesNS1([{Participant: participantID, T1_change1: ImageNS1Change1Time,
-                    T1_change2: ImageNS1Change2Time,
-                    T1_change3: ImageNS1Change3Time,
-                    T1_change4: ImageNS1Change4Time,
-                    T1_change5: ImageNS1Change5Time,
-                    T1_change6: ImageNS1Change6Time,
-                    T1_change7: ImageNS1Change7Time,
-                    T1_change8: ImageNS1Change8Time}]);
-            } else if (index == 2){
+            } else if (index == 3){
                 setShowImageNS2Change1(false);
             setShowImageNS2Change2(false);
             setShowImageNS2Change3(false);
@@ -1178,7 +836,7 @@ const Quiz = ({props}) => {
                 setShowNS2(false);
                 setGo(false);
                 //setCounter(0);
-                setTimesNS2([{Participant: participantID, T1_change1: ImageNS2Change1Time,
+                setTimesNS2([{Participant: participantID, Image_name:"Non social 2", T1_change1: ImageNS2Change1Time,
                     T1_change2: ImageNS2Change2Time,
                     T1_change3: ImageNS2Change3Time,
                     T1_change4: ImageNS2Change4Time,
@@ -1186,7 +844,28 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS2Change6Time,
                     T1_change7: ImageNS2Change7Time,
                     T1_change8: ImageNS2Change8Time}]);
-            } else if (index == 3){
+            } else if (index == 4){
+                setShowImage1Change1(false);
+            setShowImage1Change2(false);
+            setShowImage1Change3(false);
+            setShowImage1Change4(false);
+            setShowImage1Change5(false);
+            setShowImage1Change6(false);
+            setShowImage1Change7(false);
+            setShowImage1Change8(false);
+                setShowPause1(true);
+                setShow1(false);
+                setGo(false);
+                //setCounter(0);
+                setTimes1([{Participant: participantID, Image_name:"Social 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time}]);
+            } else if (index == 5){
                 setShowImageNS3Change1(false);
             setShowImageNS3Change2(false);
             setShowImageNS3Change3(false);
@@ -1199,7 +878,7 @@ const Quiz = ({props}) => {
                 setShowNS3(false);
                 setGo(false);
                 //setCounter(0);
-                setTimesNS3([{Participant: participantID, T1_change1: ImageNS3Change1Time,
+                setTimesNS3([{Participant: participantID, Image_name:"Non Social 3", T1_change1: ImageNS3Change1Time,
                     T1_change2: ImageNS3Change2Time,
                     T1_change3: ImageNS3Change3Time,
                     T1_change4: ImageNS3Change4Time,
@@ -1207,72 +886,119 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS3Change6Time,
                     T1_change7: ImageNS3Change7Time,
                     T1_change8: ImageNS3Change8Time}]);
-            } else if (index == 4){
-                setShowImageNS4Change1(false);
-            setShowImageNS4Change2(false);
-            setShowImageNS4Change3(false);
-            setShowImageNS4Change4(false);
-            setShowImageNS4Change5(false);
-            setShowImageNS4Change6(false);
-            setShowImageNS4Change7(false);
-            setShowImageNS4Change8(false);
-                setShowPauseNS4(true);
-                setShowNS4(false);
+            }  else if (index == 6){
+                setShowImage2Change1(false);
+            setShowImage2Change2(false);
+            setShowImage2Change3(false);
+            setShowImage2Change4(false);
+            setShowImage2Change5(false);
+            setShowImage2Change6(false);
+            setShowImage2Change7(false);
+            setShowImage2Change8(false);
+                setShowPause2(true);
+                setShow2(false);
                 setGo(false);
                 //setCounter(0);
-                setTimesNS4([{Participant: participantID, T1_change1: ImageNS4Change1Time,
-                    T1_change2: ImageNS4Change2Time,
-                    T1_change3: ImageNS4Change3Time,
-                    T1_change4: ImageNS4Change4Time,
-                    T1_change5: ImageNS4Change5Time,
-                    T1_change6: ImageNS4Change6Time,
-                    T1_change7: ImageNS4Change7Time,
-                    T1_change8: ImageNS4Change8Time}]);
-            } else if (index == 5){
-                setShowImageNS5Change1(false);
-            setShowImageNS5Change2(false);
-            setShowImageNS5Change3(false);
-            setShowImageNS5Change4(false);
-            setShowImageNS5Change5(false);
-            setShowImageNS5Change6(false);
-            setShowImageNS5Change7(false);
-            setShowImageNS5Change8(false);
-            setShowPauseNS5(true);
-                setShowNS5(false);
+                setTimes2([{Participant: participantID, Image_name:"Social 2", T1_change1: Image2Change1Time,
+                    T1_change2: Image2Change2Time,
+                    T1_change3: Image2Change3Time,
+                    T1_change4: Image2Change4Time,
+                    T1_change5: Image2Change5Time,
+                    T1_change6: Image2Change6Time,
+                    T1_change7: Image2Change7Time,
+                    T1_change8: Image2Change8Time}]);
+            } else if (index == 7){
+                setShowImageNS1Change1(false);
+            setShowImageNS1Change2(false);
+            setShowImageNS1Change3(false);
+            setShowImageNS1Change4(false);
+            setShowImageNS1Change5(false);
+            setShowImageNS1Change6(false);
+            setShowImageNS1Change7(false);
+            setShowImageNS1Change8(false);
+                setShowPauseNS1(true);
+                setShowNS1(false);
                 setGo(false);
                 //setCounter(0);
-                setTimesNS5([{Participant: participantID, T1_change1: ImageNS5Change1Time,
-                    T1_change2: ImageNS5Change2Time,
-                    T1_change3: ImageNS5Change3Time,
-                    T1_change4: ImageNS5Change4Time,
-                    T1_change5: ImageNS5Change5Time,
-                    T1_change6: ImageNS5Change6Time,
-                    T1_change7: ImageNS5Change7Time,
-                    T1_change8: ImageNS5Change8Time}]);
-                }
-                else{        
-                    setShowImage12Change1(false);
-                    setShowImage12Change2(false);
-                    setShowImage12Change3(false);
-                    setShowImage12Change4(false);
-                    setShowImage12Change5(false);
-                    setShowImage12Change6(false);
-                    setShowImage12Change7(false);
-                    setShowImage12Change8(false);
-                        setShowOver(true);
-                        setShow12(false);
-                        setGo(false);
+                setTimesNS1([{Participant: participantID, Image_name:"Non Social 1",T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time}]);
+            } else{        
+                    setShowImage3Change1(false);
+            setShowImage3Change2(false);
+            setShowImage3Change3(false);
+            setShowImage3Change4(false);
+            setShowImage3Change5(false);
+            setShowImage3Change6(false);
+            setShowImage3Change7(false);
+            setShowImage3Change8(false);
+                setShowOver(true);
+                setShow3(false);
+                setGo(false);
                         //setCounter(0);
-                        setTimes12([{Participant: participantID, T1_change1: Image12Change1Time,
-                            T1_change2: Image12Change2Time,
-                            T1_change3: Image12Change3Time,
-                            T1_change4: Image12Change4Time,
-                            T1_change5: Image12Change5Time,
-                            T1_change6: Image12Change6Time,
-                            T1_change7: Image12Change7Time,
-                            T1_change8: Image12Change8Time}]); 
-                      setTimes([
-                        {Participant: participantID, T1_change1: ImageNS1Change1Time,
+                        setTimes3([{Participant: participantID, Image_name:"Social 3",T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}]);
+                    setTimes([
+                        {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                            T1_change2: ImageNST1Change2Time,
+                            T1_change3: ImageNST1Change3Time,
+                            T1_change4: ImageNST1Change4Time,
+                            T1_change5: ImageNST1Change5Time,
+                            T1_change6: ImageNST1Change6Time,
+                            T1_change7: ImageNST1Change7Time,
+                            T1_change8: ImageNST1Change8Time},
+                            {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                            T1_change2: ImageNST2Change2Time,
+                            T1_change3: ImageNST2Change3Time,
+                            T1_change4: ImageNST2Change4Time,
+                            T1_change5: ImageNST2Change5Time,
+                            T1_change6: ImageNST2Change6Time,
+                            T1_change7: ImageNST2Change7Time,
+                            T1_change8: ImageNST2Change8Time},
+                            {Participant: participantID, Image_name: "Non social 2", T1_change1: ImageNS2Change1Time,
+                            T1_change2: ImageNS2Change2Time,
+                            T1_change3: ImageNS2Change3Time,
+                            T1_change4: ImageNS2Change4Time,
+                            T1_change5: ImageNS2Change5Time,
+                            T1_change6: ImageNS2Change6Time,
+                            T1_change7: ImageNS2Change7Time,
+                            T1_change8: ImageNS2Change8Time},
+                            {Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+                            T1_change2: Image1Change2Time,
+                            T1_change3: Image1Change3Time,
+                            T1_change4: Image1Change4Time,
+                            T1_change5: Image1Change5Time,
+                            T1_change6: Image1Change6Time,
+                            T1_change7: Image1Change7Time,
+                            T1_change8: Image1Change8Time},
+                            {Participant: participantID, Image_name: "Non Social 3", T1_change1: ImageNS3Change1Time,
+                            T1_change2: ImageNS3Change2Time,
+                            T1_change3: ImageNS3Change3Time,
+                            T1_change4: ImageNS3Change4Time,
+                            T1_change5: ImageNS3Change5Time,
+                            T1_change6: ImageNS3Change6Time,
+                            T1_change7: ImageNS3Change7Time,
+                            T1_change8: ImageNS3Change8Time},
+                            {Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                            T1_change2: ImageNS2Change2Time,
+                            T1_change3: ImageNS2Change3Time,
+                            T1_change4: ImageNS2Change4Time,
+                            T1_change5: ImageNS2Change5Time,
+                            T1_change6: ImageNS2Change6Time,
+                            T1_change7: ImageNS2Change7Time,
+                            T1_change8: ImageNS2Change8Time},
+                            {Participant: participantID, Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
                             T1_change2: ImageNS1Change2Time,
                             T1_change3: ImageNS1Change3Time,
                             T1_change4: ImageNS1Change4Time,
@@ -1280,86 +1006,14 @@ const Quiz = ({props}) => {
                             T1_change6: ImageNS1Change6Time,
                             T1_change7: ImageNS1Change7Time,
                             T1_change8: ImageNS1Change8Time},
-                            {Participant: participantID, T1_change1: ImageNS2Change1Time,
-                                T1_change2: ImageNS2Change2Time,
-                                T1_change3: ImageNS2Change3Time,
-                                T1_change4: ImageNS2Change4Time,
-                                T1_change5: ImageNS2Change5Time,
-                                T1_change6: ImageNS2Change6Time,
-                                T1_change7: ImageNS2Change7Time,
-                                T1_change8: ImageNS2Change8Time},
-                                {Participant: participantID, T1_change1: ImageNS3Change1Time,
-                                    T1_change2: ImageNS3Change2Time,
-                                    T1_change3: ImageNS3Change3Time,
-                                    T1_change4: ImageNS3Change4Time,
-                                    T1_change5: ImageNS3Change5Time,
-                                    T1_change6: ImageNS3Change6Time,
-                                    T1_change7: ImageNS3Change7Time,
-                                    T1_change8: ImageNS3Change8Time},
-                                    {Participant: participantID, T1_change1: ImageNS4Change1Time,
-                                        T1_change2: ImageNS4Change2Time,
-                                        T1_change3: ImageNS4Change3Time,
-                                        T1_change4: ImageNS4Change4Time,
-                                        T1_change5: ImageNS4Change5Time,
-                                        T1_change6: ImageNS4Change6Time,
-                                        T1_change7: ImageNS4Change7Time,
-                                        T1_change8: ImageNS4Change8Time},
-                                        {Participant: participantID, T1_change1: ImageNS5Change1Time,
-                                            T1_change2: ImageNS5Change2Time,
-                                            T1_change3: ImageNS5Change3Time,
-                                            T1_change4: ImageNS5Change4Time,
-                                            T1_change5: ImageNS5Change5Time,
-                                            T1_change6: ImageNS5Change6Time,
-                                            T1_change7: ImageNS5Change7Time,
-                                            T1_change8: ImageNS5Change8Time},
-                    {Participant: participantID, T1_change1: Image1Change1Time,
-                    T1_change2: Image1Change2Time,
-                    T1_change3: Image1Change3Time,
-                    T1_change4: Image1Change4Time,
-                    T1_change5: Image1Change5Time,
-                    T1_change6: Image1Change6Time,
-                    T1_change7: Image1Change7Time,
-                    T1_change8: Image1Change8Time},
-                    {Participant: participantID, T1_change1: Image2Change1Time,
-                        T1_change2: Image2Change2Time,
-                        T1_change3: Image2Change3Time,
-                        T1_change4: Image2Change4Time,
-                        T1_change5: Image2Change5Time,
-                        T1_change6: Image2Change6Time,
-                        T1_change7: Image2Change7Time,
-                        T1_change8: Image2Change8Time},
-                    {Participant: participantID, T1_change1: Image3Change1Time,
+                            {Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
                             T1_change2: Image3Change2Time,
                             T1_change3: Image3Change3Time,
                             T1_change4: Image3Change4Time,
                             T1_change5: Image3Change5Time,
                             T1_change6: Image3Change6Time,
                             T1_change7: Image3Change7Time,
-                            T1_change8: Image3Change8Time},
-                    {Participant: participantID, T1_change1: Image4Change1Time,
-                                T1_change2: Image4Change2Time,
-                                T1_change3: Image4Change3Time,
-                                T1_change4: Image4Change4Time,
-                                T1_change5: Image4Change5Time,
-                                T1_change6: Image4Change6Time,
-                                T1_change7: Image4Change7Time,
-                                T1_change8: Image4Change8Time},
-                                {Participant: participantID, T1_change1: Image5Change1Time,
-                                    T1_change2: Image5Change2Time,
-                                    T1_change3: Image5Change3Time,
-                                    T1_change4: Image5Change4Time,
-                                    T1_change5: Image5Change5Time,
-                                    T1_change6: Image5Change6Time,
-                                    T1_change7: Image5Change7Time,
-                                    T1_change8: Image5Change8Time},
-                                    {Participant: participantID, T1_change1: Image12Change1Time,
-                                        T1_change2: Image12Change2Time,
-                                        T1_change3: Image12Change3Time,
-                                        T1_change4: Image12Change4Time,
-                                        T1_change5: Image12Change5Time,
-                                        T1_change6: Image12Change6Time,
-                                        T1_change7: Image12Change7Time,
-                                        T1_change8: Image12Change8Time},
+                            T1_change8: Image3Change8Time}
                                         
                 ]);
             
@@ -1373,6 +1027,14 @@ const Quiz = ({props}) => {
     }, [counter]);
 
     const pickAnswer1 = (e) => {
+        setShowImageNS2Change1(false);
+            setShowImageNS2Change2(false);
+            setShowImageNS2Change3(false);
+            setShowImageNS2Change4(false);
+            setShowImageNS2Change5(false);
+            setShowImageNS2Change6(false);
+            setShowImageNS2Change7(false);
+            setShowImageNS2Change8(false);
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
@@ -1380,24 +1042,21 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/640;
         const relativey = e.target.height/360;
-        const buffer = 30;
-        const change1 = {x:19,y:110};
-        const change2 = {x:152,y:162};
-        const change3 = {x:208,y:250};
-        const change4 = {x:217,y:343};
-        const change5 = {x:451,y:350};
-        const change6 = {x:441,y:296};
-        const change7 = {x:595,y:159};
-        const change8 = {x:502,y:90};
+        const change1 = [10,191,33,215];
+        const change2 = [201,248,230,268];
+        const change3 = [195,340,238,353];
+        const change4 = [423,286,453,310];
+        const change5 = [434,343,474,353];
+        const change6 = [570,155,603,180];
         var rect = e.target.getBoundingClientRect();
         console.log(e.clientX,e.clientY);
         console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+        if ((!showImage1Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
             setImage1Change1Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1409,9 +1068,9 @@ const Quiz = ({props}) => {
                 setImage1Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage1Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+        }else if ((!showImage1Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
             setImage1Change2Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1423,9 +1082,9 @@ const Quiz = ({props}) => {
                 setImage1Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage1Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+        }else if ((!showImage1Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
             setImage1Change3Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1437,9 +1096,9 @@ const Quiz = ({props}) => {
                 setImage1Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage1Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+        }else if ((!showImage1Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
             setImage1Change4Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1451,9 +1110,9 @@ const Quiz = ({props}) => {
                 setImage1Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage1Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
+        }else if ((!showImage1Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
             setImage1Change5Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1465,9 +1124,9 @@ const Quiz = ({props}) => {
                 setImage1Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage1Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
+        }else if ((!showImage1Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
             setImage1Change6Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1479,34 +1138,6 @@ const Quiz = ({props}) => {
                 setImage1Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage1Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage1Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage1Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage1Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage1Change7(true);
-        }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0] + 1, 0, 0, 0,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage1Change8Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage1Change8Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage1Change8Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage1Change8(true);
         }
          else {
             setWrong(true);
@@ -1516,7 +1147,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[0] == 7){
+        if (pts[0] == 5){
             console.log("move to 2");
             setShowImage1Change1(false);
             setShowImage1Change2(false);
@@ -1531,26 +1162,32 @@ const Quiz = ({props}) => {
             setShow1(false);
             setGo(false);
             setCounter(0);
-            setTimes1([{Participant: participantID, T1_change1: Image1Change1Time,
-                T1_change2: Image1Change2Time,
-                T1_change3: Image1Change3Time,
-                T1_change4: Image1Change4Time,
-                T1_change5: Image1Change5Time,
-                T1_change6: Image1Change6Time,
-                T1_change7: Image1Change7Time,
-                T1_change8: Image1Change8Time}]);
+            setTimes1([{Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+            T1_change2: Image1Change2Time,
+            T1_change3: Image1Change3Time,
+            T1_change4: Image1Change4Time,
+            T1_change5: Image1Change5Time,
+            T1_change6: Image1Change6Time}]);
+        }
+        else{
+            setTimes1([{Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+            T1_change2: Image1Change2Time,
+            T1_change3: Image1Change3Time,
+            T1_change4: Image1Change4Time,
+            T1_change5: Image1Change5Time,
+            T1_change6: Image1Change6Time}]);
         }
     }
         //x: -10, y: -148
     const pickAnswer2 = (e) => {
-        setShowImage1Change1(false);
-                setShowImage1Change2(false);
-                setShowImage1Change3(false);
-                setShowImage1Change4(false);
-                setShowImage1Change5(false);
-                setShowImage1Change6(false);
-                setShowImage1Change7(false);
-                setShowImage1Change8(false);
+        setShowImageNS3Change1(false);
+                setShowImageNS3Change2(false);
+                setShowImageNS3Change3(false);
+                setShowImageNS3Change4(false);
+                setShowImageNS3Change5(false);
+                setShowImageNS3Change6(false);
+                setShowImageNS3Change7(false);
+                setShowImageNS3Change8(false);
             console.log(e.target);
             console.log(e.target.width);
             //let userAnswer = e.target.outerText;
@@ -1559,23 +1196,21 @@ const Quiz = ({props}) => {
             const relativex = e.target.width/1500;
             const relativey = e.target.height/1125;
             const buffer = 30;
-            const change1 = {x:333,y:352};
-            const change2 = {x:173,y:594};
-            const change3 = {x:384,y:760};
-            const change4 = {x:349,y:933};
-            const change5 = {x:891,y:888};
-            const change6 = {x:965,y:515};
-            const change7 = {x:1111,y:554};
-            const change8 = {x:1208,y:626};
+            const change1 = [146,545,198,635];
+            const change2 = [224,702,310,795];
+            const change3 = [397,571,434,612];
+            const change4 = [843,841,930,936];
+            const change5 = [942,501,985,538];
+            const change6 = [1212,597,1272,690];
             var rect = e.target.getBoundingClientRect();
             //console.log(e.clientX,e.clientY);
             //console.log(rect.left,rect.top);
             var x = e.clientX - rect.left; //x position within the element.
             var y = e.clientY - rect.top;  //y position within the element.
             //console.log(x,y);
-            if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+            if ((!showImage2Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
                 //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
+                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change1Time(timerLength-counter);
                 if(e.clientX<e.target.width){
@@ -1587,9 +1222,9 @@ const Quiz = ({props}) => {
                     setImage2Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
                 }
                 setShowImage2Change1(true);
-            }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+            }else if ((!showImage2Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
                 //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
+                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change2Time(timerLength-counter);
                 if(e.clientX<e.target.width){
@@ -1601,9 +1236,9 @@ const Quiz = ({props}) => {
                     setImage2Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
                 }
                 setShowImage2Change2(true);
-            }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+            }else if ((!showImage2Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
                 //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
+                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change3Time(timerLength-counter);
                 if(e.clientX<e.target.width){
@@ -1615,9 +1250,9 @@ const Quiz = ({props}) => {
                     setImage2Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
                 }
                 setShowImage2Change3(true);
-            }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+            }else if ((!showImage2Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
                 //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
+                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change4Time(timerLength-counter);
                 if(e.clientX<e.target.width){
@@ -1629,9 +1264,9 @@ const Quiz = ({props}) => {
                     setImage2Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
                 }
                 setShowImage2Change4(true);
-            }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
+            }else if ((!showImage2Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
                 //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
+                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change5Time(timerLength-counter);
                 if(e.clientX<e.target.width){
@@ -1643,9 +1278,9 @@ const Quiz = ({props}) => {
                     setImage2Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
                 }
                 setShowImage2Change5(true);
-            }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
+            }else if ((!showImage2Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
                 //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
+                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
                 setImage2Change6Time(timerLength-counter);
                 if(e.clientX<e.target.width){
@@ -1657,35 +1292,6 @@ const Quiz = ({props}) => {
                     setImage2Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
                 }
                 setShowImage2Change6(true);
-            }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-                //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
-                setCorrect(true);
-                setImage2Change7Time(timerLength-counter);
-                if(e.clientX<e.target.width){
-                    setImage2Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-                }
-                else{
-                    setImage2Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-                }
-                setShowImage2Change7(true);
-            }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
-                //console.log("found tie");
-                setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0,0,0,0]);
-                setCorrect(true);
-                setImage2Change8Time(timerLength-counter);
-                console.log(rect.left);
-                if(e.clientX<e.target.width){
-                    setImage2Change8Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-                }
-                else{
-                    setImage2Change8Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-                }
-                setShowImage2Change8(true);
             }
              else {
                 setWrong(true);
@@ -1695,7 +1301,7 @@ const Quiz = ({props}) => {
             setTimeout(() => {setCorrect(false)}, 1000);
             setTimeout(() => {setWrong(false)}, 1000);
             console.log(pts);
-            if (pts[1] == 7){
+            if (pts[1] == 5){
                 console.log("move to 2");
                 setShowImage2Change1(false);
                 setShowImage2Change2(false);
@@ -1710,50 +1316,58 @@ const Quiz = ({props}) => {
                 setShow2(false);
                 setGo(false);
                 setCounter(0);
-                setTimes2([{Participant: participantID, T1_change1: Image2Change1Time,
-                    T1_change2: Image2Change2Time,
-                    T1_change3: Image2Change3Time,
-                    T1_change4: Image2Change4Time,
-                    T1_change5: Image2Change5Time,
-                    T1_change6: Image2Change6Time,
-                    T1_change7: Image2Change7Time,
-                    T1_change8: Image2Change8Time}]);
+                setTimes2([{Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                T1_change2: ImageNS2Change2Time,
+                T1_change3: ImageNS2Change3Time,
+                T1_change4: ImageNS2Change4Time,
+                T1_change5: ImageNS2Change5Time,
+                T1_change6: ImageNS2Change6Time,
+                T1_change7: ImageNS2Change7Time,
+                T1_change8: ImageNS2Change8Time}]);
+            }
+            else{
+                setTimes2([{Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                T1_change2: ImageNS2Change2Time,
+                T1_change3: ImageNS2Change3Time,
+                T1_change4: ImageNS2Change4Time,
+                T1_change5: ImageNS2Change5Time,
+                T1_change6: ImageNS2Change6Time,
+                T1_change7: ImageNS2Change7Time,
+                T1_change8: ImageNS2Change8Time}]);
             }
     }
     const pickAnswer3 = (e) => {
-        setShowImage2Change1(false);
-                setShowImage2Change2(false);
-                setShowImage2Change3(false);
-                setShowImage2Change4(false);
-                setShowImage2Change5(false);
-                setShowImage2Change6(false);
-                setShowImage2Change7(false);
-                setShowImage2Change8(false);
+        setShowImageNS1Change1(false);
+                setShowImageNS1Change2(false);
+                setShowImageNS1Change3(false);
+                setShowImageNS1Change4(false);
+                setShowImageNS1Change5(false);
+                setShowImageNS1Change6(false);
+                setShowImageNS1Change7(false);
+                setShowImageNS1Change8(false);
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/2235;
-        const relativey = e.target.height/1341;
+        const relativex = e.target.width/1600;
+        const relativey = e.target.height/1068;
         const buffer = 30;
-        const change1 = {x:121,y:1037};
-        const change2 = {x:170,y:718};
-        const change3 = {x:603,y:1194};
-        const change4 = {x:794,y:1257};
-        const change5 = {x:1615,y:1326};
-        const change6 = {x:1765,y:1283};
-        const change7 = {x:1578,y:764};
-        const change8 = {x:2204,y:602};
+        const change1 = [51,278,131,345];
+        const change2 = [225,399,259,475];
+        const change3 = [162,719,221,760];
+        const change4 = [581,676,693,712];
+        const change5 = [726,476,810,544];
+        const change6 = [1100,896,1157,936];
         var rect = e.target.getBoundingClientRect();
         console.log(e.clientX,e.clientY);
         console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+        if ((!showImage3Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
             setImage3Change1Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1765,9 +1379,9 @@ const Quiz = ({props}) => {
                 setImage3Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage3Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+        }else if ((!showImage3Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
             setImage3Change2Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1779,9 +1393,9 @@ const Quiz = ({props}) => {
                 setImage3Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage3Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+        }else if ((!showImage3Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
             setImage3Change3Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1793,9 +1407,9 @@ const Quiz = ({props}) => {
                 setImage3Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage3Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+        }else if ((!showImage3Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
             setImage3Change4Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1807,9 +1421,9 @@ const Quiz = ({props}) => {
                 setImage3Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage3Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
+        }else if ((!showImage3Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
             setImage3Change5Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1821,9 +1435,9 @@ const Quiz = ({props}) => {
                 setImage3Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage3Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
+        }else if ((!showImage3Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
             setImage3Change6Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -1835,34 +1449,6 @@ const Quiz = ({props}) => {
                 setImage3Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImage3Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage3Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage3Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage3Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage3Change7(true);
-        }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage3Change8Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage3Change8Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage3Change8Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage3Change8(true);
         }
          else {
             setWrong(true);
@@ -1872,7 +1458,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[2] == 7){
+        if (pts[2] == 5){
             console.log("move to 2");
             setShowImage3Change1(false);
             setShowImage3Change2(false);
@@ -1887,581 +1473,57 @@ const Quiz = ({props}) => {
             setShow3(false);
             setGo(false);
             setCounter(0);
-            setTimes3([{Participant: participantID, T1_change1: Image3Change1Time,
-                T1_change2: Image3Change2Time,
-                T1_change3: Image3Change3Time,
-                T1_change4: Image3Change4Time,
-                T1_change5: Image3Change5Time,
-                T1_change6: Image3Change6Time,
-                T1_change7: Image3Change7Time,
-                T1_change8: Image3Change8Time}]);
+            setTimes3([{Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+            T1_change2: Image3Change2Time,
+            T1_change3: Image3Change3Time,
+            T1_change4: Image3Change4Time,
+            T1_change5: Image3Change5Time,
+            T1_change6: Image3Change6Time,
+            T1_change7: Image3Change7Time,
+            T1_change8: Image3Change8Time}]);
         }
-    }
-    const pickAnswer4 = (e) => {
-        setShowImage3Change1(false);
-                setShowImage3Change2(false);
-                setShowImage3Change3(false);
-                setShowImage3Change4(false);
-                setShowImage3Change5(false);
-                setShowImage3Change6(false);
-                setShowImage3Change7(false);
-                setShowImage3Change8(false);
-        console.log(e.target);
-        console.log(e.target.width);
-        //let userAnswer = e.target.outerText;
-        // if (quiz[number].answer === userAnswer) 
-        //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1600;
-        const relativey = e.target.height/900;
-        const buffer = 30;
-        const change1 = {x:46,y:450};
-        const change2 = {x:205,y:668};
-        const change3 = {x:384,y:653};
-        const change4 = {x:468,y:548};
-        const change5 = {x:1023,y:389};
-        const change6 = {x:1124,y:413};
-        const change7 = {x:1371,y:676};
-        const change8 = {x:1499,y:547};
-        var rect = e.target.getBoundingClientRect();
-        //console.log(e.clientX,e.clientY);
-        //console.log(rect.left,rect.top);
-        var x = e.clientX - rect.left; //x position within the element.
-        var y = e.clientY - rect.top;  //y position within the element.
-        //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change1Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change2Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change3Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change4Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change5Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change6Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change7(true);
-        }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage4Change8Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage4Change8Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage4Change8Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage4Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage4Change8(true);
-        }
-         else {
-            setWrong(true);
-        }
-        //console.log("x: " + e.screenX + " y: " + e.screenY);
-        //console.log("Image 1 pts: " + pts[0]);
-        setTimeout(() => {setCorrect(false)}, 1000);
-        setTimeout(() => {setWrong(false)}, 1000);
-        console.log(pts);
-        if (pts[3] == 7){
-            console.log("move to 2");
-            setShowImage4Change1(false);
-            setShowImage4Change2(false);
-            setShowImage4Change3(false);
-            setShowImage4Change4(false);
-            setShowImage4Change5(false);
-            setShowImage4Change6(false);
-            setShowImage4Change7(false);
-            setShowImage4Change8(false);
-
-            setShowPause4(true);
-            setShow4(false);
-            setGo(false);
-            setCounter(0);
-            setTimes4([{Participant: participantID, T1_change1: Image4Change1Time,
-                T1_change2: Image4Change2Time,
-                T1_change3: Image4Change3Time,
-                T1_change4: Image4Change4Time,
-                T1_change5: Image4Change5Time,
-                T1_change6: Image4Change6Time,
-                T1_change7: Image4Change7Time,
-                T1_change8: Image4Change8Time}]);
-        }
-    }
-    const pickAnswer5 = (e) => {
-        setShowImage4Change1(false);
-                setShowImage4Change2(false);
-                setShowImage4Change3(false);
-                setShowImage4Change4(false);
-                setShowImage4Change5(false);
-                setShowImage4Change6(false);
-                setShowImage4Change7(false);
-                setShowImage4Change8(false);
-        console.log(e.target);
-        console.log(e.target.width);
-        //let userAnswer = e.target.outerText;
-        // if (quiz[number].answer === userAnswer) 
-        //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1600;
-        const relativey = e.target.height/900;
-        const buffer = 30;
-        const change1 = {x:422,y:148};
-        const change2 = {x:533,y:180};
-        const change3 = {x:653,y:593};
-        const change4 = {x:1502,y:141};
-        const change5 = {x:743,y:786};
-        const change6 = {x:1160,y:814};
-        const change7 = {x:1229,y:881};
-        const change8 = {x:1500,y:720};
-        var rect = e.target.getBoundingClientRect();
-        //console.log(e.clientX,e.clientY);
-        //console.log(rect.left,rect.top);
-        var x = e.clientX - rect.left; //x position within the element.
-        var y = e.clientY - rect.top;  //y position within the element.
-        //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change1Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change2Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change3Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change4Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change5Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change6Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change7(true);
-        }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0,0,0]);
-            setCorrect(true);
-            setImage5Change8Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage5Change8Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage5Change8Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage5Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage5Change8(true);
-        }
-         else {
-            setWrong(true);
-        }
-        //console.log("x: " + e.screenX + " y: " + e.screenY);
-        //console.log("Image 1 pts: " + pts[0]);
-        setTimeout(() => {setCorrect(false)}, 1000);
-        setTimeout(() => {setWrong(false)}, 1000);
-        console.log(pts);
-        if (pts[4] == 7){
-            console.log("move to 2");
-            setShowImage5Change1(false);
-            setShowImage5Change2(false);
-            setShowImage5Change3(false);
-            setShowImage5Change4(false);
-            setShowImage5Change5(false);
-            setShowImage5Change6(false);
-            setShowImage5Change7(false);
-            setShowImage5Change8(false);
-
-            setShowPause5(true);
-            setShow5(false);
-            setGo(false);
-            setCounter(0);
-            setTimes5([{Participant: participantID, T1_change1: Image5Change1Time,
-                T1_change2: Image5Change2Time,
-                T1_change3: Image5Change3Time,
-                T1_change4: Image5Change4Time,
-                T1_change5: Image5Change5Time,
-                T1_change6: Image5Change6Time,
-                T1_change7: Image5Change7Time,
-                T1_change8: Image5Change8Time}]);
-        }
-    }
-    const pickAnswer12 = (e) => {
-        setShowImage5Change1(false);
-                setShowImage5Change2(false);
-                setShowImage5Change3(false);
-                setShowImage5Change4(false);
-                setShowImage5Change5(false);
-                setShowImage5Change6(false);
-                setShowImage5Change7(false);
-                setShowImage5Change8(false);
-        console.log(e.target);
-        console.log(e.target.width);
-        //let userAnswer = e.target.outerText;
-        // if (quiz[number].answer === userAnswer) 
-        //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1600;
-        const relativey = e.target.height/1068;
-        const buffer = 30;
-        const change1 = {x:296,y:306};
-        const change2 = {x:241,y:436};
-        const change3 = {x:532,y:543};
-        const change4 = {x:602,y:697};
-        const change5 = {x:194,y:745};
-        const change6 = {x:408,y:981};
-        const change7 = {x:1123,y:931};
-        const change8 = {x:1390,y:645};
-        var rect = e.target.getBoundingClientRect();
-        //console.log(e.clientX,e.clientY);
-        //console.log(rect.left,rect.top);
-        var x = e.clientX - rect.left; //x position within the element.
-        var y = e.clientY - rect.top;  //y position within the element.
-        //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change1Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change2Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change3Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change4Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change5Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change6Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change7(true);
-        }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0,0,0,0]);
-            setCorrect(true);
-            setImage12Change8Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImage12Change8Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImage12Change8Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage12Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImage12Change8(true);
-        }
-         else {
-            setWrong(true);
-        }
-        //console.log("x: " + e.screenX + " y: " + e.screenY);
-        //console.log("Image 1 pts: " + pts[0]);
-        setTimeout(() => {setCorrect(false)}, 1000);
-        setTimeout(() => {setWrong(false)}, 1000);
-        console.log(pts);
-        if (pts[5] == 7){
-            console.log("move to 2");
-            setShowImage12Change1(false);
-            setShowImage12Change2(false);
-            setShowImage12Change3(false);
-            setShowImage12Change4(false);
-            setShowImage12Change5(false);
-            setShowImage12Change6(false);
-            setShowImage12Change7(false);
-            setShowImage12Change8(false);
-
-            setShowOver(true);
-            setShow12(false);
-            setGo(false);
-            setCounter(0);
-            setTimes12([{Participant: participantID, T1_change1: Image12Change1Time,
-                T1_change2: Image12Change2Time,
-                T1_change3: Image12Change3Time,
-                T1_change4: Image12Change4Time,
-                T1_change5: Image12Change5Time,
-                T1_change6: Image12Change6Time,
-                T1_change7: Image12Change7Time,
-                T1_change8: Image12Change8Time}]);
+        else{
+            setTimes3([{Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+            T1_change2: Image3Change2Time,
+            T1_change3: Image3Change3Time,
+            T1_change4: Image3Change4Time,
+            T1_change5: Image3Change5Time,
+            T1_change6: Image3Change6Time,
+            T1_change7: Image3Change7Time,
+            T1_change8: Image3Change8Time}]);
         }
     }
     const pickAnswerNS1 = (e) => {
-        setShowImage12Change1(false);
-                setShowImage12Change2(false);
-                setShowImage12Change3(false);
-                setShowImage12Change4(false);
-                setShowImage12Change5(false);
-                setShowImage12Change6(false);
-                setShowImage12Change7(false);
-                setShowImage12Change8(false);
+        setShowImage2Change1(false);
+                setShowImage2Change2(false);
+                setShowImage2Change3(false);
+                setShowImage2Change4(false);
+                setShowImage2Change5(false);
+                setShowImage2Change6(false);
+                setShowImage2Change7(false);
+                setShowImage2Change8(false);
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/418;
-        const relativey = e.target.height/296;
-        const buffer = 30;
-        const change1 = {x:27,y:15};
-        const change2 = {x:72,y:149};
-        const change3 = {x:130,y:98};
-        const change4 = {x:173,y:207};
-        const change5 = {x:207,y:84};
-        const change6 = {x:207,y:58};
-        const change7 = {x:355,y:79};
-        const change8 = {x:364,y:233};
+        const relativex = e.target.width/1308;
+        const relativey = e.target.height/736;
+        const change1 = [48,400,116,452];
+        const change2 = [419,502,486,558];
+        const change3 = [392,682,515,725];
+        const change4 = [876,557,944,607];
+        const change5 = [884,685,102,724];
+        const change6 = [1151,315,1218,372];
         var rect = e.target.getBoundingClientRect();
         console.log(e.clientX,e.clientY);
         console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+        if ((!showImageNS1Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change1Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2473,9 +1535,9 @@ const Quiz = ({props}) => {
                 setImageNS1Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+        }else if ((!showImageNS1Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change2Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2487,9 +1549,9 @@ const Quiz = ({props}) => {
                 setImageNS1Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+        }else if ((!showImageNS1Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change3Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2501,9 +1563,9 @@ const Quiz = ({props}) => {
                 setImageNS1Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+        }else if ((!showImageNS1Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change4Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2515,9 +1577,9 @@ const Quiz = ({props}) => {
                 setImageNS1Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change4(true);
-        }else if ((x >= (change5.x-10)*relativex && x <= (change5.x+10)*relativex && y >= (change5.y-10)*relativey && y <=  (change5.y+10)*relativey) ){
+        }else if ((!showImageNS1Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change5Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2529,9 +1591,9 @@ const Quiz = ({props}) => {
                 setImageNS1Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change5(true);
-        }else if ((x >= (change6.x-10)*relativex && x <= (change6.x+10)*relativex && y >= (change6.y-10)*relativey && y <=  (change6.y+10)*relativey) ){
+        }else if ((!showImageNS1Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS1Change6Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2543,34 +1605,6 @@ const Quiz = ({props}) => {
                 setImageNS1Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS1Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
-            setCorrect(true);
-            setImageNS1Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS1Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS1Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS1Change7(true);
-        }else if ((x >= (change8.x-buffer)*relativex && x <= (change8.x+buffer)*relativex && y >= (change8.y-buffer)*relativey && y <=  (change8.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0,0,0,0]);
-            setCorrect(true);
-            setImageNS1Change8Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS1Change8Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change8Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS1Change8Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change8Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS1Change8(true);
         }
          else {
             setWrong(true);
@@ -2580,7 +1614,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[6] == 7){
+        if (pts[3] == 5){
             console.log("move to 2");
             setShowImageNS1Change1(false);
             setShowImageNS1Change2(false);
@@ -2596,7 +1630,18 @@ const Quiz = ({props}) => {
             setShowNS1(false);
             setGo(false);
             setCounter(0);
-            setTimesNS1([{Participant: participantID, T1_change1: ImageNS1Change1Time,
+            setTimesNS1([{Participant: participantID,  Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
+                T1_change2: ImageNS1Change2Time,
+                T1_change3: ImageNS1Change3Time,
+                T1_change4: ImageNS1Change4Time,
+                T1_change5: ImageNS1Change5Time,
+                T1_change6: ImageNS1Change6Time,
+                T1_change7: ImageNS1Change7Time,
+                T1_change8: ImageNS1Change8Time,
+            }]);
+        }
+        else{
+            setTimesNS1([{Participant: participantID,  Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
                 T1_change2: ImageNS1Change2Time,
                 T1_change3: ImageNS1Change3Time,
                 T1_change4: ImageNS1Change4Time,
@@ -2608,38 +1653,36 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswerNS2 = (e) => {
-        setShowImageNS1Change1(false);
-        setShowImageNS1Change2(false);
-        setShowImageNS1Change3(false);
-        setShowImageNS1Change4(false);
-        setShowImageNS1Change5(false);
-        setShowImageNS1Change6(false);
-        setShowImageNS1Change7(false);
-        setShowImageNS1Change8(false);
+        setShowImageNST2Change1(false);
+        setShowImageNST2Change2(false);
+        setShowImageNST2Change3(false);
+        setShowImageNST2Change4(false);
+        setShowImageNST2Change5(false);
+        setShowImageNST2Change6(false);
+        setShowImageNST2Change7(false);
+        setShowImageNST2Change8(false);
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1492;
-        const relativey = e.target.height/1082;
-        const buffer = 30;
-        const change1 = {x:439,y:199};
-        const change2 = {x:1122,y:213};
-        const change3 = {x:879,y:475};
-        const change4 = {x:438,y:622};
-        const change5 = {x:725,y:666};
-        const change6 = {x:490,y:915};
-        const change7 = {x:1211,y:897};
+        const relativex = e.target.width/1125;
+        const relativey = e.target.height/844;
+        const change1 = [121,400,162,478];
+        const change2 = [212,511,298,607];
+        const change3 = [363,336,418,391];
+        const change4 = [664,632,750,733];
+        const change5 = [700,268,753,325];
+        const change6 = [954,448,1001,525];
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+        if ((!showImageNS2Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS2Change1Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2651,9 +1694,9 @@ const Quiz = ({props}) => {
                 setImageNS2Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS2Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+        }else if ((!showImageNS2Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS2Change2Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2665,9 +1708,9 @@ const Quiz = ({props}) => {
                 setImageNS2Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS2Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+        }else if ((!showImageNS2Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS2Change3Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2679,9 +1722,9 @@ const Quiz = ({props}) => {
                 setImageNS2Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS2Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+        }else if ((!showImageNS2Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS2Change4Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2693,9 +1736,9 @@ const Quiz = ({props}) => {
                 setImageNS2Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS2Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
+        }else if ((!showImageNS2Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS2Change5Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2707,9 +1750,9 @@ const Quiz = ({props}) => {
                 setImageNS2Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS2Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
+        }else if ((!showImageNS2Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
             setImageNS2Change6Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2721,20 +1764,6 @@ const Quiz = ({props}) => {
                 setImageNS2Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS2Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1,0,0,0]);
-            setCorrect(true);
-            setImageNS2Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS2Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS2Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS2Change7(true);
         }
          else {
             setWrong(true);
@@ -2744,7 +1773,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[7] == 6){
+        if (pts[4] == 5){
             console.log("move to 2");
             setShowImageNS2Change1(false);
             setShowImageNS2Change2(false);
@@ -2758,7 +1787,16 @@ const Quiz = ({props}) => {
             setShowNS2(false);
             setGo(false);
             setCounter(0);
-            setTimesNS2([{Participant: participantID, T1_change1: ImageNS2Change1Time,
+            setTimesNS2([{Participant: participantID,Image_name: "Non Social 2",  T1_change1: ImageNS2Change1Time,
+                T1_change2: ImageNS2Change2Time,
+                T1_change3: ImageNS2Change3Time,
+                T1_change4: ImageNS2Change4Time,
+                T1_change5: ImageNS2Change5Time,
+                T1_change6: ImageNS2Change6Time,
+                T1_change7: ImageNS2Change7Time}]);
+        }
+        else{
+            setTimesNS2([{Participant: participantID,Image_name: "Non Social 2",  T1_change1: ImageNS2Change1Time,
                 T1_change2: ImageNS2Change2Time,
                 T1_change3: ImageNS2Change3Time,
                 T1_change4: ImageNS2Change4Time,
@@ -2768,36 +1806,35 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswerNS3 = (e) => {
-        setShowImageNS2Change1(false);
-        setShowImageNS2Change2(false);
-        setShowImageNS2Change3(false);
-        setShowImageNS2Change4(false);
-        setShowImageNS2Change5(false);
-        setShowImageNS2Change6(false);
-        setShowImageNS2Change7(false);
+        setShowImage1Change1(false);
+        setShowImage1Change2(false);
+        setShowImage1Change3(false);
+        setShowImage1Change4(false);
+        setShowImage1Change5(false);
+        setShowImage1Change6(false);
+        setShowImage1Change7(false);
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/796;
-        const relativey = e.target.height/574;
-        const buffer = 30;
-        const change1 = {x:140,y:210};
-        const change2 = {x:79,y:396};
-        const change3 = {x:351,y:167};
-        const change4 = {x:371,y:401};
-        const change5 = {x:610,y:108};
-        const change6 = {x:507,y:379};
+        const relativex = e.target.width/1600;
+        const relativey = e.target.height/1068;
+        const change1 = [77,235,163,313];
+        const change2 = [221,723,290,812];
+        const change3 = [335,330,405,513];
+        const change4 = [664,635,790,704];
+        const change5 = [990,450,1074,535];
+        const change6 = [1200,876,1269,966];
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+        if ((!showImageNS3Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
             setImageNS3Change1Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2809,9 +1846,9 @@ const Quiz = ({props}) => {
                 setImageNS3Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS3Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+        }else if ((!showImageNS3Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
             setImageNS3Change2Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2823,9 +1860,9 @@ const Quiz = ({props}) => {
                 setImageNS3Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS3Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+        }else if ((!showImageNS3Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
             setImageNS3Change3Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2837,9 +1874,9 @@ const Quiz = ({props}) => {
                 setImageNS3Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS3Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+        }else if ((!showImageNS3Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
             setImageNS3Change4Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2851,9 +1888,9 @@ const Quiz = ({props}) => {
                 setImageNS3Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS3Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
+        }else if ((!showImageNS3Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
             setImageNS3Change5Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2865,9 +1902,9 @@ const Quiz = ({props}) => {
                 setImageNS3Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
             setShowImageNS3Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
+        }else if ((!showImageNS3Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8]+1,0,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
             setImageNS3Change6Time(timerLength-counter);
             if(e.clientX<e.target.width){
@@ -2888,7 +1925,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[8] == 5){
+        if (pts[5] == 5){
             console.log("move to 2");
             setShowImageNS3Change1(false);
             setShowImageNS3Change2(false);
@@ -2901,7 +1938,15 @@ const Quiz = ({props}) => {
             setShowNS2(false);
             setGo(false);
             setCounter(0);
-            setTimesNS2([{Participant: participantID, T1_change1: ImageNS3Change1Time,
+            setTimesNS2([{Participant: participantID, Image_name: "Non Social 3",T1_change1: ImageNS3Change1Time,
+                T1_change2: ImageNS3Change2Time,
+                T1_change3: ImageNS3Change3Time,
+                T1_change4: ImageNS3Change4Time,
+                T1_change5: ImageNS3Change5Time,
+                T1_change6: ImageNS3Change6Time}]);
+        }
+        else{
+            setTimesNS2([{Participant: participantID, Image_name: "Non Social 3",T1_change1: ImageNS3Change1Time,
                 T1_change2: ImageNS3Change2Time,
                 T1_change3: ImageNS3Change3Time,
                 T1_change4: ImageNS3Change4Time,
@@ -2909,117 +1954,80 @@ const Quiz = ({props}) => {
                 T1_change6: ImageNS3Change6Time}]);
         }
     }
-    const pickAnswerNS4 = (e) => {
-        setShowImageNS3Change1(false);
-        setShowImageNS3Change2(false);
-        setShowImageNS3Change3(false);
-        setShowImageNS3Change4(false);
-        setShowImageNS3Change5(false);
-        setShowImageNS3Change6(false);
+    const pickAnswerNST1 = (e) => {
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/790;
-        const relativey = e.target.height/556;
-        const buffer = 30;
-        const change1 = {x:130,y:211};
-        const change2 = {x:231,y:238};
-        const change3 = {x:440,y:263};
-        const change4 = {x:582,y:266};
-        const change5 = {x:615,y:330};
-        const change6 = {x:721,y:54};
+        const relativex = e.target.width/1000;
+        const relativey = e.target.height/555;
+        const change1 = [125,23,192,94];
+        const change2 = [434,262,500,289];
+        const change3 = [588,226,658,261];
+        const change4 = [871,62,941,170];
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+        if ((!showImageNST1Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNS4Change1Time(timerLength-counter);
+            setImageNST1Change1Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS4Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change1Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS4Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change1Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS4Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+            setShowImageNST1Change1(true);
+        }else if ((!showImageNST1Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNS4Change2Time(timerLength-counter);
+            setImageNST1Change2Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS4Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change2Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS4Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change2Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS4Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+            setShowImageNST1Change2(true);
+        }else if ((!showImageNST1Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNS4Change3Time(timerLength-counter);
+            setImageNST1Change3Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS4Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change3Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS4Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change3Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS4Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+            setShowImageNST1Change3(true);
+        }else if ((!showImageNST1Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNS4Change4Time(timerLength-counter);
+            setImageNST1Change4Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS4Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change4Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS4Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change4Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST1Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS4Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]); 
-            setCorrect(true);
-            setImageNS4Change5Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS4Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS4Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS4Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9]+1,0]);
-            setCorrect(true);
-            setImageNS4Change6Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS4Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS4Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS4Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS4Change6(true);
+            setShowImageNST1Change4(true);
         }
          else {
             setWrong(true);
@@ -3029,149 +2037,116 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[9] == 5){
+        if (pts[6] == 3){
             console.log("move to 2");
-            setShowImageNS4Change1(false);
-            setShowImageNS4Change2(false);
-            setShowImageNS4Change3(false);
-            setShowImageNS4Change4(false);
-            setShowImageNS4Change5(false);
-            setShowImageNS4Change6(false);
+            setShowImageNST1Change1(false);
+            setShowImageNST1Change2(false);
+            setShowImageNST1Change3(false);
+            setShowImageNST1Change4(false);
+            setShowImageNST1Change5(false);
+            setShowImageNST1Change6(false);
 
-            setShowPauseNS4(true);
-            setShowNS4(false);
+            setShowPauseNST1(true);
+            setShowNST1(false);
             setGo(false);
             setCounter(0);
-            setTimesNS4([{Participant: participantID, T1_change1: ImageNS4Change1Time,
-                T1_change2: ImageNS4Change2Time,
-                T1_change3: ImageNS4Change3Time,
-                T1_change4: ImageNS4Change4Time,
-                T1_change5: ImageNS4Change5Time,
-                T1_change6: ImageNS4Change6Time}]);
+            setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                T1_change2: ImageNST1Change2Time,
+                T1_change3: ImageNST1Change3Time,
+                T1_change4: ImageNST1Change4Time,
+                T1_change5: ImageNST1Change5Time,
+                T1_change6: ImageNST1Change6Time}]);
+        }
+        else{
+            setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                T1_change2: ImageNST1Change2Time,
+                T1_change3: ImageNST1Change3Time,
+                T1_change4: ImageNST1Change4Time,
+                T1_change5: ImageNST1Change5Time,
+                T1_change6: ImageNST1Change6Time}]);
         }
     }
 
-    const pickAnswerNS5 = (e) => {
-        
+    const pickAnswerNST2 = (e) => {
+        setShowImageNST1Change1(false);
+            setShowImageNST1Change2(false);
+            setShowImageNST1Change3(false);
+            setShowImageNST1Change4(false);
+            setShowImageNST1Change5(false);
+            setShowImageNST1Change6(false);
         console.log(e.target);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/800;
-        const relativey = e.target.height/556;
-        const buffer = 30;
-        const change1 = {x:112,y:152};
-        const change2 = {x:195,y:475};
-        const change3 = {x:311,y:108};
-        const change4 = {x:703,y:52};
-        const change5 = {x:695,y:205};
-        const change6 = {x:611,y:309};
-        const change7 = {x:560,y:416};
+        const relativex = e.target.width/1600;
+        const relativey = e.target.height/1200;
+        const change1 = [328,387,513,458];
+        const change2 = [734,358,867,473];
+        const change3 = [925,160,1069,269];
+        const change4 = [966,566,1362,647];
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         //console.log(x,y);
-        if ((x >= (change1.x-buffer)*relativex && x <= (change1.x+buffer)*relativex && y >= (change1.y-buffer)*relativey && y <=  (change1.y+buffer)*relativey) ){
+        if ((!showImageNST2Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNS5Change1Time(timerLength-counter);
+            setImageNST2Change1Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS5Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change1Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS5Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change1Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS5Change1(true);
-        }else if ((x >= (change2.x-buffer)*relativex && x <= (change2.x+buffer)*relativex && y >= (change2.y-buffer)*relativey && y <=  (change2.y+buffer)*relativey) ){
+            setShowImageNST2Change1(true);
+        }else if ((!showImageNST2Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNS5Change2Time(timerLength-counter);
+            setImageNST2Change2Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS5Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change2Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS5Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change2Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS5Change2(true);
-        }else if ((x >= (change3.x-buffer)*relativex && x <= (change3.x+buffer)*relativex && y >= (change3.y-buffer)*relativey && y <=  (change3.y+buffer)*relativey) ){
+            setShowImageNST2Change2(true);
+        }else if ((!showImageNST2Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNS5Change3Time(timerLength-counter);
+            setImageNST2Change3Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS5Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change3Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS5Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change3Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS5Change3(true);
-        }else if ((x >= (change4.x-buffer)*relativex && x <= (change4.x+buffer)*relativex && y >= (change4.y-buffer)*relativey && y <=  (change4.y+buffer)*relativey) ){
+            setShowImageNST2Change3(true);
+        }else if ((!showImageNST2Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
+            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNS5Change4Time(timerLength-counter);
+            setImageNST2Change4Time(timerLength-counter);
             if(e.clientX<e.target.width){
-                setImageNS5Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change4Cord({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
             }
             else{
-                setImageNS5Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change4Cord2({x: e.clientX-20,y:e.clientY-20});
+                setImageNST2Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
             }
-            setShowImageNS5Change4(true);
-        }else if ((x >= (change5.x-buffer)*relativex && x <= (change5.x+buffer)*relativex && y >= (change5.y-buffer)*relativey && y <=  (change5.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
-            setCorrect(true);
-            setImageNS5Change5Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS5Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS5Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS5Change5(true);
-        }else if ((x >= (change6.x-buffer)*relativex && x <= (change6.x+buffer)*relativex && y >= (change6.y-buffer)*relativey && y <=  (change6.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
-            setCorrect(true);
-            setImageNS5Change6Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS5Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS5Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS5Change6(true);
-        }else if ((x >= (change7.x-buffer)*relativex && x <= (change7.x+buffer)*relativex && y >= (change7.y-buffer)*relativey && y <=  (change7.y+buffer)*relativey) ){
-            //console.log("found tie");
-            setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7],pts[8],pts[9],pts[10]+1]);
-            setCorrect(true);
-            setImageNS5Change7Time(timerLength-counter);
-            if(e.clientX<e.target.width){
-                setImageNS5Change7Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change7Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
-            }
-            else{
-                setImageNS5Change7Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS5Change7Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
-            }
-            setShowImageNS5Change7(true);
+            setShowImageNST2Change4(true);
         }
          else {
             setWrong(true);
@@ -3181,27 +2156,36 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[10] == 6){
+        if (pts[7] == 3){
             console.log("move to 2");
-            setShowImageNS5Change1(false);
-            setShowImageNS5Change2(false);
-            setShowImageNS5Change3(false);
-            setShowImageNS5Change4(false);
-            setShowImageNS5Change5(false);
-            setShowImageNS5Change6(false);
-            setShowImageNS5Change7(false);
+            setShowImageNST2Change1(false);
+            setShowImageNST2Change2(false);
+            setShowImageNST2Change3(false);
+            setShowImageNST2Change4(false);
+            setShowImageNST2Change5(false);
+            setShowImageNST2Change6(false);
+            setShowImageNST2Change7(false);
 
-            setShowPauseNS5(true);
-            setShowNS5(false);
+            setShowPauseNST2(true);
+            setShowNST2(false);
             setGo(false);
             setCounter(0);
-            setTimesNS5([{Participant: participantID, T1_change1: ImageNS5Change1Time,
-                T1_change2: ImageNS5Change2Time,
-                T1_change3: ImageNS5Change3Time,
-                T1_change4: ImageNS5Change4Time,
-                T1_change5: ImageNS5Change5Time,
-                T1_change6: ImageNS5Change6Time,
-                T1_change7: ImageNS5Change7Time}]);
+            setTimesNST2([{Participant: participantID,Image_name: "Non Social 2 Train", T1_change1: ImageNST2Change1Time,
+                T1_change2: ImageNST2Change2Time,
+                T1_change3: ImageNST2Change3Time,
+                T1_change4: ImageNST2Change4Time,
+                T1_change5: ImageNST2Change5Time,
+                T1_change6: ImageNST2Change6Time,
+                T1_change7: ImageNST2Change7Time}]);
+        }
+        else{
+            setTimesNST2([{Participant: participantID,Image_name: "Non Social 2 Train", T1_change1: ImageNST2Change1Time,
+            T1_change2: ImageNST2Change2Time,
+            T1_change3: ImageNST2Change3Time,
+            T1_change4: ImageNST2Change4Time,
+            T1_change5: ImageNST2Change5Time,
+            T1_change6: ImageNST2Change6Time,
+            T1_change7: ImageNST2Change7Time}]); 
         }
     }
     //help
@@ -3230,148 +2214,145 @@ const Quiz = ({props}) => {
 
 
             {/* Image 1 and the following 'Next Page' */}
+            {(showNST1) ? (
+                <div>
+                    <div> Training Image 1</div>
+                    <h1> Spot the Differences! </h1>
+                    <img src={PicNST1A} alt="Picture NST1A" height="50%" width="50%" onClick={pickAnswerNST1} />
+                    <img src={PicNST1B} alt="Picture NST1B" height="50%" width="50%" onClick={pickAnswerNST1}/>
+                    <Button onClick={() => goToNext(2)}> Skip</Button>
+                    {/* <div> Timer1: {counter}</div> */}
+                </div>
+            ) : (showPauseNST1) ? (
+                    <>
+                        <Title>Great! You got {pts[6]} out of 4! 🥳</Title>
+                        <Button onClick={() => goToNext(2)}> Next</Button>
+                        <div> </div>
+                        <h1> </h1>
+                        {/* <CSVDownload data={times1} target="_blank" /> */}
+                        <CSVLink data={timesNST1}>Click to Download Data (Training Image 1)</CSVLink>
+                    </>
+            ) : null}
+
+            {/* Image 2 and the following 'Next Page' */}
+            {(showNST2) ? (
+                <div>
+                    <div> Training Image 2</div>
+                    <h2> Spot the Differences! </h2>
+                    <img src={PicNST2A} alt="Picture NST2A" height="50%" width="50%" onClick={pickAnswerNST2} />
+                    <img src={PicNST2B} alt="Picture NST2B" height="50%" width="50%" onClick={pickAnswerNST2}/>
+                    <Button onClick={() => goToNext(3)}> Skip</Button>
+                    {/* <div> Timer1: {counter}</div> */}
+                </div>
+            ) : (showPauseNST2) ? (
+                <>
+                    <Title >Great! You got {pts[7]} out of 4! 🥳</Title> 
+                    <Button onClick={() => goToNext(3)}> Next </Button>
+                    <div> </div>
+                    <h1> </h1>
+                    {/* <CSVDownload data={times1} target="_blank" /> */}
+                    <CSVLink data={timesNST2}>Click to Download Data (Image Training 2)</CSVLink>
+                </>
+            ) : null}
+
+            {/* Image 3 and the following 'Next Page' */}
+            {(showNS2) ? (
+                <div>
+                    <div> Image Non social 2</div>
+                    <h1> Spot the Differences! </h1>
+                    <img src={PicNS2A} alt="Picture NS2" height="50%" width="50%" onClick={pickAnswerNS2} />
+                    <img src={PicNS2B} alt="Picture NS2" height="50%" width="50%" onClick={pickAnswerNS2}/>
+                    <Button onClick={() => goToNext(4)}> Skip</Button>
+                    {/* <div> Timer1: {counter}</div> */}
+                </div>
+            ) : (showPauseNS2) ? (
+                <>
+                    <Title >Great! You got {pts[4]} out of 6! 🥳</Title>
+                    <Button onClick={() => goToNext(4)}> Next</Button>
+                    <div> </div>
+                    <h1> </h1>
+                    {/* <CSVDownload data={times1} target="_blank" /> */}
+                    <CSVLink data={timesNS2}>Click to Download Data (Non social Image 2)</CSVLink>
+                </>
+            ) : null}
+
+            {/* Image 4 and the following 'Next Page' */}
             {(show1) ? (
                 <div>
                     <div> Image 1</div>
                     <h1> Spot the Differences! </h1>
                     <img src={Pic1A} alt="Picture 1A" height="50%" width="50%" onClick={pickAnswer1} />
                     <img src={Pic1B} alt="Picture 1B" height="50%" width="50%" onClick={pickAnswer1}/>
-                    <Button onClick={() => goToNext(7)}> Skip</Button>
+                    <Button onClick={() => goToNext(5)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause1) ? (
-                    <>
-                        <Title>Great! You got {pts[0]} out of 8! 🥳</Title>
-                        <Button onClick={() => goToNext(7)}> Next</Button>
-                        <div> </div>
-                        <h1> </h1>
-                        {/* <CSVDownload data={times1} target="_blank" /> */}
-                        <CSVLink data={times1}>Click to Download Data (Image 1)</CSVLink>
-                    </>
+                <>
+                    <Title >Great! You got {pts[0]} out of 6! 🥳</Title>
+                    <Button onClick={() => goToNext(5)}> Next</Button>
+                    <div> </div>
+                    <h1> </h1>
+                    {/* <CSVDownload data={times1} target="_blank" /> */}
+                    <CSVLink data={times1}>Click to Download Data (Social Image 1)</CSVLink>
+                </> 
             ) : null}
 
-            {/* Image 2 and the following 'Next Page' */}
+            {/* Image 5 and the following 'Next Page' */}
+            {(showNS3) ? (
+                <div>
+                    <div> Image Non social 3</div>
+                    <h1> Spot the Differences! </h1>
+                    <img src={PicNS3A} alt="Picture NS3A" height="50%" width="50%" onClick={pickAnswerNS3} />
+                    <img src={PicNS3B} alt="Picture NS3B" height="50%" width="50%" onClick={pickAnswerNS3}/>
+                    <Button onClick={() => goToNext(6)}> Skip</Button>
+                    {/* <div> Timer1: {counter}</div> */}
+                </div>
+            ) : (showPauseNS3) ? (
+                <>
+                    <Title >Great! You got {pts[5]} out of 6! 🥳</Title>
+                    <Button onClick={() => goToNext(6)}> Next</Button>
+                    <div> </div>
+                    <h1> </h1>
+                    {/* <CSVDownload data={times1} target="_blank" /> */}
+                    <CSVLink data={timesNS3}>Click to Download Data (Image NS3)</CSVLink>
+                </> 
+            ) : null}
+
+            {/* Nonsocial Image 1 and the following 'Next Page' */}
             {(show2) ? (
                 <div>
                     <div> Image 2</div>
                     <h2> Spot the Differences! </h2>
                     <img src={Pic2A} alt="Picture 2A" height="50%" width="50%" onClick={pickAnswer2} />
                     <img src={Pic2B} alt="Picture 2B" height="50%" width="50%" onClick={pickAnswer2}/>
-                    <Button onClick={() => goToNext(8)}> Skip</Button>
+                    <Button onClick={() => goToNext(7)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause2) ? (
                 <>
-                    <Title >Great! You got {pts[1]} out of 8! 🥳</Title> 
-                    <Button onClick={() => goToNext(8)}> Next </Button>
+                    <Title >Great! You got {pts[1]} out of 6! 🥳</Title>
+                    <Button onClick={() => goToNext(7)}> Next</Button>
                     <div> </div>
                     <h1> </h1>
                     {/* <CSVDownload data={times1} target="_blank" /> */}
                     <CSVLink data={times2}>Click to Download Data (Image 2)</CSVLink>
-                </>
-            ) : null}
-
-            {/* Image 3 and the following 'Next Page' */}
-            {(show3) ? (
-                <div>
-                    <div> Image 3</div>
-                    <h1> Spot the Differences! </h1>
-                    <img src={Pic3A} alt="Picture 3A" height="50%" width="50%" onClick={pickAnswer3} />
-                    <img src={Pic3B} alt="Picture 3B" height="50%" width="50%" onClick={pickAnswer3}/>
-                    <Button onClick={() => goToNext(9)}> Skip</Button>
-                    {/* <div> Timer1: {counter}</div> */}
-                </div>
-            ) : (showPause3) ? (
-                <>
-                    <Title >Great! You got {pts[2]} out of 8! 🥳</Title>
-                    <Button onClick={() => goToNext(9)}> Next</Button>
-                    <div> </div>
-                    <h1> </h1>
-                    {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={times3}>Click to Download Data (Image 3)</CSVLink>
-                </>
-            ) : null}
-
-            {/* Image 4 and the following 'Next Page' */}
-            {(show4) ? (
-                <div>
-                    <div> Image 4</div>
-                    <h1> Spot the Differences! </h1>
-                    <img src={Pic4A} alt="Picture 4A" height="50%" width="50%" onClick={pickAnswer4} />
-                    <img src={Pic4B} alt="Picture 4B" height="50%" width="50%" onClick={pickAnswer4}/>
-                    <Button onClick={() => goToNext(10)}> Skip</Button>
-                    {/* <div> Timer1: {counter}</div> */}
-                </div>
-            ) : (showPause4) ? (
-                <>
-                    <Title >Great! You got {pts[3]} out of 8! 🥳</Title>
-                    <Button onClick={() => goToNext(10)}> Next</Button>
-                    <div> </div>
-                    <h1> </h1>
-                    {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={times4}>Click to Download Data (Image 4)</CSVLink>
                 </> 
             ) : null}
 
-            {/* Image 5 and the following 'Next Page' */}
-            {(show5) ? (
-                <div>
-                    <div> Image 5</div>
-                    <h1> Spot the Differences! </h1>
-                    <img src={Pic5A} alt="Picture 5A" height="50%" width="50%" onClick={pickAnswer5} />
-                    <img src={Pic5B} alt="Picture 5B" height="50%" width="50%" onClick={pickAnswer5}/>
-                    <Button onClick={() => goToNext(11)}> Skip</Button>
-                    {/* <div> Timer1: {counter}</div> */}
-                </div>
-            ) : (showPause5) ? (
-                <>
-                    <Title >Great! You got {pts[4]} out of 8! 🥳</Title>
-                    <Button onClick={() => goToNext(11)}> Next</Button>
-                    <div> </div>
-                    <h1> </h1>
-                    {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={times5}>Click to Download Data (Image 5)</CSVLink>
-                </> 
-            ) : null}
-
-            {/* Image 12 and the following 'Next Page' */}
-            {(show12) ? (
-                <div>
-                    <div> Image 12</div>
-                    <h2> Spot the Differences! </h2>
-                    <img src={Pic12A} alt="Picture 12A" height="50%" width="50%" onClick={pickAnswer12} />
-                    <img src={Pic12B} alt="Picture 12B" height="50%" width="50%" onClick={pickAnswer12}/>
-                    <Button onClick={() => goToNext(12)}> Finish Game</Button>
-                    {/* <div> Timer1: {counter}</div> */}
-                     
-                </div>
-            ) : (showOver) ? (
-                <div>
-                    
-                    <Title >You got {pts[5]} out of 8! 🥳</Title>
-                    <CSVLink data={timesNS5}>Click to Download Data (Image 12)</CSVLink>
-                    <br/>
-
-                    <CSVLink data={times}>Click to Download All Data (All)</CSVLink>
-                    {/* <CSVDownload data={times1} target="_blank" /> */}
-                    
-                </ div>
-            ) : null} 
-
-            {/* Nonsocial Image 1 and the following 'Next Page' */}
+            {/* Nonsocial Image 2 and the following 'Next Page' */}
             {(showNS1) ? (
                 <div>
                     <div> NS Image 1</div>
                     <h2> Spot the Differences! </h2>
-                    <img src={NsPic1A} alt="NS Picture 1A" height="50%" width="50%" onClick={pickAnswerNS1} />
-                    <img src={NsPic1B} alt="NS Picture 1B" height="50%" width="50%" onClick={pickAnswerNS1}/>
-                    <Button onClick={() => goToNext(2)}> Skip</Button>
+                    <img src={PicNS1A} alt="NS Picture 1A" height="50%" width="50%" onClick={pickAnswerNS1} />
+                    <img src={PicNS1B} alt="NS Picture 1B" height="50%" width="50%" onClick={pickAnswerNS1}/>
+                    <Button onClick={() => goToNext(8)}> Skip</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS1) ? (
                 <>
-                    <Title >Great! You got {pts[6]} out of 8! 🥳</Title>
-                    <Button onClick={() => goToNext(2)}> Next</Button>
+                    <Title >Great! You got {pts[3]} out of 6! 🥳</Title>
+                    <Button onClick={() => goToNext(8)}> Next</Button>
                     <div> </div>
                     <h1> </h1>
                     {/* <CSVDownload data={times1} target="_blank" /> */}
@@ -3379,88 +2360,28 @@ const Quiz = ({props}) => {
                 </> 
             ) : null}
 
-            {/* Nonsocial Image 2 and the following 'Next Page' */}
-            {(showNS2) ? (
+            {/* Image 12 and the following 'Next Page' */}
+            {(show3) ? (
                 <div>
-                    <div> NS Image 2</div>
+                    <div> Image 3</div>
                     <h2> Spot the Differences! </h2>
-                    <img src={NsPic2A} alt="NS Picture 2A" height="50%" width="50%" onClick={pickAnswerNS2} />
-                    <img src={NsPic2B} alt="NS Picture 2B" height="50%" width="50%" onClick={pickAnswerNS2}/>
-                    <Button onClick={() => goToNext(3)}> Skip</Button>
+                    <img src={Pic3A} alt="Picture 3A" height="50%" width="50%" onClick={pickAnswer3} />
+                    <img src={Pic3B} alt="Picture 3B" height="50%" width="50%" onClick={pickAnswer3}/>
+                    <Button onClick={() => goToNext(9)}> Finish Game</Button>
                     {/* <div> Timer1: {counter}</div> */}
+                     
                 </div>
-            ) : (showPauseNS2) ? (
-                <>
-                    <Title >Great! You got {pts[7]} out of 7! 🥳</Title>
-                    <Button onClick={() => goToNext(3)}> Next</Button>
-                    <div> </div>
-                    <h1> </h1>
-                    {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={timesNS2}>Click to Download Data (NS Image 2)</CSVLink>
-                </> 
-            ) : null}
-
-            {/* Nonsocial Image 3 and the following 'Next Page' */}
-            {(showNS3) ? (
+            ) : (showOver) ? (
                 <div>
-                    <div> NS Image 3</div>
-                    <h2> Spot the Differences! </h2>
-                    <img src={NsPic3A} alt="NS Picture 3A" height="50%" width="50%" onClick={pickAnswerNS3} />
-                    <img src={NsPic3B} alt="NS Picture 3B" height="50%" width="50%" onClick={pickAnswerNS3}/>
-                    <Button onClick={() => goToNext(4)}> Skip</Button>
-                    {/* <div> Timer1: {counter}</div> */}
-                </div>
-            ) : (showPauseNS3) ? (
-                <>
-                    <Title >Great! You got {pts[8]} out of 6! 🥳</Title>
-                    <Button onClick={() => goToNext(4)}> Next</Button>
-                    <div> </div>
-                    <h1> </h1>
+                    
+                    <Title >You got {pts[2]} out of 6! 🥳</Title>
+                    <CSVLink data={times3}>Click to Download Data (Image 3)</CSVLink>
+                    <br/>
+ 
+                    <CSVLink data={times}>Click to Download All Data (All)</CSVLink>
                     {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={timesNS3}>Click to Download Data (NS Image 3)</CSVLink>
-                </> 
-            ) : null}
-
-            {/* Nonsocial Image 4 and the following 'Next Page' */}
-            {(showNS4) ? (
-                <div>
-                    <div> NS Image 4</div>
-                    <h2> Spot the Differences! </h2>
-                    <img src={NsPic4A} alt="NS Picture 4A" height="50%" width="50%" onClick={pickAnswerNS4} />
-                    <img src={NsPic4B} alt="NS Picture 4B" height="50%" width="50%" onClick={pickAnswerNS4}/>
-                    <Button onClick={() => goToNext(5)}> Skip</Button>
-                    {/* <div> Timer1: {counter}</div> */}
-                </div>
-            ) : (showPauseNS4) ? (
-                <>
-                    <Title >Great! You got {pts[9]} out of 6! 🥳</Title>
-                    <Button onClick={() => goToNext(5)}> Next</Button>
-                    <div> </div>
-                    <h1> </h1>
-                    {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={timesNS4}>Click to Download Data (NS Image 4)</CSVLink>
-                </> 
-            ) : null}
-
-            {/* Nonsocial Image 5 and the following 'Game Over Page' */}
-            {(showNS5) ? (
-                <div>
-                    <div> NS Image 5</div>
-                    <h2> Spot the Differences! </h2>
-                    <img src={NsPic5A} alt="NS Picture 5A" height="50%" width="50%" onClick={pickAnswerNS5} />
-                    <img src={NsPic5B} alt="NS Picture 5B" height="50%" width="50%" onClick={pickAnswerNS5}/>
-                    <Button onClick={() => goToNext(6)}> Skip</Button>
-                    {/* <div> Timer1: {counter}</div> */}
-                </div>
-            ) : (showPauseNS5) ? (
-                <>
-                    <Title >Great! You got {pts[10]} out of 7! 🥳</Title>
-                    <Button onClick={() => goToNext(6)}> Next</Button>
-                    <div> </div>
-                    <h1> </h1>
-                    {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={timesNS4}>Click to Download Data (NS Image 5)</CSVLink>
-                </> 
+                    
+                </ div>
             ) : null} 
 
             {/* Symbols of right or wrong for each click on all Images */} 
@@ -3763,297 +2684,8 @@ const Quiz = ({props}) => {
                     top: `${Image3Change8Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {/* Green circles for the changes in Image4 */}
-            {showImage4Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change1Cord.x}px`,
-                    top: `${Image4Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change1Cord2.x}px`,
-                    top: `${Image4Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage4Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change2Cord.x}px`,
-                    top: `${Image4Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change2Cord2.x}px`,
-                    top: `${Image4Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage4Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change3Cord.x}px`,
-                    top: `${Image4Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change3Cord2.x}px`,
-                    top: `${Image4Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage4Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change4Cord.x}px`,
-                    top: `${Image4Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change4Cord2.x}px`,
-                    top: `${Image4Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImage4Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change5Cord.x}px`,
-                    top: `${Image4Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change5Cord2.x}px`,
-                    top: `${Image4Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage4Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change6Cord.x}px`,
-                    top: `${Image4Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change6Cord2.x}px`,
-                    top: `${Image4Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage4Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change7Cord.x}px`,
-                    top: `${Image4Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change7Cord2.x}px`,
-                    top: `${Image4Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage4Change8 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change8Cord.x}px`,
-                    top: `${Image4Change8Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image4Change8Cord2.x}px`,
-                    top: `${Image4Change8Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {/* Green circles for the changes in Image5 */}
-            {showImage5Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change1Cord.x}px`,
-                    top: `${Image5Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change1Cord2.x}px`,
-                    top: `${Image5Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage5Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change2Cord.x}px`,
-                    top: `${Image5Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change2Cord2.x}px`,
-                    top: `${Image5Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage5Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change3Cord.x}px`,
-                    top: `${Image5Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change3Cord2.x}px`,
-                    top: `${Image5Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage5Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change4Cord.x}px`,
-                    top: `${Image5Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change4Cord2.x}px`,
-                    top: `${Image5Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImage5Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change5Cord.x}px`,
-                    top: `${Image5Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change5Cord2.x}px`,
-                    top: `${Image5Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage5Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change6Cord.x}px`,
-                    top: `${Image5Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change6Cord2.x}px`,
-                    top: `${Image5Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage5Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change7Cord.x}px`,
-                    top: `${Image5Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change7Cord2.x}px`,
-                    top: `${Image5Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage5Change8 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change8Cord.x}px`,
-                    top: `${Image5Change8Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image5Change8Cord2.x}px`,
-                    top: `${Image5Change8Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {/* Green circles for the changes in Image12 */}
-            {showImage12Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change1Cord.x}px`,
-                    top: `${Image12Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change1Cord2.x}px`,
-                    top: `${Image12Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage12Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change2Cord.x}px`,
-                    top: `${Image12Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change2Cord2.x}px`,
-                    top: `${Image12Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage12Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change3Cord.x}px`,
-                    top: `${Image12Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change3Cord2.x}px`,
-                    top: `${Image12Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage12Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change4Cord.x}px`,
-                    top: `${Image12Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change4Cord2.x}px`,
-                    top: `${Image12Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImage12Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change5Cord.x}px`,
-                    top: `${Image12Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change5Cord2.x}px`,
-                    top: `${Image12Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage12Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change6Cord.x}px`,
-                    top: `${Image12Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change6Cord2.x}px`,
-                    top: `${Image12Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage12Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change7Cord.x}px`,
-                    top: `${Image12Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change7Cord2.x}px`,
-                    top: `${Image12Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage12Change8 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change8Cord.x}px`,
-                    top: `${Image12Change8Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image12Change8Cord2.x}px`,
-                    top: `${Image12Change8Cord2.y}px`, }}/>
-                </div>
-            ) : null}
+            
+            
             {/* Green circles for the changes in ImageNS1 */}
             {showImageNS1Change1 ? (
                 <div>
@@ -4309,77 +2941,77 @@ const Quiz = ({props}) => {
                     top: `${ImageNS3Change6Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {/* Green circles for the changes in ImageNS4 */}
-            {showImageNS4Change1  ? (
+            {/* Green circles for the changes in ImageNST1 */}
+            {showImageNST1Change1  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change1Cord.x}px`,
-                    top: `${ImageNS4Change1Cord.y}px`, }}/>
+                    left: `${ImageNST1Change1Cord.x}px`,
+                    top: `${ImageNST1Change1Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change1Cord2.x}px`,
-                    top: `${ImageNS4Change1Cord2.y}px`, }}/>
+                    left: `${ImageNST1Change1Cord2.x}px`,
+                    top: `${ImageNST1Change1Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS4Change2  ? (
+            {showImageNST1Change2  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change2Cord.x}px`,
-                    top: `${ImageNS4Change2Cord.y}px`, }}/>
+                    left: `${ImageNST1Change2Cord.x}px`,
+                    top: `${ImageNST1Change2Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change2Cord2.x}px`,
-                    top: `${ImageNS4Change2Cord2.y}px`, }}/>
+                    left: `${ImageNST1Change2Cord2.x}px`,
+                    top: `${ImageNST1Change2Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS4Change3  ? (
+            {showImageNST1Change3  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change3Cord.x}px`,
-                    top: `${ImageNS4Change3Cord.y}px`, }}/>
+                    left: `${ImageNST1Change3Cord.x}px`,
+                    top: `${ImageNST1Change3Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change3Cord2.x}px`,
-                    top: `${ImageNS4Change3Cord2.y}px`, }}/>
+                    left: `${ImageNST1Change3Cord2.x}px`,
+                    top: `${ImageNST1Change3Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS4Change4  ? (
+            {showImageNST1Change4  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change4Cord.x}px`,
-                    top: `${ImageNS4Change4Cord.y}px`, }}/>
+                    left: `${ImageNST1Change4Cord.x}px`,
+                    top: `${ImageNST1Change4Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change4Cord2.x}px`,
-                    top: `${ImageNS4Change4Cord2.y}px`, }}/>
+                    left: `${ImageNST1Change4Cord2.x}px`,
+                    top: `${ImageNST1Change4Cord2.y}px`, }}/>
                 </div>
             ) : null}
-             {showImageNS4Change5  ? (
+             {showImageNST1Change5  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change5Cord.x}px`,
-                    top: `${ImageNS4Change5Cord.y}px`, }}/>
+                    left: `${ImageNST1Change5Cord.x}px`,
+                    top: `${ImageNST1Change5Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change5Cord2.x}px`,
-                    top: `${ImageNS4Change5Cord2.y}px`, }}/>
+                    left: `${ImageNST1Change5Cord2.x}px`,
+                    top: `${ImageNST1Change5Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS4Change6  ? (
+            {showImageNST1Change6  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change6Cord.x}px`,
-                    top: `${ImageNS4Change6Cord.y}px`, }}/>
+                    left: `${ImageNST1Change6Cord.x}px`,
+                    top: `${ImageNST1Change6Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS4Change6Cord2.x}px`,
-                    top: `${ImageNS4Change6Cord2.y}px`, }}/>
+                    left: `${ImageNST1Change6Cord2.x}px`,
+                    top: `${ImageNST1Change6Cord2.y}px`, }}/>
                 </div>
             ) : null}
 
@@ -4387,89 +3019,89 @@ const Quiz = ({props}) => {
 
 
 
-            {/* Green circles for the changes in ImageNS5 */}
-            {showImageNS5Change1  ? (
+            {/* Green circles for the changes in ImageNST2 */}
+            {showImageNST2Change1  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change1Cord.x}px`,
-                    top: `${ImageNS5Change1Cord.y}px`, }}/>
+                    left: `${ImageNST2Change1Cord.x}px`,
+                    top: `${ImageNST2Change1Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change1Cord2.x}px`,
-                    top: `${ImageNS5Change1Cord2.y}px`, }}/>
+                    left: `${ImageNST2Change1Cord2.x}px`,
+                    top: `${ImageNST2Change1Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS5Change2  ? (
+            {showImageNST2Change2  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change2Cord.x}px`,
-                    top: `${ImageNS5Change2Cord.y}px`, }}/>
+                    left: `${ImageNST2Change2Cord.x}px`,
+                    top: `${ImageNST2Change2Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change2Cord2.x}px`,
-                    top: `${ImageNS5Change2Cord2.y}px`, }}/>
+                    left: `${ImageNST2Change2Cord2.x}px`,
+                    top: `${ImageNST2Change2Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS5Change3  ? (
+            {showImageNST2Change3  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change3Cord.x}px`,
-                    top: `${ImageNS5Change3Cord.y}px`, }}/>
+                    left: `${ImageNST2Change3Cord.x}px`,
+                    top: `${ImageNST2Change3Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change3Cord2.x}px`,
-                    top: `${ImageNS5Change3Cord2.y}px`, }}/>
+                    left: `${ImageNST2Change3Cord2.x}px`,
+                    top: `${ImageNST2Change3Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS5Change4  ? (
+            {showImageNST2Change4  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change4Cord.x}px`,
-                    top: `${ImageNS5Change4Cord.y}px`, }}/>
+                    left: `${ImageNST2Change4Cord.x}px`,
+                    top: `${ImageNST2Change4Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change4Cord2.x}px`,
-                    top: `${ImageNS5Change4Cord2.y}px`, }}/>
+                    left: `${ImageNST2Change4Cord2.x}px`,
+                    top: `${ImageNST2Change4Cord2.y}px`, }}/>
                 </div>
             ) : null}
-             {showImageNS5Change5   ? (
+             {showImageNST2Change5   ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change5Cord.x}px`,
-                    top: `${ImageNS5Change5Cord.y}px`, }}/>
+                    left: `${ImageNST2Change5Cord.x}px`,
+                    top: `${ImageNST2Change5Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change5Cord2.x}px`,
-                    top: `${ImageNS5Change5Cord2.y}px`, }}/>
+                    left: `${ImageNST2Change5Cord2.x}px`,
+                    top: `${ImageNST2Change5Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS5Change6  ? (
+            {showImageNST2Change6  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change6Cord.x}px`,
-                    top: `${ImageNS5Change6Cord.y}px`, }}/>
+                    left: `${ImageNST2Change6Cord.x}px`,
+                    top: `${ImageNST2Change6Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change6Cord2.x}px`,
-                    top: `${ImageNS5Change6Cord2.y}px`, }}/>
+                    left: `${ImageNST2Change6Cord2.x}px`,
+                    top: `${ImageNST2Change6Cord2.y}px`, }}/>
                 </div>
             ) : null}
-            {showImageNS5Change7  ? (
+            {showImageNST2Change7  ? (
                 <div>
                 <img alt="Pic1" height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change7Cord.x}px`,
-                    top: `${ImageNS5Change7Cord.y}px`, }}/>
+                    left: `${ImageNST2Change7Cord.x}px`,
+                    top: `${ImageNST2Change7Cord.y}px`, }}/>
                 <img height="50" width="50" src={Circle} style={{
                     position: "absolute",
-                    left: `${ImageNS5Change7Cord2.x}px`,
-                    top: `${ImageNS5Change7Cord2.y}px`, }}/>
+                    left: `${ImageNST2Change7Cord2.x}px`,
+                    top: `${ImageNST2Change7Cord2.y}px`, }}/>
                 </div>
             ) : null}
 
