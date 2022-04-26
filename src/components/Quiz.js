@@ -21,6 +21,9 @@ import Circle from '../kisspng-disk-green-circle-5af97c364e1283.3175421115262997
 import Button from './Button'
 import { CSVLink, CSVDownload } from "react-csv";
 import { Form } from 'react-bootstrap'
+import CountdownTimer from './CountdownTimer';
+
+
 
 const Title = styled.h1`
     margin-top: 4em;
@@ -91,6 +94,8 @@ const Quiz = ({props}) => {
     const [correct, setCorrect] = useState(false);
     const [wrong, setWrong] = useState(false);
     const [counter, setCounter] = useState(timerLength);
+    const [counter1, setCounter1] = useState(0);
+    const [current, setCurrent] = useState(0);
 
     //Image 1 times to find each change
     const [Image1Change1, setImage1Change1] = useState(-1);
@@ -520,6 +525,8 @@ const Quiz = ({props}) => {
     const [timesNST2, setTimesNST2] = useState([]);
     const [times, setTimes] = useState([]);
 
+    const [today, setToday] = useState(0);
+
     const goToNext = num => {
         setGo(true);
         //setCounter(60); 
@@ -527,6 +534,9 @@ const Quiz = ({props}) => {
             setShow(false);
             setShowPause(false);
             setShowNST1(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         }
         else if (num == 2){
             //setShow1(false);
@@ -549,6 +559,9 @@ const Quiz = ({props}) => {
             setShowPauseNST1(false);
             setShowNST1(false);
             setShowNST2(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         } 
         else if (num == 3){
             //setShow1(false);
@@ -571,9 +584,11 @@ const Quiz = ({props}) => {
             setShowPauseNST2(false);
             setShowNST2(false);
             setShowNS2(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         }
         else if (num == 4){
-            setCounter(60); 
             //setShow1(false);
             setImageNS2Change1(false);
                 setImageNS2Change2(false);
@@ -594,6 +609,9 @@ const Quiz = ({props}) => {
             setShowPauseNS2(false);
             setShowNS2(false);
             setShow1(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         }
         else if (num == 5){
             //setShow1(false);
@@ -616,6 +634,9 @@ const Quiz = ({props}) => {
             setShowPause1(false);
             setShow1(false);
             setShowNS3(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         }
         else if (num == 6){
             //setShow1(false);
@@ -638,6 +659,9 @@ const Quiz = ({props}) => {
             setShowPauseNS3(false);
             setShowNS3(false);
             setShow2(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         }
         else if (num == 7){
             //setShow1(false);
@@ -660,6 +684,9 @@ const Quiz = ({props}) => {
             setShowPause2(false);
             setShow2(false);
             setShowNS1(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         }
         else if (num == 8){
             //setShow1(false);
@@ -682,6 +709,9 @@ const Quiz = ({props}) => {
             setShowNS1(false);
             setShowPauseNS1(false);
             setShow3(true);
+            var dt = new Date().getTime();
+            setCounter1(dt+60000);
+            setCurrent(dt);
         }
         else {
             setImage3Change1(false);
@@ -700,6 +730,8 @@ const Quiz = ({props}) => {
                 setShowImage3Change6(false);
                 setShowImage3Change7(false);
                 setShowImage3Change8(false);
+                setCounter1(new Date().getTime()+60000);
+                setCurrent(counter1-60000);
             setShow3(false);
             setShowOver(true);
             setTimes([
@@ -1021,12 +1053,27 @@ const Quiz = ({props}) => {
         }
     }
     );
-    useEffect(() => {
-        go && counter > 0 && setTimeout(() => 
-            setCounter(counter - 1), 1000);
-    }, [counter]);
 
     const pickAnswer1 = (e) => {
+        if(document.getElementById("expired-notice")){
+            setShowImage1Change1(false);
+            setShowImage1Change2(false);
+            setShowImage1Change3(false);
+            setShowImage1Change4(false);
+            setShowImage1Change5(false);
+            setShowImage1Change6(false);
+            setShowImage1Change7(false);
+            setShowImage1Change8(false);
+
+            setShowPause1(true);
+            setShow1(false);
+            setTimes1([{Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+            T1_change2: Image1Change2Time,
+            T1_change3: Image1Change3Time,
+            T1_change4: Image1Change4Time,
+            T1_change5: Image1Change5Time,
+            T1_change6: Image1Change6Time}]);
+        }
         setShowImageNS2Change1(false);
             setShowImageNS2Change2(false);
             setShowImageNS2Change3(false);
@@ -1035,7 +1082,7 @@ const Quiz = ({props}) => {
             setShowImageNS2Change6(false);
             setShowImageNS2Change7(false);
             setShowImageNS2Change8(false);
-        console.log(e.target);
+        console.log(counter);
         console.log(e.target.width);
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
@@ -1054,88 +1101,104 @@ const Quiz = ({props}) => {
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
         console.log(x,y);
+        var b = e.target.width;
         if ((!showImage1Change1) && (x >= (change1[0])*relativex && x <= (change1[2])*relativex && y >= (change1[1])*relativey && y <=  (change1[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
-            setImage1Change1Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage1Change1Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
+            console.log(x/e.target.width*100);
+            console.log(y/e.target.height);
+            
             if(e.clientX<e.target.width){
-                setImage1Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage1Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage1Change1(true);
         }else if ((!showImage1Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
-            setImage1Change2Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage1Change2Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage1Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage1Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage1Change2(true);
         }else if ((!showImage1Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
-            setImage1Change3Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage1Change3Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage1Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage1Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage1Change3(true);
         }else if ((!showImage1Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
-            setImage1Change4Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage1Change4Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage1Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage1Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage1Change4(true);
         }else if ((!showImage1Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
-            setImage1Change5Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage1Change5Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage1Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage1Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage1Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage1Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage1Change5(true);
         }else if ((!showImage1Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0] + 1, 0, 0, 0,0,0,0,0]);
             setCorrect(true);
-            setImage1Change6Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage1Change6Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage1Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage1Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage1Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage1Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage1Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage1Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage1Change6(true);
         }
@@ -1147,7 +1210,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[0] == 5){
+        if (pts[0] == 6 && showImage1Change1 && showImage1Change2 && showImage1Change3 && showImage1Change4 && showImage1Change5 && showImage1Change6){
             console.log("move to 2");
             setShowImage1Change1(false);
             setShowImage1Change2(false);
@@ -1180,6 +1243,25 @@ const Quiz = ({props}) => {
     }
         //x: -10, y: -148
     const pickAnswer2 = (e) => {
+        if(document.getElementById("expired-notice")){
+            setShowImage2Change1(false);
+            setShowImage2Change2(false);
+            setShowImage2Change3(false);
+            setShowImage2Change4(false);
+            setShowImage2Change5(false);
+            setShowImage2Change6(false);
+            setShowImage2Change7(false);
+            setShowImage2Change8(false);
+
+            setShowPause2(true);
+            setShow2(false);
+            setTimes2([{Participant: participantID, Image_name: "Social 1", T1_change1: Image2Change1Time,
+            T1_change2: Image2Change2Time,
+            T1_change3: Image2Change3Time,
+            T1_change4: Image2Change4Time,
+            T1_change5: Image2Change5Time,
+            T1_change6: Image2Change6Time}]);
+        }
         setShowImageNS3Change1(false);
                 setShowImageNS3Change2(false);
                 setShowImageNS3Change3(false);
@@ -1188,8 +1270,9 @@ const Quiz = ({props}) => {
                 setShowImageNS3Change6(false);
                 setShowImageNS3Change7(false);
                 setShowImageNS3Change8(false);
-            console.log(e.target);
+            console.log(counter);
             console.log(e.target.width);
+            var b = e.target.width;
             //let userAnswer = e.target.outerText;
             // if (quiz[number].answer === userAnswer) 
             console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
@@ -1212,84 +1295,96 @@ const Quiz = ({props}) => {
                 //console.log("found tie");
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
-                setImage2Change1Time(timerLength-counter);
+                setToday( new Date().getTime());
+                setImage2Change1Time(new Date().getTime() - current);
+                setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
-                    setImage2Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                    setImage2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 else{
-                    setImage2Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                    setImage2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 setShowImage2Change1(true);
             }else if ((!showImage2Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
                 //console.log("found tie");
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
-                setImage2Change2Time(timerLength-counter);
+                setToday( new Date().getTime());
+                setImage2Change2Time(new Date().getTime() - current);
+                setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
-                    setImage2Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                    setImage2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 else{
-                    setImage2Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                    setImage2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 setShowImage2Change2(true);
             }else if ((!showImage2Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
                 //console.log("found tie");
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
-                setImage2Change3Time(timerLength-counter);
+                setToday( new Date().getTime());
+                setImage2Change3Time(new Date().getTime() - current);
+                setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
-                    setImage2Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                    setImage2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 else{
-                    setImage2Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                    setImage2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 setShowImage2Change3(true);
             }else if ((!showImage2Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
                 //console.log("found tie");
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
-                setImage2Change4Time(timerLength-counter);
+                setToday( new Date().getTime());
+                setImage2Change4Time(new Date().getTime() - current);
+                setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
-                    setImage2Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                    setImage2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 else{
-                    setImage2Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                    setImage2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 setShowImage2Change4(true);
             }else if ((!showImage2Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
                 //console.log("found tie");
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
-                setImage2Change5Time(timerLength-counter);
+                setToday( new Date().getTime());
+                setImage2Change5Time(new Date().getTime() - current);
+                setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
-                    setImage2Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                    setImage2Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 else{
-                    setImage2Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                    setImage2Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 setShowImage2Change5(true);
             }else if ((!showImage2Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
                 //console.log("found tie");
                 setPts([pts[0], pts[1]+1, 0, 0,0,0,0,0]);
                 setCorrect(true);
-                setImage2Change6Time(timerLength-counter);
+                setToday( new Date().getTime());
+                setImage2Change6Time(new Date().getTime() - current);
+                setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
-                    setImage2Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                    setImage2Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 else{
-                    setImage2Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                    setImage2Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                    setImage2Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                    setImage2Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 }
                 setShowImage2Change6(true);
             }
@@ -1301,7 +1396,7 @@ const Quiz = ({props}) => {
             setTimeout(() => {setCorrect(false)}, 1000);
             setTimeout(() => {setWrong(false)}, 1000);
             console.log(pts);
-            if (pts[1] == 5){
+            if (pts[1] == 6 && showImage2Change1 && showImage2Change2 && showImage2Change3 && showImage2Change4 && showImage2Change5 && showImage2Change6){
                 console.log("move to 2");
                 setShowImage2Change1(false);
                 setShowImage2Change2(false);
@@ -1337,6 +1432,23 @@ const Quiz = ({props}) => {
             }
     }
     const pickAnswer3 = (e) => {
+        if(document.getElementById("expired-notice")){
+            setShowImage3Change1(false);
+            setShowImage3Change2(false);
+            setShowImage3Change3(false);
+            setShowImage3Change4(false);
+            setShowImage3Change5(false);
+            setShowImage3Change6(false);
+
+            setShowPause3(true);
+            setShow3(false);
+            setTimes3([{Participant: participantID, Image_name: "Social 1", T1_change1: Image3Change1Time,
+            T1_change2: Image3Change2Time,
+            T1_change3: Image3Change3Time,
+            T1_change4: Image3Change4Time,
+            T1_change5: Image3Change5Time,
+            T1_change6: Image3Change6Time}]);
+        }
         setShowImageNS1Change1(false);
                 setShowImageNS1Change2(false);
                 setShowImageNS1Change3(false);
@@ -1345,8 +1457,9 @@ const Quiz = ({props}) => {
                 setShowImageNS1Change6(false);
                 setShowImageNS1Change7(false);
                 setShowImageNS1Change8(false);
-        console.log(e.target);
+        console.log(counter);
         console.log(e.target.width);
+        var b = e.target.width;
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
@@ -1369,84 +1482,96 @@ const Quiz = ({props}) => {
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
-            setImage3Change1Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage3Change1Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage3Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage3Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage3Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage3Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage3Change1(true);
         }else if ((!showImage3Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
-            setImage3Change2Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage3Change2Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage3Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage3Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage3Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage3Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage3Change2(true);
         }else if ((!showImage3Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
-            setImage3Change3Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage3Change3Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage3Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage3Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage3Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage3Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage3Change3(true);
         }else if ((!showImage3Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
-            setImage3Change4Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage3Change4Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage3Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage3Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage3Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage3Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage3Change4(true);
         }else if ((!showImage3Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
-            setImage3Change5Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage3Change5Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage3Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage3Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage3Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage3Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage3Change5(true);
         }else if ((!showImage3Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2]+1, 0,0,0,0,0]);
             setCorrect(true);
-            setImage3Change6Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImage3Change6Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImage3Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImage3Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImage3Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImage3Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImage3Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImage3Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImage3Change6(true);
         }
@@ -1458,7 +1583,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[2] == 5){
+        if (pts[2] == 6 && showImage3Change1 && showImage3Change2 && showImage3Change3 && showImage3Change4 && showImage3Change5 && showImage3Change6){
             console.log("move to 2");
             setShowImage3Change1(false);
             setShowImage3Change2(false);
@@ -1494,6 +1619,23 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswerNS1 = (e) => {
+        if(document.getElementById("expired-notice")){
+            setShowImageNS1Change1(false);
+            setShowImageNS1Change2(false);
+            setShowImageNS1Change3(false);
+            setShowImageNS1Change4(false);
+            setShowImageNS1Change5(false);
+            setShowImageNS1Change6(false);
+
+            setShowPauseNS1(true);
+            setShowNST1(false);
+            setTimesNS1([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNS1Change1Time,
+            T1_change2: ImageNS1Change2Time,
+            T1_change3: ImageNS1Change3Time,
+            T1_change4: ImageNS1Change4Time,
+            T1_change5: ImageNS1Change5Time,
+            T1_change6: ImageNS1Change6Time}]);
+        }
         setShowImage2Change1(false);
                 setShowImage2Change2(false);
                 setShowImage2Change3(false);
@@ -1502,8 +1644,9 @@ const Quiz = ({props}) => {
                 setShowImage2Change6(false);
                 setShowImage2Change7(false);
                 setShowImage2Change8(false);
-        console.log(e.target);
+        console.log(counter);
         console.log(e.target.width);
+        var b = e.target.width;
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
@@ -1525,84 +1668,96 @@ const Quiz = ({props}) => {
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS1Change1Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS1Change1Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS1Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS1Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS1Change1(true);
         }else if ((!showImageNS1Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS1Change2Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS1Change2Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS1Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS1Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS1Change2(true);
         }else if ((!showImageNS1Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS1Change3Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS1Change3Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS1Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS1Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS1Change3(true);
         }else if ((!showImageNS1Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS1Change4Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS1Change4Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS1Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS1Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS1Change4(true);
         }else if ((!showImageNS1Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS1Change5Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS1Change5Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS1Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS1Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS1Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS1Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS1Change5(true);
         }else if ((!showImageNS1Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS1Change6Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS1Change6Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS1Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS1Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS1Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS1Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS1Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS1Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS1Change6(true);
         }
@@ -1614,7 +1769,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[3] == 5){
+        if (pts[3] == 6 && showImageNS1Change1 && showImageNS1Change2 && showImageNS1Change3 && showImageNS1Change4 && showImageNS1Change5 && showImageNS1Change6){
             console.log("move to 2");
             setShowImageNS1Change1(false);
             setShowImageNS1Change2(false);
@@ -1653,6 +1808,23 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswerNS2 = (e) => {
+        if(document.getElementById("expired-notice")){
+            setShowImageNS2Change1(false);
+            setShowImageNS2Change2(false);
+            setShowImageNS2Change3(false);
+            setShowImageNS2Change4(false);
+            setShowImageNS2Change5(false);
+            setShowImageNS2Change6(false);
+
+            setShowPauseNS2(true);
+            setShowNS2(false);
+            setTimesNS2([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNS2Change1Time,
+            T1_change2: ImageNS2Change2Time,
+            T1_change3: ImageNS2Change3Time,
+            T1_change4: ImageNS2Change4Time,
+            T1_change5: ImageNS2Change5Time,
+            T1_change6: ImageNS2Change6Time}]);
+        }
         setShowImageNST2Change1(false);
         setShowImageNST2Change2(false);
         setShowImageNST2Change3(false);
@@ -1661,8 +1833,9 @@ const Quiz = ({props}) => {
         setShowImageNST2Change6(false);
         setShowImageNST2Change7(false);
         setShowImageNST2Change8(false);
-        console.log(e.target);
+        console.log(counter);
         console.log(e.target.width);
+        var b = e.target.width;
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
@@ -1684,84 +1857,96 @@ const Quiz = ({props}) => {
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS2Change1Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS2Change1Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS2Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS2Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS2Change1(true);
         }else if ((!showImageNS2Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS2Change2Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS2Change2Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS2Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS2Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS2Change2(true);
         }else if ((!showImageNS2Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS2Change3Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS2Change3Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS2Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS2Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS2Change3(true);
         }else if ((!showImageNS2Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS2Change4Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS2Change4Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS2Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS2Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS2Change4(true);
         }else if ((!showImageNS2Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS2Change5Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS2Change5Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS2Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS2Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS2Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS2Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS2Change5(true);
         }else if ((!showImageNS2Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4]+1,0,0,0,0]);
             setCorrect(true);
-            setImageNS2Change6Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS2Change6Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS2Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS2Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS2Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS2Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS2Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS2Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS2Change6(true);
         }
@@ -1773,7 +1958,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[4] == 5){
+        if (pts[4] == 6 && showImageNS2Change1 && showImageNS2Change2 && showImageNS2Change3 && showImageNS2Change4 && showImageNS2Change5 && showImageNS2Change6){
             console.log("move to 2");
             setShowImageNS2Change1(false);
             setShowImageNS2Change2(false);
@@ -1806,6 +1991,23 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswerNS3 = (e) => {
+        if(document.getElementById("expired-notice")){
+            setShowImageNS3Change1(false);
+            setShowImageNS3Change2(false);
+            setShowImageNS3Change3(false);
+            setShowImageNS3Change4(false);
+            setShowImageNS3Change5(false);
+            setShowImageNS3Change6(false);
+
+            setShowPauseNS3(true);
+            setShowNS3(false);
+            setTimesNS3([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNS3Change1Time,
+            T1_change2: ImageNS3Change2Time,
+            T1_change3: ImageNS3Change3Time,
+            T1_change4: ImageNS3Change4Time,
+            T1_change5: ImageNS3Change5Time,
+            T1_change6: ImageNS3Change6Time}]);
+        }
         setShowImage1Change1(false);
         setShowImage1Change2(false);
         setShowImage1Change3(false);
@@ -1813,8 +2015,9 @@ const Quiz = ({props}) => {
         setShowImage1Change5(false);
         setShowImage1Change6(false);
         setShowImage1Change7(false);
-        console.log(e.target);
+        console.log(counter);
         console.log(e.target.width);
+        var b = e.target.width;
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
@@ -1836,84 +2039,96 @@ const Quiz = ({props}) => {
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
-            setImageNS3Change1Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS3Change1Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS3Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS3Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS3Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS3Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS3Change1(true);
         }else if ((!showImageNS3Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
-            setImageNS3Change2Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS3Change2Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS3Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS3Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS3Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS3Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS3Change2(true);
         }else if ((!showImageNS3Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
-            setImageNS3Change3Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS3Change3Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS3Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS3Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS3Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS3Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS3Change3(true);
         }else if ((!showImageNS3Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
-            setImageNS3Change4Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS3Change4Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS3Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS3Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS3Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS3Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS3Change4(true);
         }else if ((!showImageNS3Change5) && (x >= (change5[0])*relativex && x <= (change5[2])*relativex && y >= (change5[1])*relativey && y <=  (change5[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
-            setImageNS3Change5Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS3Change5Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS3Change5Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change5Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS3Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS3Change5Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change5Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS3Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS3Change5(true);
         }else if ((!showImageNS3Change6) && (x >= (change6[0])*relativex && x <= (change6[2])*relativex && y >= (change6[1])*relativey && y <=  (change6[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5]+1,0,0]);
             setCorrect(true);
-            setImageNS3Change6Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNS3Change6Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNS3Change6Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change6Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNS3Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNS3Change6Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNS3Change6Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNS3Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNS3Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNS3Change6(true);
         }
@@ -1925,7 +2140,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[5] == 5){
+        if (pts[5] == 6 && showImageNS3Change1 && showImageNS3Change2 && showImageNS3Change3 && showImageNS3Change4 && showImageNS3Change5 && showImageNS3Change6){
             console.log("move to 2");
             setShowImageNS3Change1(false);
             setShowImageNS3Change2(false);
@@ -1955,8 +2170,24 @@ const Quiz = ({props}) => {
         }
     }
     const pickAnswerNST1 = (e) => {
-        console.log(e.target);
-        console.log(e.target.width);
+        if(document.getElementById("expired-notice")){
+            setShowImageNST1Change1(false);
+            setShowImageNST1Change2(false);
+            setShowImageNST1Change3(false);
+            setShowImageNST1Change4(false);
+            setShowImageNST1Change5(false);
+            setShowImageNST1Change6(false);
+
+            setShowPauseNST1(true);
+            setShowNST1(false);
+            setTimesNST1([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNST1Change1Time,
+            T1_change2: ImageNST1Change2Time,
+            T1_change3: ImageNST1Change3Time,
+            T1_change4: ImageNST1Change4Time,
+            T1_change5: ImageNST1Change5Time,
+            T1_change6: ImageNST1Change6Time}]);
+        }
+
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
@@ -1967,7 +2198,8 @@ const Quiz = ({props}) => {
         const change3 = [588,226,658,261];
         const change4 = [871,62,941,170];
         var rect = e.target.getBoundingClientRect();
-        //console.log(e.clientX,e.clientY);
+        var b = e.target.width;
+        
         //console.log(rect.left,rect.top);
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element.
@@ -1976,58 +2208,155 @@ const Quiz = ({props}) => {
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNST1Change1Time(timerLength-counter);
+            setToday( new Date().getTime());
+            console.log(current);
+            console.log(new Date().getTime());
+            setImageNST1Change1Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST1Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST1Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST1Change1(true);
+            if (pts[6] == 4 && showImageNST1Change1 && showImageNST1Change2 && showImageNST1Change3 && showImageNST1Change4 ){
+                console.log("move to 2");
+                setShowImageNST1Change1(false);
+                setShowImageNST1Change2(false);
+                setShowImageNST1Change3(false);
+                setShowImageNST1Change4(false);
+                setShowImageNST1Change5(false);
+                setShowImageNST1Change6(false);
+    
+                setShowPauseNST1(true);
+                setShowNST1(false);
+                setGo(false);
+                setCounter(0);
+                setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time}]);
+            }
         }else if ((!showImageNST1Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNST1Change2Time(timerLength-counter);
+            setToday( new Date().getTime());
+            console.log(current);
+            console.log(new Date().getTime());
+            setImageNST1Change2Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST1Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST1Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST1Change2(true);
+            if (pts[6] == 4 && showImageNST1Change1 && showImageNST1Change2 && showImageNST1Change3 && showImageNST1Change4 ){
+                console.log("move to 2");
+                setShowImageNST1Change1(false);
+                setShowImageNST1Change2(false);
+                setShowImageNST1Change3(false);
+                setShowImageNST1Change4(false);
+                setShowImageNST1Change5(false);
+                setShowImageNST1Change6(false);
+    
+                setShowPauseNST1(true);
+                setShowNST1(false);
+                setGo(false);
+                setCounter(0);
+                setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time}]);
+            }
         }else if ((!showImageNST1Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNST1Change3Time(timerLength-counter);
+            setToday( new Date().getTime());
+            console.log(current);
+            console.log(new Date().getTime());
+            setImageNST1Change3Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST1Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST1Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST1Change3(true);
+            if (pts[6] == 4 && showImageNST1Change1 && showImageNST1Change2 && showImageNST1Change3 && showImageNST1Change4 ){
+                console.log("move to 2");
+                setShowImageNST1Change1(false);
+                setShowImageNST1Change2(false);
+                setShowImageNST1Change3(false);
+                setShowImageNST1Change4(false);
+                setShowImageNST1Change5(false);
+                setShowImageNST1Change6(false);
+    
+                setShowPauseNST1(true);
+                setShowNST1(false);
+                setGo(false);
+                setCounter(0);
+                setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time}]);
+            }
         }else if ((!showImageNST1Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6]+1,0]);
             setCorrect(true);
-            setImageNST1Change4Time(timerLength-counter);
+            setToday( new Date().getTime());
+            console.log(new Date().getTime());
+            setImageNST1Change4Time(new Date().getTime() - current);
+            console.log(current);
+            console.log(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST1Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST1Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST1Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST1Change4(true);
+            if (pts[6] == 4 && showImageNST1Change1 && showImageNST1Change2 && showImageNST1Change3 && showImageNST1Change4 ){
+                console.log("move to 2");
+                setShowImageNST1Change1(false);
+                setShowImageNST1Change2(false);
+                setShowImageNST1Change3(false);
+                setShowImageNST1Change4(false);
+                setShowImageNST1Change5(false);
+                setShowImageNST1Change6(false);
+    
+                setShowPauseNST1(true);
+                setShowNST1(false);
+                setGo(false);
+                setCounter(0);
+                
+            }
+            setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time}]);
         }
          else {
             setWrong(true);
@@ -2037,7 +2366,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[6] == 3){
+        if (pts[6] == 4 && showImageNST1Change1 && showImageNST1Change2 && showImageNST1Change3 && showImageNST1Change4 ){
             console.log("move to 2");
             setShowImageNST1Change1(false);
             setShowImageNST1Change2(false);
@@ -2068,14 +2397,32 @@ const Quiz = ({props}) => {
     }
 
     const pickAnswerNST2 = (e) => {
+        if(document.getElementById("expired-notice")){
+            setShowImageNST2Change1(false);
+            setShowImageNST2Change2(false);
+            setShowImageNST2Change3(false);
+            setShowImageNST2Change4(false);
+            setShowImageNST2Change5(false);
+            setShowImageNST2Change6(false);
+
+            setShowPauseNST2(true);
+            setShowNST2(false);
+            setTimesNST2([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNST2Change1Time,
+            T1_change2: ImageNST2Change2Time,
+            T1_change3: ImageNST2Change3Time,
+            T1_change4: ImageNST2Change4Time,
+            T1_change5: ImageNST2Change5Time,
+            T1_change6: ImageNST2Change6Time}]);
+        }
         setShowImageNST1Change1(false);
             setShowImageNST1Change2(false);
             setShowImageNST1Change3(false);
             setShowImageNST1Change4(false);
             setShowImageNST1Change5(false);
             setShowImageNST1Change6(false);
-        console.log(e.target);
+        console.log(counter);
         console.log(e.target.width);
+        var b = e.target.width;
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
@@ -2095,56 +2442,64 @@ const Quiz = ({props}) => {
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNST2Change1Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNST2Change1Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST2Change1Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change1Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST2Change1Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change1Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST2Change1(true);
         }else if ((!showImageNST2Change2) && (x >= (change2[0])*relativex && x <= (change2[2])*relativex && y >= (change2[1])*relativey && y <=  (change2[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNST2Change2Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNST2Change2Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST2Change2Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change2Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST2Change2Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change2Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST2Change2(true);
         }else if ((!showImageNST2Change3) && (x >= (change3[0])*relativex && x <= (change3[2])*relativex && y >= (change3[1])*relativey && y <=  (change3[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNST2Change3Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNST2Change3Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST2Change3Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change3Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST2Change3Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change3Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST2Change3(true);
         }else if ((!showImageNST2Change4) && (x >= (change4[0])*relativex && x <= (change4[2])*relativex && y >= (change4[1])*relativey && y <=  (change4[3])*relativey) ){
             //console.log("found tie");
             setPts([pts[0], pts[1], pts[2], pts[3],pts[4],pts[5],pts[6],pts[7]+1]);
             setCorrect(true);
-            setImageNST2Change4Time(timerLength-counter);
+            setToday( new Date().getTime());
+            setImageNST2Change4Time(new Date().getTime() - current);
+            setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
-                setImageNST2Change4Cord({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change4Cord2({x: e.clientX-20+e.target.width, y: e.clientY-20});
+                setImageNST2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             else{
-                setImageNST2Change4Cord2({x: e.clientX-20,y:e.clientY-20});
-                setImageNST2Change4Cord({x: e.clientX-20-e.target.width, y: e.clientY-20});
+                setImageNST2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
+                setImageNST2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
             }
             setShowImageNST2Change4(true);
         }
@@ -2156,7 +2511,7 @@ const Quiz = ({props}) => {
         setTimeout(() => {setCorrect(false)}, 1000);
         setTimeout(() => {setWrong(false)}, 1000);
         console.log(pts);
-        if (pts[7] == 3){
+        if ((pts[7] == 4 && showImageNST2Change1 && showImageNST2Change2 && showImageNST2Change3 && showImageNST2Change4) ){
             console.log("move to 2");
             setShowImageNST2Change1(false);
             setShowImageNST2Change2(false);
@@ -2189,10 +2544,10 @@ const Quiz = ({props}) => {
         }
     }
     //help
-
     return (
         <QuizWindow>
         <div className='quiz' align="center">
+        
             {/* Image 1 and the following 'Next Page' */}
             {(show) ? (
                 <div>
@@ -2215,12 +2570,63 @@ const Quiz = ({props}) => {
 
             {/* Image 1 and the following 'Next Page' */}
             {(showNST1) ? (
+                
                 <div>
                     <div> Training Image 1</div>
                     <h1> Spot the Differences! </h1>
+                    <div style={{position: "relative" }}>
                     <img src={PicNST1A} alt="Picture NST1A" height="50%" width="50%" onClick={pickAnswerNST1} />
+                    {showImageNST1Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change1Cord.x}%`,
+                            top: `${ImageNST1Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNST1Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change2Cord.x}%`,
+                            top: `${ImageNST1Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNST1Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change3Cord.x}%`,
+                            top: `${ImageNST1Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNST1Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change4Cord.x}%`,
+                            top: `${ImageNST1Change4Cord.y}%`, }}/>
+                    ) : null}
                     <img src={PicNST1B} alt="Picture NST1B" height="50%" width="50%" onClick={pickAnswerNST1}/>
-                    <Button onClick={() => goToNext(2)}> Skip</Button>
+                    {showImageNST1Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change1Cord2.x}%`,
+                            top: `${ImageNST1Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNST1Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change2Cord2.x}%`,
+                            top: `${ImageNST1Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNST1Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change3Cord2.x}%`,
+                            top: `${ImageNST1Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNST1Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST1Change4Cord2.x}%`,
+                            top: `${ImageNST1Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    </div>
+                    <Button onClick={() => goToNext(2)}> Next</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNST1) ? (
@@ -2239,9 +2645,59 @@ const Quiz = ({props}) => {
                 <div>
                     <div> Training Image 2</div>
                     <h2> Spot the Differences! </h2>
+                    <div style={{position: "relative" }}>
                     <img src={PicNST2A} alt="Picture NST2A" height="50%" width="50%" onClick={pickAnswerNST2} />
+                    {showImageNST2Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change1Cord.x}%`,
+                            top: `${ImageNST2Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNST2Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change2Cord.x}%`,
+                            top: `${ImageNST2Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNST2Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change3Cord.x}%`,
+                            top: `${ImageNST2Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNST2Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change4Cord.x}%`,
+                            top: `${ImageNST2Change4Cord.y}%`, }}/>
+                    ) : null}
                     <img src={PicNST2B} alt="Picture NST2B" height="50%" width="50%" onClick={pickAnswerNST2}/>
-                    <Button onClick={() => goToNext(3)}> Skip</Button>
+                    {showImageNST2Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change1Cord2.x}%`,
+                            top: `${ImageNST2Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNST2Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change2Cord2.x}%`,
+                            top: `${ImageNST2Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNST2Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change3Cord2.x}%`,
+                            top: `${ImageNST2Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNST2Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNST2Change4Cord2.x}%`,
+                            top: `${ImageNST2Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    </div>
+                    <Button onClick={() => goToNext(3)}> Next</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNST2) ? (
@@ -2258,11 +2714,89 @@ const Quiz = ({props}) => {
             {/* Image 3 and the following 'Next Page' */}
             {(showNS2) ? (
                 <div>
+                    <div>
+      <h6>Countdown Timer</h6>
+      <CountdownTimer targetDate={counter1} />
+    </div>
                     <div> Image Non social 2</div>
                     <h1> Spot the Differences! </h1>
+                    <div style={{position: "relative" }}>
                     <img src={PicNS2A} alt="Picture NS2" height="50%" width="50%" onClick={pickAnswerNS2} />
+                    {showImageNS2Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change1Cord.x}%`,
+                            top: `${ImageNS2Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change2Cord.x}%`,
+                            top: `${ImageNS2Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change3Cord.x}%`,
+                            top: `${ImageNS2Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change4Cord.x}%`,
+                            top: `${ImageNS2Change4Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change5Cord.x}%`,
+                            top: `${ImageNS2Change5Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change6Cord.x}%`,
+                            top: `${ImageNS2Change6Cord.y}%`, }}/>
+                    ) : null}
                     <img src={PicNS2B} alt="Picture NS2" height="50%" width="50%" onClick={pickAnswerNS2}/>
-                    <Button onClick={() => goToNext(4)}> Skip</Button>
+                    {showImageNS2Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change1Cord2.x}%`,
+                            top: `${ImageNS2Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change2Cord2.x}%`,
+                            top: `${ImageNS2Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change3Cord2.x}%`,
+                            top: `${ImageNS2Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change4Cord2.x}%`,
+                            top: `${ImageNS2Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change5Cord2.x}%`,
+                            top: `${ImageNS2Change5Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS2Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS2Change6Cord2.x}%`,
+                            top: `${ImageNS2Change6Cord2.y}%`, }}/>
+                    ) : null}
+                    </div>
+                    <Button onClick={() => goToNext(4)}> Next</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS2) ? (
@@ -2279,12 +2813,92 @@ const Quiz = ({props}) => {
             {/* Image 4 and the following 'Next Page' */}
             {(show1) ? (
                 <div>
+                    <div>
+      <h6>Countdown Timer</h6>
+      <CountdownTimer targetDate={counter1} />
+    </div>
                     <div> Image 1</div>
                     <h1> Spot the Differences! </h1>
+                    <div style={{position: "relative" }}>
                     <img src={Pic1A} alt="Picture 1A" height="50%" width="50%" onClick={pickAnswer1} />
+                    {showImage1Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change1Cord.x}%`,
+                            top: `${Image1Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change2Cord.x}%`,
+                            top: `${Image1Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change3Cord.x}%`,
+                            top: `${Image1Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change4Cord.x}%`,
+                            top: `${Image1Change4Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change5Cord.x}%`,
+                            top: `${Image1Change5Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change6Cord.x}%`,
+                            top: `${Image1Change6Cord.y}%`, }}/>
+                    ) : null}
                     <img src={Pic1B} alt="Picture 1B" height="50%" width="50%" onClick={pickAnswer1}/>
-                    <Button onClick={() => goToNext(5)}> Skip</Button>
+                    {showImage1Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change1Cord2.x}%`,
+                            top: `${Image1Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change2Cord2.x}%`,
+                            top: `${Image1Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change3Cord2.x}%`,
+                            top: `${Image1Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change4Cord2.x}%`,
+                            top: `${Image1Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change5Cord2.x}%`,
+                            top: `${Image1Change5Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage1Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image1Change6Cord2.x}%`,
+                            top: `${Image1Change6Cord2.y}%`, }}/>
+                    ) : null}
+                    
+                    </div>
+                    <Button onClick={() => goToNext(5)}> Next</Button>
                     {/* <div> Timer1: {counter}</div> */}
+                    
                 </div>
             ) : (showPause1) ? (
                 <>
@@ -2300,11 +2914,89 @@ const Quiz = ({props}) => {
             {/* Image 5 and the following 'Next Page' */}
             {(showNS3) ? (
                 <div>
+                    <div>
+      <h6>Countdown Timer</h6>
+      <CountdownTimer targetDate={counter1} />
+    </div>
                     <div> Image Non social 3</div>
                     <h1> Spot the Differences! </h1>
+                    <div style={{position: "relative" }}>
                     <img src={PicNS3A} alt="Picture NS3A" height="50%" width="50%" onClick={pickAnswerNS3} />
+                    {showImageNS3Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change1Cord.x}%`,
+                            top: `${ImageNS3Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change2Cord.x}%`,
+                            top: `${ImageNS3Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change3Cord.x}%`,
+                            top: `${ImageNS3Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change4Cord.x}%`,
+                            top: `${ImageNS3Change4Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change5Cord.x}%`,
+                            top: `${ImageNS3Change5Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change6Cord.x}%`,
+                            top: `${ImageNS3Change6Cord.y}%`, }}/>
+                    ) : null}
                     <img src={PicNS3B} alt="Picture NS3B" height="50%" width="50%" onClick={pickAnswerNS3}/>
-                    <Button onClick={() => goToNext(6)}> Skip</Button>
+                    {showImageNS3Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change1Cord2.x}%`,
+                            top: `${ImageNS3Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change2Cord2.x}%`,
+                            top: `${ImageNS3Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change3Cord2.x}%`,
+                            top: `${ImageNS3Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change4Cord2.x}%`,
+                            top: `${ImageNS3Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change5Cord2.x}%`,
+                            top: `${ImageNS3Change5Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS3Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS3Change6Cord2.x}%`,
+                            top: `${ImageNS3Change6Cord2.y}%`, }}/>
+                    ) : null}
+                    </div>
+                    <Button onClick={() => goToNext(6)}> Next</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS3) ? (
@@ -2321,11 +3013,89 @@ const Quiz = ({props}) => {
             {/* Nonsocial Image 1 and the following 'Next Page' */}
             {(show2) ? (
                 <div>
+                    <div>
+      <h6>Countdown Timer</h6>
+      <CountdownTimer targetDate={counter1} />
+    </div>
                     <div> Image 2</div>
                     <h2> Spot the Differences! </h2>
+                    <div style={{position: "relative" }}>
                     <img src={Pic2A} alt="Picture 2A" height="50%" width="50%" onClick={pickAnswer2} />
+                    {showImage2Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change1Cord.x}%`,
+                            top: `${Image2Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change2Cord.x}%`,
+                            top: `${Image2Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change3Cord.x}%`,
+                            top: `${Image2Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change4Cord.x}%`,
+                            top: `${Image2Change4Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change5Cord.x}%`,
+                            top: `${Image2Change5Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change6Cord.x}%`,
+                            top: `${Image2Change6Cord.y}%`, }}/>
+                    ) : null}
                     <img src={Pic2B} alt="Picture 2B" height="50%" width="50%" onClick={pickAnswer2}/>
-                    <Button onClick={() => goToNext(7)}> Skip</Button>
+                    {showImage2Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change1Cord2.x}%`,
+                            top: `${Image2Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change2Cord2.x}%`,
+                            top: `${Image2Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change3Cord2.x}%`,
+                            top: `${Image2Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change4Cord2.x}%`,
+                            top: `${Image2Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change5Cord2.x}%`,
+                            top: `${Image2Change5Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage2Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image2Change6Cord2.x}%`,
+                            top: `${Image2Change6Cord2.y}%`, }}/>
+                    ) : null}
+                    </div>
+                    <Button onClick={() => goToNext(7)}> Next</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPause2) ? (
@@ -2342,11 +3112,89 @@ const Quiz = ({props}) => {
             {/* Nonsocial Image 2 and the following 'Next Page' */}
             {(showNS1) ? (
                 <div>
+                    <div>
+      <h6>Countdown Timer</h6>
+      <CountdownTimer targetDate={counter1} />
+    </div>
                     <div> NS Image 1</div>
                     <h2> Spot the Differences! </h2>
+                    <div style={{position: "relative" }}>
                     <img src={PicNS1A} alt="NS Picture 1A" height="50%" width="50%" onClick={pickAnswerNS1} />
+                    {showImageNS1Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change1Cord.x}%`,
+                            top: `${ImageNS1Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change2Cord.x}%`,
+                            top: `${ImageNS1Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change3Cord.x}%`,
+                            top: `${ImageNS1Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change4Cord.x}%`,
+                            top: `${ImageNS1Change4Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change5Cord.x}%`,
+                            top: `${ImageNS1Change5Cord.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change6Cord.x}%`,
+                            top: `${ImageNS1Change6Cord.y}%`, }}/>
+                    ) : null}
                     <img src={PicNS1B} alt="NS Picture 1B" height="50%" width="50%" onClick={pickAnswerNS1}/>
-                    <Button onClick={() => goToNext(8)}> Skip</Button>
+                    {showImageNS1Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change1Cord2.x}%`,
+                            top: `${ImageNS1Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change2Cord2.x}%`,
+                            top: `${ImageNS1Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change3Cord2.x}%`,
+                            top: `${ImageNS1Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change4Cord2.x}%`,
+                            top: `${ImageNS1Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change5Cord2.x}%`,
+                            top: `${ImageNS1Change5Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImageNS1Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${ImageNS1Change6Cord2.x}%`,
+                            top: `${ImageNS1Change6Cord2.y}%`, }}/>
+                    ) : null}
+                    </div>
+                    <Button onClick={() => goToNext(8)}> Next</Button>
                     {/* <div> Timer1: {counter}</div> */}
                 </div>
             ) : (showPauseNS1) ? (
@@ -2363,10 +3211,88 @@ const Quiz = ({props}) => {
             {/* Image 12 and the following 'Next Page' */}
             {(show3) ? (
                 <div>
+                    <div>
+      <h6>Countdown Timer</h6>
+      <CountdownTimer targetDate={counter1} />
+    </div>
                     <div> Image 3</div>
                     <h2> Spot the Differences! </h2>
+                    <div style={{position: "relative" }}>
                     <img src={Pic3A} alt="Picture 3A" height="50%" width="50%" onClick={pickAnswer3} />
+                    {showImage3Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change1Cord.x}%`,
+                            top: `${Image3Change1Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change2Cord.x}%`,
+                            top: `${Image3Change2Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change3Cord.x}%`,
+                            top: `${Image3Change3Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change4Cord.x}%`,
+                            top: `${Image3Change4Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change5Cord.x}%`,
+                            top: `${Image3Change5Cord.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change6Cord.x}%`,
+                            top: `${Image3Change6Cord.y}%`, }}/>
+                    ) : null}
                     <img src={Pic3B} alt="Picture 3B" height="50%" width="50%" onClick={pickAnswer3}/>
+                    {showImage3Change1 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change1Cord2.x}%`,
+                            top: `${Image3Change1Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change2 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change2Cord2.x}%`,
+                            top: `${Image3Change2Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change3 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change3Cord2.x}%`,
+                            top: `${Image3Change3Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change4 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change4Cord2.x}%`,
+                            top: `${Image3Change4Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change5 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change5Cord2.x}%`,
+                            top: `${Image3Change5Cord2.y}%`, }}/>
+                    ) : null}
+                    {showImage3Change6 ? (
+                        <img alt="Pic1"  width="5%" src={Circle}  style={{
+                            position: "absolute",
+                            left: `${Image3Change6Cord2.x}%`,
+                            top: `${Image3Change6Cord2.y}%`, }}/>
+                    ) : null}
+                    </div>
                     <Button onClick={() => goToNext(9)}> Finish Game</Button>
                     {/* <div> Timer1: {counter}</div> */}
                      
@@ -2391,727 +3317,6 @@ const Quiz = ({props}) => {
             {wrong &&
                 <div> ❌ Keep looking!</div>
             }
-
-            {/* Green circles for the changes in Image 1 */}
-            {showImage1Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change1Cord.x}px`,
-                    top: `${Image1Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change1Cord2.x}px`,
-                    top: `${Image1Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage1Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change2Cord.x}px`,
-                    top: `${Image1Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change2Cord2.x}px`,
-                    top: `${Image1Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage1Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change3Cord.x}px`,
-                    top: `${Image1Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change3Cord2.x}px`,
-                    top: `${Image1Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage1Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change4Cord.x}px`,
-                    top: `${Image1Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change4Cord2.x}px`,
-                    top: `${Image1Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImage1Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change5Cord.x}px`,
-                    top: `${Image1Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change5Cord2.x}px`,
-                    top: `${Image1Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage1Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change6Cord.x}px`,
-                    top: `${Image1Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change6Cord2.x}px`,
-                    top: `${Image1Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage1Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change7Cord.x}px`,
-                    top: `${Image1Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change7Cord2.x}px`,
-                    top: `${Image1Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage1Change8 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change8Cord.x}px`,
-                    top: `${Image1Change8Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image1Change8Cord2.x}px`,
-                    top: `${Image1Change8Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-
-            {/* Green circles for the changes in Image2 */}
-            {showImage2Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change1Cord.x}px`,
-                    top: `${Image2Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change1Cord2.x}px`,
-                    top: `${Image2Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage2Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change2Cord.x}px`,
-                    top: `${Image2Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change2Cord2.x}px`,
-                    top: `${Image2Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage2Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change3Cord.x}px`,
-                    top: `${Image2Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change3Cord2.x}px`,
-                    top: `${Image2Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage2Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change4Cord.x}px`,
-                    top: `${Image2Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change4Cord2.x}px`,
-                    top: `${Image2Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImage2Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change5Cord.x}px`,
-                    top: `${Image2Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change5Cord2.x}px`,
-                    top: `${Image2Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage2Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change6Cord.x}px`,
-                    top: `${Image2Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change6Cord2.x}px`,
-                    top: `${Image2Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage2Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change7Cord.x}px`,
-                    top: `${Image2Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change7Cord2.x}px`,
-                    top: `${Image2Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage2Change8 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change8Cord.x}px`,
-                    top: `${Image2Change8Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image2Change8Cord2.x}px`,
-                    top: `${Image2Change8Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {/* Green circles for the changes in Image3 */}
-            {showImage3Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change1Cord.x}px`,
-                    top: `${Image3Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change1Cord2.x}px`,
-                    top: `${Image3Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage3Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change2Cord.x}px`,
-                    top: `${Image3Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change2Cord2.x}px`,
-                    top: `${Image3Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage3Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change3Cord.x}px`,
-                    top: `${Image3Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change3Cord2.x}px`,
-                    top: `${Image3Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage3Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change4Cord.x}px`,
-                    top: `${Image3Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change4Cord2.x}px`,
-                    top: `${Image3Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImage3Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change5Cord.x}px`,
-                    top: `${Image3Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change5Cord2.x}px`,
-                    top: `${Image3Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage3Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change6Cord.x}px`,
-                    top: `${Image3Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change6Cord2.x}px`,
-                    top: `${Image3Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage3Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change7Cord.x}px`,
-                    top: `${Image3Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change7Cord2.x}px`,
-                    top: `${Image3Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImage3Change8 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change8Cord.x}px`,
-                    top: `${Image3Change8Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${Image3Change8Cord2.x}px`,
-                    top: `${Image3Change8Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            
-            
-            {/* Green circles for the changes in ImageNS1 */}
-            {showImageNS1Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change1Cord.x}px`,
-                    top: `${ImageNS1Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change1Cord2.x}px`,
-                    top: `${ImageNS1Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS1Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change2Cord.x}px`,
-                    top: `${ImageNS1Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change2Cord2.x}px`,
-                    top: `${ImageNS1Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS1Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change3Cord.x}px`,
-                    top: `${ImageNS1Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change3Cord2.x}px`,
-                    top: `${ImageNS1Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS1Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change4Cord.x}px`,
-                    top: `${ImageNS1Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change4Cord2.x}px`,
-                    top: `${ImageNS1Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImageNS1Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change5Cord.x}px`,
-                    top: `${ImageNS1Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change5Cord2.x}px`,
-                    top: `${ImageNS1Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS1Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change6Cord.x}px`,
-                    top: `${ImageNS1Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change6Cord2.x}px`,
-                    top: `${ImageNS1Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS1Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change7Cord.x}px`,
-                    top: `${ImageNS1Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change7Cord2.x}px`,
-                    top: `${ImageNS1Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS1Change8 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change8Cord.x}px`,
-                    top: `${ImageNS1Change8Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS1Change8Cord2.x}px`,
-                    top: `${ImageNS1Change8Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {/* Green circles for the changes in ImageNS2 */}
-            {showImageNS2Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change1Cord.x}px`,
-                    top: `${ImageNS2Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change1Cord2.x}px`,
-                    top: `${ImageNS2Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS2Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change2Cord.x}px`,
-                    top: `${ImageNS2Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change2Cord2.x}px`,
-                    top: `${ImageNS2Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS2Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change3Cord.x}px`,
-                    top: `${ImageNS2Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change3Cord2.x}px`,
-                    top: `${ImageNS2Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS2Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change4Cord.x}px`,
-                    top: `${ImageNS2Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change4Cord2.x}px`,
-                    top: `${ImageNS2Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImageNS2Change5  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change5Cord.x}px`,
-                    top: `${ImageNS2Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change5Cord2.x}px`,
-                    top: `${ImageNS2Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS2Change6 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change6Cord.x}px`,
-                    top: `${ImageNS2Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change6Cord2.x}px`,
-                    top: `${ImageNS2Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS2Change7 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change7Cord.x}px`,
-                    top: `${ImageNS2Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS2Change7Cord2.x}px`,
-                    top: `${ImageNS2Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {/* Green circles for the changes in ImageNS3 */}
-            {showImageNS3Change1 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change1Cord.x}px`,
-                    top: `${ImageNS3Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change1Cord2.x}px`,
-                    top: `${ImageNS3Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS3Change2 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change2Cord.x}px`,
-                    top: `${ImageNS3Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change2Cord2.x}px`,
-                    top: `${ImageNS3Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS3Change3 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change3Cord.x}px`,
-                    top: `${ImageNS3Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change3Cord2.x}px`,
-                    top: `${ImageNS3Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS3Change4 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change4Cord.x}px`,
-                    top: `${ImageNS3Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change4Cord2.x}px`,
-                    top: `${ImageNS3Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImageNS3Change5 ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change5Cord.x}px`,
-                    top: `${ImageNS3Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change5Cord2.x}px`,
-                    top: `${ImageNS3Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNS3Change6  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change6Cord.x}px`,
-                    top: `${ImageNS3Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNS3Change6Cord2.x}px`,
-                    top: `${ImageNS3Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {/* Green circles for the changes in ImageNST1 */}
-            {showImageNST1Change1  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change1Cord.x}px`,
-                    top: `${ImageNST1Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change1Cord2.x}px`,
-                    top: `${ImageNST1Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST1Change2  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change2Cord.x}px`,
-                    top: `${ImageNST1Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change2Cord2.x}px`,
-                    top: `${ImageNST1Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST1Change3  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change3Cord.x}px`,
-                    top: `${ImageNST1Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change3Cord2.x}px`,
-                    top: `${ImageNST1Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST1Change4  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change4Cord.x}px`,
-                    top: `${ImageNST1Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change4Cord2.x}px`,
-                    top: `${ImageNST1Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImageNST1Change5  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change5Cord.x}px`,
-                    top: `${ImageNST1Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change5Cord2.x}px`,
-                    top: `${ImageNST1Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST1Change6  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change6Cord.x}px`,
-                    top: `${ImageNST1Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST1Change6Cord2.x}px`,
-                    top: `${ImageNST1Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-
-
-
-
-
-            {/* Green circles for the changes in ImageNST2 */}
-            {showImageNST2Change1  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change1Cord.x}px`,
-                    top: `${ImageNST2Change1Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change1Cord2.x}px`,
-                    top: `${ImageNST2Change1Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST2Change2  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change2Cord.x}px`,
-                    top: `${ImageNST2Change2Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change2Cord2.x}px`,
-                    top: `${ImageNST2Change2Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST2Change3  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change3Cord.x}px`,
-                    top: `${ImageNST2Change3Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change3Cord2.x}px`,
-                    top: `${ImageNST2Change3Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST2Change4  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change4Cord.x}px`,
-                    top: `${ImageNST2Change4Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change4Cord2.x}px`,
-                    top: `${ImageNST2Change4Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-             {showImageNST2Change5   ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change5Cord.x}px`,
-                    top: `${ImageNST2Change5Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change5Cord2.x}px`,
-                    top: `${ImageNST2Change5Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST2Change6  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change6Cord.x}px`,
-                    top: `${ImageNST2Change6Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change6Cord2.x}px`,
-                    top: `${ImageNST2Change6Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-            {showImageNST2Change7  ? (
-                <div>
-                <img alt="Pic1" height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change7Cord.x}px`,
-                    top: `${ImageNST2Change7Cord.y}px`, }}/>
-                <img height="50" width="50" src={Circle} style={{
-                    position: "absolute",
-                    left: `${ImageNST2Change7Cord2.x}px`,
-                    top: `${ImageNST2Change7Cord2.y}px`, }}/>
-                </div>
-            ) : null}
-
-
-
-
-            
-            
-
-
         </div>
      
     </QuizWindow>
