@@ -1073,7 +1073,8 @@ const Quiz = ({props}) => {
             T1_change4: Image1Change4Time,
             T1_change5: Image1Change5Time,
             T1_change6: Image1Change6Time}]);
-        }
+        }else{
+            console.log("first");
         setShowImageNS2Change1(false);
             setShowImageNS2Change2(false);
             setShowImageNS2Change3(false);
@@ -1108,7 +1109,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage1Change1Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             console.log(x/e.target.width*100);
             console.log(y/e.target.height);
             
@@ -1127,7 +1128,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage1Change2Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1143,7 +1144,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage1Change3Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1159,7 +1160,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage1Change4Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1175,7 +1176,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage1Change5Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage1Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage1Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1191,7 +1192,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage1Change6Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage1Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage1Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1241,6 +1242,7 @@ const Quiz = ({props}) => {
             T1_change6: Image1Change6Time}]);
         }
     }
+    }
         //x: -10, y: -148
     const pickAnswer2 = (e) => {
         if(document.getElementById("expired-notice")){
@@ -1262,6 +1264,7 @@ const Quiz = ({props}) => {
             T1_change5: Image2Change5Time,
             T1_change6: Image2Change6Time}]);
         }
+        else{
         setShowImageNS3Change1(false);
                 setShowImageNS3Change2(false);
                 setShowImageNS3Change3(false);
@@ -1297,7 +1300,7 @@ const Quiz = ({props}) => {
                 setCorrect(true);
                 setToday( new Date().getTime());
                 setImage2Change1Time(new Date().getTime() - current);
-                setCurrent(new Date().getTime());
+                //setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
                     setImage2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                     setImage2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1313,7 +1316,7 @@ const Quiz = ({props}) => {
                 setCorrect(true);
                 setToday( new Date().getTime());
                 setImage2Change2Time(new Date().getTime() - current);
-                setCurrent(new Date().getTime());
+                //setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
                     setImage2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                     setImage2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1329,7 +1332,7 @@ const Quiz = ({props}) => {
                 setCorrect(true);
                 setToday( new Date().getTime());
                 setImage2Change3Time(new Date().getTime() - current);
-                setCurrent(new Date().getTime());
+                //setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
                     setImage2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                     setImage2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1345,7 +1348,7 @@ const Quiz = ({props}) => {
                 setCorrect(true);
                 setToday( new Date().getTime());
                 setImage2Change4Time(new Date().getTime() - current);
-                setCurrent(new Date().getTime());
+                //setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
                     setImage2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                     setImage2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1361,7 +1364,7 @@ const Quiz = ({props}) => {
                 setCorrect(true);
                 setToday( new Date().getTime());
                 setImage2Change5Time(new Date().getTime() - current);
-                setCurrent(new Date().getTime());
+                //setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
                     setImage2Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                     setImage2Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1377,7 +1380,7 @@ const Quiz = ({props}) => {
                 setCorrect(true);
                 setToday( new Date().getTime());
                 setImage2Change6Time(new Date().getTime() - current);
-                setCurrent(new Date().getTime());
+                //setCurrent(new Date().getTime());
                 if(e.clientX<e.target.width){
                     setImage2Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                     setImage2Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1430,6 +1433,7 @@ const Quiz = ({props}) => {
                 T1_change7: ImageNS2Change7Time,
                 T1_change8: ImageNS2Change8Time}]);
             }
+        }
     }
     const pickAnswer3 = (e) => {
         if(document.getElementById("expired-notice")){
@@ -1440,7 +1444,7 @@ const Quiz = ({props}) => {
             setShowImage3Change5(false);
             setShowImage3Change6(false);
 
-            setShowPause3(true);
+            setShowOver(true);
             setShow3(false);
             setTimes3([{Participant: participantID, Image_name: "Social 1", T1_change1: Image3Change1Time,
             T1_change2: Image3Change2Time,
@@ -1448,7 +1452,75 @@ const Quiz = ({props}) => {
             T1_change4: Image3Change4Time,
             T1_change5: Image3Change5Time,
             T1_change6: Image3Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "Non social 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "Non Social 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }
+        else{
         setShowImageNS1Change1(false);
                 setShowImageNS1Change2(false);
                 setShowImageNS1Change3(false);
@@ -1484,7 +1556,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage3Change1Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage3Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage3Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1500,7 +1572,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage3Change2Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage3Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage3Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1516,7 +1588,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage3Change3Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage3Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage3Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1532,7 +1604,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage3Change4Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage3Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage3Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1548,7 +1620,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage3Change5Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage3Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage3Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1564,7 +1636,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImage3Change6Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImage3Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImage3Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1594,7 +1666,7 @@ const Quiz = ({props}) => {
             setShowImage3Change7(false);
             setShowImage3Change8(false);
 
-            setShowPause3(true);
+            setShowOver(true);
             setShow3(false);
             setGo(false);
             setCounter(0);
@@ -1618,6 +1690,7 @@ const Quiz = ({props}) => {
             T1_change8: Image3Change8Time}]);
         }
     }
+    }
     const pickAnswerNS1 = (e) => {
         if(document.getElementById("expired-notice")){
             setShowImageNS1Change1(false);
@@ -1636,6 +1709,7 @@ const Quiz = ({props}) => {
             T1_change5: ImageNS1Change5Time,
             T1_change6: ImageNS1Change6Time}]);
         }
+        else{
         setShowImage2Change1(false);
                 setShowImage2Change2(false);
                 setShowImage2Change3(false);
@@ -1670,7 +1744,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS1Change1Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1686,7 +1760,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS1Change2Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1702,7 +1776,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS1Change3Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1718,7 +1792,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS1Change4Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS1Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS1Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1734,7 +1808,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS1Change5Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS1Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS1Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1750,7 +1824,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS1Change6Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS1Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS1Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1807,6 +1881,7 @@ const Quiz = ({props}) => {
             }]);
         }
     }
+    }
     const pickAnswerNS2 = (e) => {
         if(document.getElementById("expired-notice")){
             setShowImageNS2Change1(false);
@@ -1825,6 +1900,7 @@ const Quiz = ({props}) => {
             T1_change5: ImageNS2Change5Time,
             T1_change6: ImageNS2Change6Time}]);
         }
+        else{
         setShowImageNST2Change1(false);
         setShowImageNST2Change2(false);
         setShowImageNST2Change3(false);
@@ -1859,7 +1935,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS2Change1Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1875,7 +1951,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS2Change2Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1891,7 +1967,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS2Change3Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1907,7 +1983,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS2Change4Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1923,7 +1999,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS2Change5Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS2Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS2Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1939,7 +2015,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS2Change6Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS2Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS2Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -1990,6 +2066,7 @@ const Quiz = ({props}) => {
                 T1_change7: ImageNS2Change7Time}]);
         }
     }
+    }
     const pickAnswerNS3 = (e) => {
         if(document.getElementById("expired-notice")){
             setShowImageNS3Change1(false);
@@ -2008,6 +2085,7 @@ const Quiz = ({props}) => {
             T1_change5: ImageNS3Change5Time,
             T1_change6: ImageNS3Change6Time}]);
         }
+        else{
         setShowImage1Change1(false);
         setShowImage1Change2(false);
         setShowImage1Change3(false);
@@ -2041,7 +2119,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS3Change1Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS3Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS3Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2057,7 +2135,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS3Change2Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS3Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS3Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2073,7 +2151,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS3Change3Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS3Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS3Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2089,7 +2167,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS3Change4Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS3Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS3Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2105,7 +2183,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS3Change5Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS3Change5Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS3Change5Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2121,7 +2199,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNS3Change6Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNS3Change6Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNS3Change6Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2169,6 +2247,7 @@ const Quiz = ({props}) => {
                 T1_change6: ImageNS3Change6Time}]);
         }
     }
+    }
     const pickAnswerNST1 = (e) => {
         if(document.getElementById("expired-notice")){
             setShowImageNST1Change1(false);
@@ -2187,6 +2266,7 @@ const Quiz = ({props}) => {
             T1_change5: ImageNST1Change5Time,
             T1_change6: ImageNST1Change6Time}]);
         }
+        else{
 
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
@@ -2212,7 +2292,7 @@ const Quiz = ({props}) => {
             console.log(current);
             console.log(new Date().getTime());
             setImageNST1Change1Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNST1Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNST1Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2250,7 +2330,7 @@ const Quiz = ({props}) => {
             console.log(current);
             console.log(new Date().getTime());
             setImageNST1Change2Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNST1Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNST1Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2288,7 +2368,7 @@ const Quiz = ({props}) => {
             console.log(current);
             console.log(new Date().getTime());
             setImageNST1Change3Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNST1Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNST1Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2395,6 +2475,7 @@ const Quiz = ({props}) => {
                 T1_change6: ImageNST1Change6Time}]);
         }
     }
+    }
 
     const pickAnswerNST2 = (e) => {
         if(document.getElementById("expired-notice")){
@@ -2414,6 +2495,7 @@ const Quiz = ({props}) => {
             T1_change5: ImageNST2Change5Time,
             T1_change6: ImageNST2Change6Time}]);
         }
+        else{
         setShowImageNST1Change1(false);
             setShowImageNST1Change2(false);
             setShowImageNST1Change3(false);
@@ -2444,7 +2526,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNST2Change1Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNST2Change1Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNST2Change1Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2460,7 +2542,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNST2Change2Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNST2Change2Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNST2Change2Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2476,7 +2558,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNST2Change3Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNST2Change3Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNST2Change3Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2492,7 +2574,7 @@ const Quiz = ({props}) => {
             setCorrect(true);
             setToday( new Date().getTime());
             setImageNST2Change4Time(new Date().getTime() - current);
-            setCurrent(new Date().getTime());
+            //setCurrent(new Date().getTime());
             if(e.clientX<e.target.width){
                 setImageNST2Change4Cord({x: (x-5*b/100)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
                 setImageNST2Change4Cord2({x: (x-5*b/100+e.target.width)/e.target.width*100/2,y:(y-5*b/100)/e.target.height*100});
@@ -2542,6 +2624,7 @@ const Quiz = ({props}) => {
             T1_change6: ImageNST2Change6Time,
             T1_change7: ImageNST2Change7Time}]); 
         }
+    }
     }
     //help
     return (
