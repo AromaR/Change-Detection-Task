@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import GameOver from './GameOver'
-import Pic1A from '../Image1_original.jpg'
-import Pic1B from '../Image1_changed.png'
-import Pic2A from '../Image2_original.jpg'
-import Pic2B from '../Image2_changed.png'
-import Pic3A from '../Image3_original.jpg'
-import Pic3B from '../Image3_changed.png'
-import PicNS1A from '../nonsocial1_original.JPG'
-import PicNS1B from '../nonsocial1_changed.png'
-import PicNS2A from '../nonsocial2original.jpeg'
-import PicNS2B from '../nonsocial2_changed.jpg'
-import PicNS3A from '../nonsocial3original.jpeg'
+import Pic1A from '../Image1original.png'
+import Pic1B from '../Image1changed.png'
+import Pic2A from '../Image2original.png'
+import Pic2B from '../Image2changed.png'
+import Pic3A from '../Image3original.png'
+import Pic3B from '../Image3changed.png'
+import PicNS1A from '../nonsocial1original.png'
+import PicNS1B from '../nonsocial1changed.png'
+import PicNS2A from '../nonsocial2original.png'
+import PicNS2B from '../nonsocial2changed.png'
+import PicNS3A from '../nonsocial3original.png'
 import PicNS3B from '../nonsocial3changed.png'
 import PicNST1A from '../nonsocialtraining1.jpeg'
-import PicNST1B from '../nonsocial_training_1_changed.jpg'
-import PicNST2A from '../nonsocial_training_2.jpeg'
-import PicNST2B from '../nonsocial_training_2_changed.png'
+import PicNST1B from '../nonsocialtraining1changed.jpg'
+import PicNST2A from '../nonsocialtraining2.jpeg'
+import PicNST2B from '../nonsocialtraining2changed.png'
 import Circle from '../kisspng-disk-green-circle-5af97c364e1283.3175421115262997023198.png'
 import Button from './Button'
 import { CSVLink, CSVDownload } from "react-csv";
@@ -751,7 +751,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNST2Change6Time,
                     T1_change7: ImageNST2Change7Time,
                     T1_change8: ImageNST2Change8Time},
-                    {Participant: participantID, Image_name: "Non social 2", T1_change1: ImageNS2Change1Time,
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
                     T1_change2: ImageNS2Change2Time,
                     T1_change3: ImageNS2Change3Time,
                     T1_change4: ImageNS2Change4Time,
@@ -759,7 +759,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS2Change6Time,
                     T1_change7: ImageNS2Change7Time,
                     T1_change8: ImageNS2Change8Time},
-                    {Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
                     T1_change2: Image1Change2Time,
                     T1_change3: Image1Change3Time,
                     T1_change4: Image1Change4Time,
@@ -767,7 +767,7 @@ const Quiz = ({props}) => {
                     T1_change6: Image1Change6Time,
                     T1_change7: Image1Change7Time,
                     T1_change8: Image1Change8Time},
-                    {Participant: participantID, Image_name: "Non Social 3", T1_change1: ImageNS3Change1Time,
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
                     T1_change2: ImageNS3Change2Time,
                     T1_change3: ImageNS3Change3Time,
                     T1_change4: ImageNS3Change4Time,
@@ -775,7 +775,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS3Change6Time,
                     T1_change7: ImageNS3Change7Time,
                     T1_change8: ImageNS3Change8Time},
-                    {Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
                     T1_change2: ImageNS2Change2Time,
                     T1_change3: ImageNS2Change3Time,
                     T1_change4: ImageNS2Change4Time,
@@ -783,7 +783,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS2Change6Time,
                     T1_change7: ImageNS2Change7Time,
                     T1_change8: ImageNS2Change8Time},
-                    {Participant: participantID, Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
                     T1_change2: ImageNS1Change2Time,
                     T1_change3: ImageNS1Change3Time,
                     T1_change4: ImageNS1Change4Time,
@@ -791,7 +791,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS1Change6Time,
                     T1_change7: ImageNS1Change7Time,
                     T1_change8: ImageNS1Change8Time},
-                    {Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
                     T1_change2: Image3Change2Time,
                     T1_change3: Image3Change3Time,
                     T1_change4: Image3Change4Time,
@@ -868,7 +868,7 @@ const Quiz = ({props}) => {
                 setShowNS2(false);
                 setGo(false);
                 //setCounter(0);
-                setTimesNS2([{Participant: participantID, Image_name:"Non social 2", T1_change1: ImageNS2Change1Time,
+                setTimesNS2([{Participant: participantID, Image_name:"NS 2", T1_change1: ImageNS2Change1Time,
                     T1_change2: ImageNS2Change2Time,
                     T1_change3: ImageNS2Change3Time,
                     T1_change4: ImageNS2Change4Time,
@@ -889,7 +889,7 @@ const Quiz = ({props}) => {
                 setShow1(false);
                 setGo(false);
                 //setCounter(0);
-                setTimes1([{Participant: participantID, Image_name:"Social 1", T1_change1: Image1Change1Time,
+                setTimes1([{Participant: participantID, Image_name:"S Image 1", T1_change1: Image1Change1Time,
                     T1_change2: Image1Change2Time,
                     T1_change3: Image1Change3Time,
                     T1_change4: Image1Change4Time,
@@ -910,7 +910,7 @@ const Quiz = ({props}) => {
                 setShowNS3(false);
                 setGo(false);
                 //setCounter(0);
-                setTimesNS3([{Participant: participantID, Image_name:"Non Social 3", T1_change1: ImageNS3Change1Time,
+                setTimesNS3([{Participant: participantID, Image_name:"NS 3", T1_change1: ImageNS3Change1Time,
                     T1_change2: ImageNS3Change2Time,
                     T1_change3: ImageNS3Change3Time,
                     T1_change4: ImageNS3Change4Time,
@@ -931,7 +931,7 @@ const Quiz = ({props}) => {
                 setShow2(false);
                 setGo(false);
                 //setCounter(0);
-                setTimes2([{Participant: participantID, Image_name:"Social 2", T1_change1: Image2Change1Time,
+                setTimes2([{Participant: participantID, Image_name:"S Image 2", T1_change1: Image2Change1Time,
                     T1_change2: Image2Change2Time,
                     T1_change3: Image2Change3Time,
                     T1_change4: Image2Change4Time,
@@ -952,7 +952,7 @@ const Quiz = ({props}) => {
                 setShowNS1(false);
                 setGo(false);
                 //setCounter(0);
-                setTimesNS1([{Participant: participantID, Image_name:"Non Social 1",T1_change1: ImageNS1Change1Time,
+                setTimesNS1([{Participant: participantID, Image_name:"NS 1",T1_change1: ImageNS1Change1Time,
                     T1_change2: ImageNS1Change2Time,
                     T1_change3: ImageNS1Change3Time,
                     T1_change4: ImageNS1Change4Time,
@@ -973,7 +973,7 @@ const Quiz = ({props}) => {
                 setShow3(false);
                 setGo(false);
                         //setCounter(0);
-                        setTimes3([{Participant: participantID, Image_name:"Social 3",T1_change1: Image3Change1Time,
+                        setTimes3([{Participant: participantID, Image_name:"S Image 3",T1_change1: Image3Change1Time,
                     T1_change2: Image3Change2Time,
                     T1_change3: Image3Change3Time,
                     T1_change4: Image3Change4Time,
@@ -998,7 +998,7 @@ const Quiz = ({props}) => {
                             T1_change6: ImageNST2Change6Time,
                             T1_change7: ImageNST2Change7Time,
                             T1_change8: ImageNST2Change8Time},
-                            {Participant: participantID, Image_name: "Non social 2", T1_change1: ImageNS2Change1Time,
+                            {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
                             T1_change2: ImageNS2Change2Time,
                             T1_change3: ImageNS2Change3Time,
                             T1_change4: ImageNS2Change4Time,
@@ -1006,7 +1006,7 @@ const Quiz = ({props}) => {
                             T1_change6: ImageNS2Change6Time,
                             T1_change7: ImageNS2Change7Time,
                             T1_change8: ImageNS2Change8Time},
-                            {Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+                            {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
                             T1_change2: Image1Change2Time,
                             T1_change3: Image1Change3Time,
                             T1_change4: Image1Change4Time,
@@ -1014,7 +1014,7 @@ const Quiz = ({props}) => {
                             T1_change6: Image1Change6Time,
                             T1_change7: Image1Change7Time,
                             T1_change8: Image1Change8Time},
-                            {Participant: participantID, Image_name: "Non Social 3", T1_change1: ImageNS3Change1Time,
+                            {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
                             T1_change2: ImageNS3Change2Time,
                             T1_change3: ImageNS3Change3Time,
                             T1_change4: ImageNS3Change4Time,
@@ -1022,7 +1022,7 @@ const Quiz = ({props}) => {
                             T1_change6: ImageNS3Change6Time,
                             T1_change7: ImageNS3Change7Time,
                             T1_change8: ImageNS3Change8Time},
-                            {Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                            {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
                             T1_change2: ImageNS2Change2Time,
                             T1_change3: ImageNS2Change3Time,
                             T1_change4: ImageNS2Change4Time,
@@ -1030,7 +1030,7 @@ const Quiz = ({props}) => {
                             T1_change6: ImageNS2Change6Time,
                             T1_change7: ImageNS2Change7Time,
                             T1_change8: ImageNS2Change8Time},
-                            {Participant: participantID, Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
+                            {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
                             T1_change2: ImageNS1Change2Time,
                             T1_change3: ImageNS1Change3Time,
                             T1_change4: ImageNS1Change4Time,
@@ -1038,7 +1038,7 @@ const Quiz = ({props}) => {
                             T1_change6: ImageNS1Change6Time,
                             T1_change7: ImageNS1Change7Time,
                             T1_change8: ImageNS1Change8Time},
-                            {Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+                            {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
                             T1_change2: Image3Change2Time,
                             T1_change3: Image3Change3Time,
                             T1_change4: Image3Change4Time,
@@ -1067,12 +1067,79 @@ const Quiz = ({props}) => {
 
             setShowPause1(true);
             setShow1(false);
-            setTimes1([{Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+            setTimes1([{Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
             T1_change2: Image1Change2Time,
             T1_change3: Image1Change3Time,
             T1_change4: Image1Change4Time,
             T1_change5: Image1Change5Time,
             T1_change6: Image1Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }else{
             console.log("first");
         setShowImageNS2Change1(false);
@@ -1088,14 +1155,20 @@ const Quiz = ({props}) => {
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/640;
-        const relativey = e.target.height/360;
-        const change1 = [10,191,33,215];
-        const change2 = [201,248,230,268];
-        const change3 = [195,340,238,353];
-        const change4 = [423,286,453,310];
-        const change5 = [434,343,474,353];
-        const change6 = [570,155,603,180];
+        const relativex = e.target.width/1125;
+        const relativey = e.target.height/708;
+        //books1
+        const change1 = [8,370,65,430];
+        //tie
+        const change2 = [361,503,404,534];
+        //buttons white
+        const change3 = [352,670,403,700];
+        //watch
+        const change4 = [754,569,793,615];
+        //buttons black
+        const change5 = [765,677,814,704];
+        //books2
+        const change6 = [1020,290,1075,355];
         var rect = e.target.getBoundingClientRect();
         console.log(e.clientX,e.clientY);
         console.log(rect.left,rect.top);
@@ -1226,7 +1299,7 @@ const Quiz = ({props}) => {
             setShow1(false);
             setGo(false);
             setCounter(0);
-            setTimes1([{Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+            setTimes1([{Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
             T1_change2: Image1Change2Time,
             T1_change3: Image1Change3Time,
             T1_change4: Image1Change4Time,
@@ -1234,7 +1307,7 @@ const Quiz = ({props}) => {
             T1_change6: Image1Change6Time}]);
         }
         else{
-            setTimes1([{Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+            setTimes1([{Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
             T1_change2: Image1Change2Time,
             T1_change3: Image1Change3Time,
             T1_change4: Image1Change4Time,
@@ -1257,12 +1330,79 @@ const Quiz = ({props}) => {
 
             setShowPause2(true);
             setShow2(false);
-            setTimes2([{Participant: participantID, Image_name: "Social 1", T1_change1: Image2Change1Time,
+            setTimes2([{Participant: participantID, Image_name: "S Image 1", T1_change1: Image2Change1Time,
             T1_change2: Image2Change2Time,
             T1_change3: Image2Change3Time,
             T1_change4: Image2Change4Time,
             T1_change5: Image2Change5Time,
             T1_change6: Image2Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }
         else{
         setShowImageNS3Change1(false);
@@ -1279,15 +1419,21 @@ const Quiz = ({props}) => {
             //let userAnswer = e.target.outerText;
             // if (quiz[number].answer === userAnswer) 
             console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-            const relativex = e.target.width/1500;
-            const relativey = e.target.height/1125;
+            const relativex = e.target.width/4689;
+            const relativey = e.target.height/3517;
             const buffer = 30;
-            const change1 = [146,545,198,635];
-            const change2 = [224,702,310,795];
-            const change3 = [397,571,434,612];
-            const change4 = [843,841,930,936];
-            const change5 = [942,501,985,538];
-            const change6 = [1212,597,1272,690];
+            //door
+            const change1 = [413,1696,650,2017];
+            //dustbin wheel
+            const change2 = [765,2250,986,2538];
+            //gloves
+            const change3 = [1198,1763,1377,1949];
+            //green dustbin
+            const change4 = [2634,2628,2874,2914];
+            //tshirt
+            const change5 = [2938,1560,3085,1693];
+            //flowers
+            const change6 = [3740,1866,4006,2203];
             var rect = e.target.getBoundingClientRect();
             //console.log(e.clientX,e.clientY);
             //console.log(rect.left,rect.top);
@@ -1414,7 +1560,7 @@ const Quiz = ({props}) => {
                 setShow2(false);
                 setGo(false);
                 setCounter(0);
-                setTimes2([{Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                setTimes2([{Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
                 T1_change2: ImageNS2Change2Time,
                 T1_change3: ImageNS2Change3Time,
                 T1_change4: ImageNS2Change4Time,
@@ -1424,7 +1570,7 @@ const Quiz = ({props}) => {
                 T1_change8: ImageNS2Change8Time}]);
             }
             else{
-                setTimes2([{Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                setTimes2([{Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
                 T1_change2: ImageNS2Change2Time,
                 T1_change3: ImageNS2Change3Time,
                 T1_change4: ImageNS2Change4Time,
@@ -1446,7 +1592,7 @@ const Quiz = ({props}) => {
 
             setShowOver(true);
             setShow3(false);
-            setTimes3([{Participant: participantID, Image_name: "Social 1", T1_change1: Image3Change1Time,
+            setTimes3([{Participant: participantID, Image_name: "S Image 1", T1_change1: Image3Change1Time,
             T1_change2: Image3Change2Time,
             T1_change3: Image3Change3Time,
             T1_change4: Image3Change4Time,
@@ -1469,7 +1615,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNST2Change6Time,
                     T1_change7: ImageNST2Change7Time,
                     T1_change8: ImageNST2Change8Time},
-                    {Participant: participantID, Image_name: "Non social 2", T1_change1: ImageNS2Change1Time,
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
                     T1_change2: ImageNS2Change2Time,
                     T1_change3: ImageNS2Change3Time,
                     T1_change4: ImageNS2Change4Time,
@@ -1477,7 +1623,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS2Change6Time,
                     T1_change7: ImageNS2Change7Time,
                     T1_change8: ImageNS2Change8Time},
-                    {Participant: participantID, Image_name: "Social 1", T1_change1: Image1Change1Time,
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
                     T1_change2: Image1Change2Time,
                     T1_change3: Image1Change3Time,
                     T1_change4: Image1Change4Time,
@@ -1485,7 +1631,7 @@ const Quiz = ({props}) => {
                     T1_change6: Image1Change6Time,
                     T1_change7: Image1Change7Time,
                     T1_change8: Image1Change8Time},
-                    {Participant: participantID, Image_name: "Non Social 3", T1_change1: ImageNS3Change1Time,
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
                     T1_change2: ImageNS3Change2Time,
                     T1_change3: ImageNS3Change3Time,
                     T1_change4: ImageNS3Change4Time,
@@ -1493,7 +1639,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS3Change6Time,
                     T1_change7: ImageNS3Change7Time,
                     T1_change8: ImageNS3Change8Time},
-                    {Participant: participantID, Image_name: "Social 2", T1_change1: ImageNS2Change1Time,
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
                     T1_change2: ImageNS2Change2Time,
                     T1_change3: ImageNS2Change3Time,
                     T1_change4: ImageNS2Change4Time,
@@ -1501,7 +1647,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS2Change6Time,
                     T1_change7: ImageNS2Change7Time,
                     T1_change8: ImageNS2Change8Time},
-                    {Participant: participantID, Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
                     T1_change2: ImageNS1Change2Time,
                     T1_change3: ImageNS1Change3Time,
                     T1_change4: ImageNS1Change4Time,
@@ -1509,7 +1655,7 @@ const Quiz = ({props}) => {
                     T1_change6: ImageNS1Change6Time,
                     T1_change7: ImageNS1Change7Time,
                     T1_change8: ImageNS1Change8Time},
-                    {Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
                     T1_change2: Image3Change2Time,
                     T1_change3: Image3Change3Time,
                     T1_change4: Image3Change4Time,
@@ -1535,15 +1681,21 @@ const Quiz = ({props}) => {
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1600;
-        const relativey = e.target.height/1068;
+        const relativex = e.target.width/2004;
+        const relativey = e.target.height/1337;
         const buffer = 30;
-        const change1 = [51,278,131,345];
-        const change2 = [225,399,259,475];
-        const change3 = [162,719,221,760];
-        const change4 = [581,676,693,712];
-        const change5 = [726,476,810,544];
-        const change6 = [1100,896,1157,936];
+        //painting
+        const change1 = [47,354,163,432];
+        //tie
+        const change2 = [277,489,322,594];
+        //medal
+        const change3 = [216,993,273,1045];
+        //shoes
+        const change4 = [721,856,865,902];
+        //door
+        const change5 = [908,595,997,698];
+        //button
+        const change6 = [1375,1150,1429,1194];
         var rect = e.target.getBoundingClientRect();
         console.log(e.clientX,e.clientY);
         console.log(rect.left,rect.top);
@@ -1670,7 +1822,7 @@ const Quiz = ({props}) => {
             setShow3(false);
             setGo(false);
             setCounter(0);
-            setTimes3([{Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+            setTimes3([{Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
             T1_change2: Image3Change2Time,
             T1_change3: Image3Change3Time,
             T1_change4: Image3Change4Time,
@@ -1680,7 +1832,7 @@ const Quiz = ({props}) => {
             T1_change8: Image3Change8Time}]);
         }
         else{
-            setTimes3([{Participant: participantID, Image_name: "Social 3", T1_change1: Image3Change1Time,
+            setTimes3([{Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
             T1_change2: Image3Change2Time,
             T1_change3: Image3Change3Time,
             T1_change4: Image3Change4Time,
@@ -1702,12 +1854,79 @@ const Quiz = ({props}) => {
 
             setShowPauseNS1(true);
             setShowNST1(false);
-            setTimesNS1([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNS1Change1Time,
+            setTimesNS1([{Participant: participantID, Image_name: "S Image 1", T1_change1: ImageNS1Change1Time,
             T1_change2: ImageNS1Change2Time,
             T1_change3: ImageNS1Change3Time,
             T1_change4: ImageNS1Change4Time,
             T1_change5: ImageNS1Change5Time,
             T1_change6: ImageNS1Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }
         else{
         setShowImage2Change1(false);
@@ -1724,14 +1943,20 @@ const Quiz = ({props}) => {
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1308;
-        const relativey = e.target.height/736;
-        const change1 = [48,400,116,452];
-        const change2 = [419,502,486,558];
-        const change3 = [392,682,515,725];
-        const change4 = [876,557,944,607];
-        const change5 = [884,685,102,724];
-        const change6 = [1151,315,1218,372];
+        const relativex = e.target.width/1125;
+        const relativey = e.target.height/706;
+        //ball
+        const change1 = [39,330,87,381];
+        //water
+        const change2 = [353,631,425,668];
+        //cat paw
+        const change3 = [344,489,404,522];
+        //dog coffee
+        const change4 = [764,630,839,662];
+        //dog paw
+        const change5 = [754,541,818,572];
+        //bone
+        const change6 = [1015,302,1065,326];
         var rect = e.target.getBoundingClientRect();
         console.log(e.clientX,e.clientY);
         console.log(rect.left,rect.top);
@@ -1859,7 +2084,7 @@ const Quiz = ({props}) => {
             setShowNS1(false);
             setGo(false);
             setCounter(0);
-            setTimesNS1([{Participant: participantID,  Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
+            setTimesNS1([{Participant: participantID,  Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
                 T1_change2: ImageNS1Change2Time,
                 T1_change3: ImageNS1Change3Time,
                 T1_change4: ImageNS1Change4Time,
@@ -1870,7 +2095,7 @@ const Quiz = ({props}) => {
             }]);
         }
         else{
-            setTimesNS1([{Participant: participantID,  Image_name: "Non Social 1", T1_change1: ImageNS1Change1Time,
+            setTimesNS1([{Participant: participantID,  Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
                 T1_change2: ImageNS1Change2Time,
                 T1_change3: ImageNS1Change3Time,
                 T1_change4: ImageNS1Change4Time,
@@ -1893,12 +2118,79 @@ const Quiz = ({props}) => {
 
             setShowPauseNS2(true);
             setShowNS2(false);
-            setTimesNS2([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNS2Change1Time,
+            setTimesNS2([{Participant: participantID, Image_name: "S Image 1", T1_change1: ImageNS2Change1Time,
             T1_change2: ImageNS2Change2Time,
             T1_change3: ImageNS2Change3Time,
             T1_change4: ImageNS2Change4Time,
             T1_change5: ImageNS2Change5Time,
             T1_change6: ImageNS2Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }
         else{
         setShowImageNST2Change1(false);
@@ -1917,12 +2209,18 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/1125;
         const relativey = e.target.height/844;
-        const change1 = [121,400,162,478];
-        const change2 = [212,511,298,607];
-        const change3 = [363,336,418,391];
-        const change4 = [664,632,750,733];
-        const change5 = [700,268,753,325];
-        const change6 = [954,448,1001,525];
+        //flower
+        const change1 = [107,399,154,473];
+        //heart
+        const change2 = [357,332,426,390];
+        //pink
+        const change3 = [202,604,260,661];
+        //patch
+        const change4 = [654,664,726,708];
+        //sticker
+        const change5 = [700,277,757,320];
+        //badge
+        const change6 = [953,436,1002,492];
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
@@ -2048,7 +2346,7 @@ const Quiz = ({props}) => {
             setShowNS2(false);
             setGo(false);
             setCounter(0);
-            setTimesNS2([{Participant: participantID,Image_name: "Non Social 2",  T1_change1: ImageNS2Change1Time,
+            setTimesNS2([{Participant: participantID,Image_name: "NS 2",  T1_change1: ImageNS2Change1Time,
                 T1_change2: ImageNS2Change2Time,
                 T1_change3: ImageNS2Change3Time,
                 T1_change4: ImageNS2Change4Time,
@@ -2057,7 +2355,7 @@ const Quiz = ({props}) => {
                 T1_change7: ImageNS2Change7Time}]);
         }
         else{
-            setTimesNS2([{Participant: participantID,Image_name: "Non Social 2",  T1_change1: ImageNS2Change1Time,
+            setTimesNS2([{Participant: participantID,Image_name: "NS 2",  T1_change1: ImageNS2Change1Time,
                 T1_change2: ImageNS2Change2Time,
                 T1_change3: ImageNS2Change3Time,
                 T1_change4: ImageNS2Change4Time,
@@ -2078,12 +2376,79 @@ const Quiz = ({props}) => {
 
             setShowPauseNS3(true);
             setShowNS3(false);
-            setTimesNS3([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNS3Change1Time,
+            setTimesNS3([{Participant: participantID, Image_name: "S Image 1", T1_change1: ImageNS3Change1Time,
             T1_change2: ImageNS3Change2Time,
             T1_change3: ImageNS3Change3Time,
             T1_change4: ImageNS3Change4Time,
             T1_change5: ImageNS3Change5Time,
             T1_change6: ImageNS3Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }
         else{
         setShowImage1Change1(false);
@@ -2099,14 +2464,20 @@ const Quiz = ({props}) => {
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1600;
-        const relativey = e.target.height/1068;
-        const change1 = [77,235,163,313];
-        const change2 = [221,723,290,812];
-        const change3 = [335,330,405,513];
-        const change4 = [664,635,790,704];
-        const change5 = [990,450,1074,535];
-        const change6 = [1200,876,1269,966];
+        const relativex = e.target.width/2005;
+        const relativey = e.target.height/1338;
+        //vase
+        const change1 = [135,226,202,376];
+        //glass
+        const change2 = [431,536,491,619];
+        //hat
+        const change3 = [1219,546,1341,618];
+        //book
+        const change4 = [802,796,931,847];
+        //eyes
+        const change5 = [271,939,321,994];
+        //teddy
+        const change6 = [1543,1080,1599,1158];
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
@@ -2231,7 +2602,7 @@ const Quiz = ({props}) => {
             setShowNS2(false);
             setGo(false);
             setCounter(0);
-            setTimesNS2([{Participant: participantID, Image_name: "Non Social 3",T1_change1: ImageNS3Change1Time,
+            setTimesNS2([{Participant: participantID, Image_name: "NS 3",T1_change1: ImageNS3Change1Time,
                 T1_change2: ImageNS3Change2Time,
                 T1_change3: ImageNS3Change3Time,
                 T1_change4: ImageNS3Change4Time,
@@ -2239,7 +2610,7 @@ const Quiz = ({props}) => {
                 T1_change6: ImageNS3Change6Time}]);
         }
         else{
-            setTimesNS2([{Participant: participantID, Image_name: "Non Social 3",T1_change1: ImageNS3Change1Time,
+            setTimesNS2([{Participant: participantID, Image_name: "NS 3",T1_change1: ImageNS3Change1Time,
                 T1_change2: ImageNS3Change2Time,
                 T1_change3: ImageNS3Change3Time,
                 T1_change4: ImageNS3Change4Time,
@@ -2259,12 +2630,79 @@ const Quiz = ({props}) => {
 
             setShowPauseNST1(true);
             setShowNST1(false);
-            setTimesNST1([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNST1Change1Time,
+            setTimesNST1([{Participant: participantID, Image_name: "S Image 1", T1_change1: ImageNST1Change1Time,
             T1_change2: ImageNST1Change2Time,
             T1_change3: ImageNST1Change3Time,
             T1_change4: ImageNST1Change4Time,
             T1_change5: ImageNST1Change5Time,
             T1_change6: ImageNST1Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }
         else{
 
@@ -2273,9 +2711,13 @@ const Quiz = ({props}) => {
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
         const relativex = e.target.width/1000;
         const relativey = e.target.height/555;
+        //lamp
         const change1 = [125,23,192,94];
+        //bell
         const change2 = [434,262,500,289];
+        //bow
         const change3 = [588,226,658,261];
+        //door
         const change4 = [871,62,941,170];
         var rect = e.target.getBoundingClientRect();
         var b = e.target.width;
@@ -2315,7 +2757,7 @@ const Quiz = ({props}) => {
                 setShowNST1(false);
                 setGo(false);
                 setCounter(0);
-                setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                setTimesNST1([{Participant: participantID, Image_name: "NS 1 Train",T1_change1: ImageNST1Change1Time,
                     T1_change2: ImageNST1Change2Time,
                     T1_change3: ImageNST1Change3Time,
                     T1_change4: ImageNST1Change4Time,
@@ -2353,7 +2795,7 @@ const Quiz = ({props}) => {
                 setShowNST1(false);
                 setGo(false);
                 setCounter(0);
-                setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                setTimesNST1([{Participant: participantID, Image_name: "NS 1 Train",T1_change1: ImageNST1Change1Time,
                     T1_change2: ImageNST1Change2Time,
                     T1_change3: ImageNST1Change3Time,
                     T1_change4: ImageNST1Change4Time,
@@ -2391,7 +2833,7 @@ const Quiz = ({props}) => {
                 setShowNST1(false);
                 setGo(false);
                 setCounter(0);
-                setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+                setTimesNST1([{Participant: participantID, Image_name: "NS 1 Train",T1_change1: ImageNST1Change1Time,
                     T1_change2: ImageNST1Change2Time,
                     T1_change3: ImageNST1Change3Time,
                     T1_change4: ImageNST1Change4Time,
@@ -2431,7 +2873,7 @@ const Quiz = ({props}) => {
                 setCounter(0);
                 
             }
-            setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+            setTimesNST1([{Participant: participantID, Image_name: "NS 1 Train",T1_change1: ImageNST1Change1Time,
                     T1_change2: ImageNST1Change2Time,
                     T1_change3: ImageNST1Change3Time,
                     T1_change4: ImageNST1Change4Time,
@@ -2459,7 +2901,7 @@ const Quiz = ({props}) => {
             setShowNST1(false);
             setGo(false);
             setCounter(0);
-            setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+            setTimesNST1([{Participant: participantID, Image_name: "NS 1 Train",T1_change1: ImageNST1Change1Time,
                 T1_change2: ImageNST1Change2Time,
                 T1_change3: ImageNST1Change3Time,
                 T1_change4: ImageNST1Change4Time,
@@ -2467,7 +2909,7 @@ const Quiz = ({props}) => {
                 T1_change6: ImageNST1Change6Time}]);
         }
         else{
-            setTimesNST1([{Participant: participantID, Image_name: "Non Social 1 Train",T1_change1: ImageNST1Change1Time,
+            setTimesNST1([{Participant: participantID, Image_name: "NS 1 Train",T1_change1: ImageNST1Change1Time,
                 T1_change2: ImageNST1Change2Time,
                 T1_change3: ImageNST1Change3Time,
                 T1_change4: ImageNST1Change4Time,
@@ -2488,12 +2930,79 @@ const Quiz = ({props}) => {
 
             setShowPauseNST2(true);
             setShowNST2(false);
-            setTimesNST2([{Participant: participantID, Image_name: "Social 1", T1_change1: ImageNST2Change1Time,
+            setTimesNST2([{Participant: participantID, Image_name: "S Image 1", T1_change1: ImageNST2Change1Time,
             T1_change2: ImageNST2Change2Time,
             T1_change3: ImageNST2Change3Time,
             T1_change4: ImageNST2Change4Time,
             T1_change5: ImageNST2Change5Time,
             T1_change6: ImageNST2Change6Time}]);
+            setTimes([
+                {Participant: participantID, Image_name: "Training Image 1", T1_change1: ImageNST1Change1Time,
+                    T1_change2: ImageNST1Change2Time,
+                    T1_change3: ImageNST1Change3Time,
+                    T1_change4: ImageNST1Change4Time,
+                    T1_change5: ImageNST1Change5Time,
+                    T1_change6: ImageNST1Change6Time,
+                    T1_change7: ImageNST1Change7Time,
+                    T1_change8: ImageNST1Change8Time},
+                    {Participant: participantID, Image_name: "Training Image 2", T1_change1: ImageNST2Change1Time,
+                    T1_change2: ImageNST2Change2Time,
+                    T1_change3: ImageNST2Change3Time,
+                    T1_change4: ImageNST2Change4Time,
+                    T1_change5: ImageNST2Change5Time,
+                    T1_change6: ImageNST2Change6Time,
+                    T1_change7: ImageNST2Change7Time,
+                    T1_change8: ImageNST2Change8Time},
+                    {Participant: participantID, Image_name: "NS 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "S Image 1", T1_change1: Image1Change1Time,
+                    T1_change2: Image1Change2Time,
+                    T1_change3: Image1Change3Time,
+                    T1_change4: Image1Change4Time,
+                    T1_change5: Image1Change5Time,
+                    T1_change6: Image1Change6Time,
+                    T1_change7: Image1Change7Time,
+                    T1_change8: Image1Change8Time},
+                    {Participant: participantID, Image_name: "NS 3", T1_change1: ImageNS3Change1Time,
+                    T1_change2: ImageNS3Change2Time,
+                    T1_change3: ImageNS3Change3Time,
+                    T1_change4: ImageNS3Change4Time,
+                    T1_change5: ImageNS3Change5Time,
+                    T1_change6: ImageNS3Change6Time,
+                    T1_change7: ImageNS3Change7Time,
+                    T1_change8: ImageNS3Change8Time},
+                    {Participant: participantID, Image_name: "S Image 2", T1_change1: ImageNS2Change1Time,
+                    T1_change2: ImageNS2Change2Time,
+                    T1_change3: ImageNS2Change3Time,
+                    T1_change4: ImageNS2Change4Time,
+                    T1_change5: ImageNS2Change5Time,
+                    T1_change6: ImageNS2Change6Time,
+                    T1_change7: ImageNS2Change7Time,
+                    T1_change8: ImageNS2Change8Time},
+                    {Participant: participantID, Image_name: "NS 1", T1_change1: ImageNS1Change1Time,
+                    T1_change2: ImageNS1Change2Time,
+                    T1_change3: ImageNS1Change3Time,
+                    T1_change4: ImageNS1Change4Time,
+                    T1_change5: ImageNS1Change5Time,
+                    T1_change6: ImageNS1Change6Time,
+                    T1_change7: ImageNS1Change7Time,
+                    T1_change8: ImageNS1Change8Time},
+                    {Participant: participantID, Image_name: "S Image 3", T1_change1: Image3Change1Time,
+                    T1_change2: Image3Change2Time,
+                    T1_change3: Image3Change3Time,
+                    T1_change4: Image3Change4Time,
+                    T1_change5: Image3Change5Time,
+                    T1_change6: Image3Change6Time,
+                    T1_change7: Image3Change7Time,
+                    T1_change8: Image3Change8Time}
+                                
+        ]);
         }
         else{
         setShowImageNST1Change1(false);
@@ -2508,12 +3017,16 @@ const Quiz = ({props}) => {
         //let userAnswer = e.target.outerText;
         // if (quiz[number].answer === userAnswer) 
         //console.log("X coordinate: " + e.screenX + " Y coordinate" + e.screenY);
-        const relativex = e.target.width/1600;
-        const relativey = e.target.height/1200;
-        const change1 = [328,387,513,458];
-        const change2 = [734,358,867,473];
-        const change3 = [925,160,1069,269];
-        const change4 = [966,566,1362,647];
+        const relativex = e.target.width/2100;
+        const relativey = e.target.height/1500;
+        //eyes
+        const change1 = [453,485,713,568];
+        //wool
+        const change2 = [953,414,1104,528];
+        //bow
+        const change3 = [1218,197,1379,342];
+        //cat bell
+        const change4 = [1211,687,1723,881];
         var rect = e.target.getBoundingClientRect();
         //console.log(e.clientX,e.clientY);
         //console.log(rect.left,rect.top);
@@ -2607,7 +3120,7 @@ const Quiz = ({props}) => {
             setShowNST2(false);
             setGo(false);
             setCounter(0);
-            setTimesNST2([{Participant: participantID,Image_name: "Non Social 2 Train", T1_change1: ImageNST2Change1Time,
+            setTimesNST2([{Participant: participantID,Image_name: "NS 2 Train", T1_change1: ImageNST2Change1Time,
                 T1_change2: ImageNST2Change2Time,
                 T1_change3: ImageNST2Change3Time,
                 T1_change4: ImageNST2Change4Time,
@@ -2616,7 +3129,7 @@ const Quiz = ({props}) => {
                 T1_change7: ImageNST2Change7Time}]);
         }
         else{
-            setTimesNST2([{Participant: participantID,Image_name: "Non Social 2 Train", T1_change1: ImageNST2Change1Time,
+            setTimesNST2([{Participant: participantID,Image_name: "NS 2 Train", T1_change1: ImageNST2Change1Time,
             T1_change2: ImageNST2Change2Time,
             T1_change3: ImageNST2Change3Time,
             T1_change4: ImageNST2Change4Time,
@@ -2801,7 +3314,7 @@ const Quiz = ({props}) => {
       <h6>Countdown Timer</h6>
       <CountdownTimer targetDate={counter1} />
     </div>
-                    <div> Image Non social 2</div>
+                    <div> Image NS 2</div>
                     <h1> Spot the Differences! </h1>
                     <div style={{position: "relative" }}>
                     <img src={PicNS2A} alt="Picture NS2" height="50%" width="50%" onClick={pickAnswerNS2} />
@@ -2889,7 +3402,7 @@ const Quiz = ({props}) => {
                     <div> </div>
                     <h1> </h1>
                     {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={timesNS2}>Click to Download Data (Non social Image 2)</CSVLink>
+                    <CSVLink data={timesNS2}>Click to Download Data (NS Image 2)</CSVLink>
                 </>
             ) : null}
 
@@ -2990,7 +3503,7 @@ const Quiz = ({props}) => {
                     <div> </div>
                     <h1> </h1>
                     {/* <CSVDownload data={times1} target="_blank" /> */}
-                    <CSVLink data={times1}>Click to Download Data (Social Image 1)</CSVLink>
+                    <CSVLink data={times1}>Click to Download Data (S Image Image 1)</CSVLink>
                 </> 
             ) : null}
 
@@ -3001,7 +3514,7 @@ const Quiz = ({props}) => {
       <h6>Countdown Timer</h6>
       <CountdownTimer targetDate={counter1} />
     </div>
-                    <div> Image Non social 3</div>
+                    <div> Image NS 3</div>
                     <h1> Spot the Differences! </h1>
                     <div style={{position: "relative" }}>
                     <img src={PicNS3A} alt="Picture NS3A" height="50%" width="50%" onClick={pickAnswerNS3} />
